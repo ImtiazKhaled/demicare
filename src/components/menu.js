@@ -94,6 +94,9 @@ const Menu = () => {
     const newItem = item.item.label 
     if (item === activeNavItem) return
     switch(newItem) {
+      case 'Community Resources':
+        history.push('/community')
+        break
       case 'Research':
         history.push('/research')
         break

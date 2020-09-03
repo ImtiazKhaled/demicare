@@ -1,26 +1,23 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Menu from './components/menu'
+import Navigation from './components/navigation'
+import { Provider as StyletronProvider } from 'styletron-react'
+import { Client as Styletron } from 'styletron-engine-atomic'
+import { LightTheme, BaseProvider } from 'baseui'
+import { BrowserRouter as Router } from 'react-router-dom'
+import './App.css'
+
+const engine = new Styletron()
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <Router>
+    <StyletronProvider value={engine}>
+      <BaseProvider theme={LightTheme}>
+        <Menu />
+        <Navigation />
+      </BaseProvider>
+    </StyletronProvider> 
+  </Router>
 }
 
-export default App;
+export default App

@@ -2,13 +2,13 @@
 A website designed to help international Alzheimer's patients, by guiding them to various resources that support their needs. Check it out at `` https://demo.imtiazkhaled.com/ ``
 ### Contribute to it
 > 
-> 1. Get it onto your machine
-> ```
-> git clone https://github.com/ImtiazKhaled/alzheimers_research_website.git
-> ```
-> 2. Navigate into the website directory 
+> 1. Navigate into the website directory 
 > ```
 > cd website
+> ```
+> 2. Get it onto your machine
+> ```
+> git clone https://github.com/ImtiazKhaled/alzheimers_research_website.git
 > ```
 > 3. Install all the nessecary dependencies 
 > ```

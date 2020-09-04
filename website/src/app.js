@@ -3,7 +3,7 @@ import Menu from './components/menu'
 import Navigation from './components/navigation'
 import { Provider as StyletronProvider } from 'styletron-react'
 import { Client as Styletron } from 'styletron-engine-atomic'
-import { LightTheme, BaseProvider } from 'baseui'
+import { LightTheme, BaseProvider, DarkTheme } from 'baseui'
 import { BrowserRouter as Router } from 'react-router-dom'
 import './App.css'
 
@@ -20,7 +20,7 @@ const App = () => {
     <Router>
       <BaseProvider theme={theme}>
         <Menu />
-        <Navigation />
+        <Navigation changeTheme={() => changeTheme( theme === DarkTheme ? LightTheme : DarkTheme)} />
       </BaseProvider>
     </Router>
   </StyletronProvider> 

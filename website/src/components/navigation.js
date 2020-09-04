@@ -5,8 +5,10 @@ import Research from './research'
 import Community from './community'
 import Dementia from './dementia'
 import Outreach from './outreach'
+import Home from './home'
 
-const Navigation = () => {
+const Navigation = (props) => {
+
     return <Switch>
         <Route path='/community'>
             <Community />
@@ -22,6 +24,9 @@ const Navigation = () => {
         </Route>
         <Route path='/outreach'>
             <Outreach />
+        </Route>
+        <Route path='/'>
+            <Home changeTheme={() => props.changeTheme()} />
         </Route>
     </Switch>
 }

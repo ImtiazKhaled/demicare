@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Menu from './components/menu'
 import Navigation from './components/navigation'
 import { Provider as StyletronProvider } from 'styletron-react'
@@ -9,15 +9,21 @@ import './App.css'
 
 const engine = new Styletron()
 
-function App() {
-  return <Router>
-    <StyletronProvider value={engine}>
-      <BaseProvider theme={LightTheme}>
+
+const App = () => {
+
+  const [ theme, changeTheme ] = useState(LightTheme)
+
+  document.documentElement.style.setProperty('background', theme.colors.background);
+  
+  return <StyletronProvider value={engine}>
+    <Router>
+      <BaseProvider theme={theme}>
         <Menu />
         <Navigation />
       </BaseProvider>
-    </StyletronProvider> 
-  </Router>
+    </Router>
+  </StyletronProvider> 
 }
 
 export default App

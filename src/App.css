@@ -1,17 +1,33 @@
 .contact-container {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 5vw;
+  padding-top: 2vw;
 }
 
 .community-container {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 5vw;
+  padding-top: 2vw;
 }
 
 .research-container {
   padding-left: 5vw;
   padding-right: 5vw;
-  padding-top: 5vw;
+  padding-top: 2vw;
+}
+
+.dementia-container {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vw;
+}
+
+.outreach-container {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vw;
+}
+
+.outreach-button {
+  margin: 5vw;
 }

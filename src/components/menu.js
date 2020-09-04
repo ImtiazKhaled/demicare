@@ -103,6 +103,20 @@ const Menu = () => {
       case 'Contact Us':
         history.push('/contact')
         break
+      case 'Outreach':
+        history.push('/outreach')
+        break
+      case 'Dementia Information':
+        history.push('/dementia')
+        break
+      case 'English':
+        break
+      case 'Korean':
+        break
+      case 'Chinese':
+        break
+      case 'Languages':
+        break
       default:
         history.push('/')
         break

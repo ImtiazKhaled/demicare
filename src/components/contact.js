@@ -1,11 +1,12 @@
 import * as React from 'react';
-import {FormControl} from 'baseui/form-control';
-import {Input} from 'baseui/input';
-import {useStyletron} from 'baseui';
-import {Alert} from 'baseui/icon';
-import {Button} from 'baseui/button';
-import {Textarea} from 'baseui/textarea';
-import {validate as validateEmail} from 'email-validator'; // add this package to your repo with `$ yarn add email-validator`
+import { FormControl } from 'baseui/form-control';
+import { Input } from 'baseui/input';
+import { useStyletron } from 'baseui';
+import { Alert } from 'baseui/icon';
+import { Button } from 'baseui/button';
+import { Textarea } from 'baseui/textarea';
+import { Display2 } from 'baseui/typography';
+import { validate as validateEmail } from 'email-validator'; // add this package to your repo with `$ yarn add email-validator`
 
 function Negative() {
   const [css, theme] = useStyletron();
@@ -26,6 +27,7 @@ function Negative() {
 const Form = () => {
   const [body, setBody] = React.useState('');
   const [name, setName] = React.useState('');
+  const [subject, setSubject] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [isEmailValid, setEmailValid] = React.useState(false);
   const [isVisited, setIsVisited] = React.useState(false);
@@ -45,43 +47,54 @@ const Form = () => {
     console.log('form data is ', formData)
   };
 
-  return <form onSubmit={event => event.preventDefault()} className='contact-container'>
-      
-      <FormControl label="Your Name" >
-        <Input
-          id="name-id"
-          value={name}
-          onChange={event => setName(event.currentTarget.value)}
-      />
-      </FormControl>
-      
-      <FormControl
-        label="Your Email Address"
-        error={ shouldShowError ? 'Please input a valid email address' : null }
-      >
-        <Input
-          id="email-input-id"
-          value={email}
-          onChange={onEmailChange}
-          onBlur={() => setIsVisited(true)}
-          error={shouldShowError}
-          overrides={shouldShowError ? {After: Negative} : {}}
-          type="email"
-          required
+  return <div className='contact-container'>
+    <Display2 marginBottom="scale1000"> Contact Us </Display2>
+    <form onSubmit={event => event.preventDefault()}>
+        
+        <FormControl label="Your Name" >
+          <Input
+            id="name-id"
+            value={name}
+            onChange={event => setName(event.currentTarget.value)}
         />
-      </FormControl>
+        </FormControl>
+        
+        <FormControl
+          label="Your Email Address"
+          error={ shouldShowError ? 'Please input a valid email address' : null }
+        >
+          <Input
+            id="email-input-id"
+            value={email}
+            onChange={onEmailChange}
+            onBlur={() => setIsVisited(true)}
+            error={shouldShowError}
+            overrides={shouldShowError ? {After: Negative} : {}}
+            type="email"
+            required
+          />
+        </FormControl>
+        
+        <FormControl label="Email Subject" >
+          <Input
+            id="subject-id"
+            value={subject}
+            onChange={event => setSubject(event.currentTarget.value)}
+        />
+        </FormControl>
 
-      <FormControl label="Email Body" >
-        <Textarea
-          id="body-id"
-          value={body}
-          onChange={event => setBody(event.currentTarget.value)}
-      />
-      </FormControl>
+        <FormControl label="Email Body" >
+          <Textarea
+            id="body-id"
+            value={body}
+            onChange={event => setBody(event.currentTarget.value)}
+        />
+        </FormControl>
+        
+        <Button type="submit" onClick={onSubmit}>Submit Email</Button>
       
-      <Button type="submit" onClick={onSubmit}>Submit Email</Button>
-    
-    </form>
+      </form>
+  </div> 
 };
 
 export default Form

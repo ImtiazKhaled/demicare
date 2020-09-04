@@ -84,7 +84,7 @@ const Menu = () => {
         ':hover': {color: 'inherit'},
         ':visited': {color: 'inherit'},
       }}
-      href={'#'}
+      href={'/'}
     >
       Research Project
     </StyledLink>

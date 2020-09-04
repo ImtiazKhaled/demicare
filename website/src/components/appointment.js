@@ -2,17 +2,24 @@ import React, { useState } from 'react'
 import { DatePicker } from 'baseui/datepicker'
 import { TimezonePicker } from 'baseui/timezonepicker'
 import { TimePicker } from 'baseui/timepicker'
+import { Button } from "baseui/button"
 import { FormControl } from 'baseui/form-control'
-import {FlexGrid, FlexGridItem} from 'baseui/flex-grid'
+import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
 
 
 const Appointment = () => {
-  const [date, setDate] = useState(new Date());
+  
+  const [date, setDate] = useState(new Date())
   const [tz, setZone] = useState({
     id: 'America/Fort_Nelson',
     label: 'MST - America/Fort Nelson (GMT -07:00)',
     offset: 420,
-  });
+  })
+
+  const scheduleInterview = () => {
+    console.log('scheduling interview')
+  }
+
   
   return <div>
     <FormControl label="Date">
@@ -38,6 +45,7 @@ const Appointment = () => {
       </FormControl>
     </FlexGridItem>
     </FlexGrid>
+    <Button onClick={() => scheduleInterview()}> Schedule Interview </Button>
   </div>
 }
 

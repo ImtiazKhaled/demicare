@@ -23,8 +23,8 @@ const DementiaCard = (props) => {
       </Card>
 
       <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.default} role={ROLE.alertdialog}>
-        <ModalHeader>Hello world</ModalHeader>
-        <ModalBody>Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl. Maecenas aliquet mauris ut tempus.</ModalBody>
+        <ModalHeader>{props.title}</ModalHeader>
+        <ModalBody>{props.description}</ModalBody>
         <ModalFooter>
           <ModalButton kind={ButtonKind.tertiary}>Cancel</ModalButton>
           <ModalButton>Okay</ModalButton>

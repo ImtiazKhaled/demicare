@@ -4,6 +4,7 @@ import { Button } from "baseui/button";
 import { Modal, ModalHeader, ModalBody, ModalFooter, ModalButton, SIZE, ROLE } from "baseui/modal";
 import { KIND as ButtonKind } from "baseui/button";
 import ReactMD from "react-markdown";
+import { t } from "react-switch-lang";
 
 const DementiaCard = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -17,7 +18,7 @@ const DementiaCard = (props) => {
 
         <StyledAction>
           <Button onClick={() => setIsOpen(true)} overrides={{ BaseButton: { style: { width: "100%" } } }}>
-            More
+            {t("more")}
           </Button>
         </StyledAction>
       </Card>
@@ -26,8 +27,8 @@ const DementiaCard = (props) => {
         <ModalHeader>{props.title}</ModalHeader>
         <ModalBody>{props.description}</ModalBody>
         <ModalFooter>
-          <ModalButton kind={ButtonKind.tertiary}>Cancel</ModalButton>
-          <ModalButton>Okay</ModalButton>
+          <ModalButton kind={ButtonKind.tertiary}>{t("cancel")}</ModalButton>
+          <ModalButton>{t("okay")}</ModalButton>
         </ModalFooter>
       </Modal>
     </div>

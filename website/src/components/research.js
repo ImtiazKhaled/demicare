@@ -9,10 +9,9 @@ const Research = () => {
   return (
     <div className="research-container">
       <Display2 marginBottom="scale1000"> {t("research")} </Display2>
-      <Button onClick={() => window.open("https://dementiacaregiving.questionpro.com", "_blank")}> Online Survery </Button>
+      <Button onClick={() => window.open("https://dementiacaregiving.questionpro.com", "_blank")}> {t("onlineSurvey")} </Button>
       <Display4 marginTop="scale1000" marginBottom="scale800">
-        {" "}
-        Schedule a Phone Interview{" "}
+        {t("scheduleAPhoneInterview")}
       </Display4>
       <Appointment />
     </div>

@@ -52,24 +52,24 @@ const Form = () => {
     <div className="contact-container">
       <Display2 marginBottom="scale1000"> {t("contactUs")} </Display2>
       <form onSubmit={(event) => event.preventDefault()}>
-        <FormControl label="Your Name">
+        <FormControl label={`${t("yourName")}`}>
           <Input id="name-id" value={name} onChange={(event) => setName(event.currentTarget.value)} />
         </FormControl>
 
-        <FormControl label="Your Email Address" error={shouldShowError ? "Please input a valid email address" : null}>
+        <FormControl label={`${t("yourEmail")}`} error={shouldShowError ? t("emailErreurMessage") : null}>
           <Input id="email-input-id" value={email} onChange={onEmailChange} onBlur={() => setIsVisited(true)} error={shouldShowError} overrides={shouldShowError ? { After: Negative } : {}} type="email" required />
         </FormControl>
 
-        <FormControl label="Email Subject">
+        <FormControl label={`${t("emailSubject")}`}>
           <Input id="subject-id" value={subject} onChange={(event) => setSubject(event.currentTarget.value)} />
         </FormControl>
 
-        <FormControl label="Email Body">
+        <FormControl label={`${t("emailBody")}`}>
           <Textarea id="body-id" value={body} onChange={(event) => setBody(event.currentTarget.value)} />
         </FormControl>
 
         <Button type="submit" onClick={onSubmit}>
-          Submit Email
+          {t("submitEmail")}
         </Button>
       </form>
     </div>

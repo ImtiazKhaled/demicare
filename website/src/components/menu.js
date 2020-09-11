@@ -6,13 +6,15 @@ import { Unstable_AppNavBar as AppNavBar, POSITION } from "baseui/app-nav-bar";
 import { setLanguage, t } from "react-switch-lang";
 
 function renderItem(item) {
-  return item.label;
+  let navTitle = item.label;
+
+  return t(navTitle);
 }
 
 const MAIN_NAV = [
   {
     icon: ChevronDown,
-    item: { label: "Languages" },
+    item: { label: "languages" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
     navExitIcon: Delete,
@@ -37,27 +39,27 @@ const MAIN_NAV = [
     ],
   },
   {
-    item: { label: "Community Resources" },
+    item: { label: "communityResources" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
   {
-    item: { label: "Dementia Information" },
+    item: { label: "dementiaInformation" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
   {
-    item: { label: "Research" },
+    item: { label: "research" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
   {
-    item: { label: "Outreach" },
+    item: { label: "outreach" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
   {
-    item: { label: "Contact Us" },
+    item: { label: "contactUs" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
@@ -94,28 +96,23 @@ const Menu = () => {
     </StyledLink>
   );
 
-  // const handleSetLanguage = (key) => () => {
-  //   console.log(key);
-  //   setLanguage(key);
-  // };
-
   const onNavChange = ({ item }) => {
     const newItem = item.item.label;
     if (item === activeNavItem) return;
     switch (newItem) {
-      case "Community Resources":
+      case "communityResources":
         history.push("/community");
         break;
-      case "Research":
+      case "research":
         history.push("/research");
         break;
-      case "Contact Us":
+      case "contactUs":
         history.push("/contact");
         break;
-      case "Outreach":
+      case "outreach":
         history.push("/outreach");
         break;
-      case "Dementia Information":
+      case "dementiaInformation":
         history.push("/dementia");
         break;
       case "English":
@@ -127,7 +124,7 @@ const Menu = () => {
       case "Chinese":
         setLanguage("zh");
         break;
-      case "Languages":
+      case "languages":
         break;
       default:
         history.push("/");

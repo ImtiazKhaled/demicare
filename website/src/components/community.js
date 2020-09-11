@@ -4,7 +4,6 @@ import { Display2 } from "baseui/typography";
 import { StyledBodyCell } from "baseui/table-grid";
 import { Button } from "baseui/button";
 import ReactMD from "react-markdown";
-
 import { t } from "react-switch-lang";
 
 let mdData = `
@@ -23,11 +22,11 @@ export default () => {
   return (
     <div className="community-container">
       <Display2 marginBottom="scale1000"> {t("communityResources")} </Display2>
-      <Button> See facilites by location (Map) </Button> <br /> <br />
+      <Button> {t("seeFacilities")} </Button> <br /> <br />
       <StyledTable>
         <StyledHead>
-          <StyledHeadCell>Title</StyledHeadCell>
-          <StyledHeadCell>Resource</StyledHeadCell>
+          <StyledHeadCell>{t("title")}</StyledHeadCell>
+          <StyledHeadCell>{t("resource")}</StyledHeadCell>
         </StyledHead>
         <StyledBody>
           {DATA.map((row, index) => (

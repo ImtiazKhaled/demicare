@@ -1,4 +1,20 @@
 {
+  "title": "Title",
+  "resource": "Resource",
+  "seeFacilities": "See facilities by location (Map)",
+  "yourName": "Your Name",
+  "yourEmail": "Your Email Address",
+  "emailSubject": "Email Subject",
+  "emailBody": "Email Body",
+  "submitEmail": "Submit Email",
+  "emailErreurMessage": "Please input a valid email address",
+  "scheduleInterview": "Schedule Interview",
+  "onlineSurvey": "Online Survey",
+  "date": "Date",
+  "time": "Time",
+  "timeZone": "Timezone",
+  "scheduleAPhoneInterview": "Schedule a Phone Interview",
+
   "changeTheme": "Change theme",
   "languages": "Languages",
   "communityResources": "Community Resources",
@@ -7,7 +23,10 @@
   "outreach": "Outreach",
   "contactUs": "Contact Us",
   "researchProject": "Research Project",
+  "translateInterview": "Translate Interview",
   "more": "More",
   "cancel": "Cancel",
-  "okay": "Okay"
+  "okay": "Okay",
+  "weChat": "Connect on WeChat",
+  "kakaoTalk": "Connect on KakaoTalk"
 }

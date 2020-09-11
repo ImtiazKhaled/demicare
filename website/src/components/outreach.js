@@ -9,12 +9,12 @@ const Outreach = () => {
     <div className="outreach-container">
       <Display2 marginBottom="scale1000"> {t("outreach")} </Display2>
       <Button className="outreach-button" startEnhancer={RiWechatFill} onClick={() => window.open("https://dementiacaregiving.questionpro.com", "_blank")}>
-        Connect on WeChat
+        {t("weChat")}
       </Button>
       <br />
       <br />
       <Button className="outreach-button" startEnhancer={RiKakaoTalkFill} onClick={() => window.open("https://open.kakao.com/o/gPYKtsqc.", "_blank")}>
-        Connect on KakaoTalk
+        {t("kakaoTalk")}
       </Button>
     </div>
   );

@@ -7,7 +7,14 @@ import { Button } from 'baseui/button';
 import { Textarea } from 'baseui/textarea';
 import { Display2 } from 'baseui/typography';
 import { validate as validateEmail } from 'email-validator'; // add this package to your repo with `$ yarn add email-validator`
+import emailjs from 'emailjs-com';
 
+// get this in the EmailJS Account
+var email_type = "gmail"
+var email_user_id = "user_otENxMGrIjk8QTSwe7Iwv"
+var email_template = "template_hoangluu404"
+
+// layout style
 function Negative() {
   const [css, theme] = useStyletron();
   return (
@@ -24,10 +31,22 @@ function Negative() {
   );
 }
 
+// send email function, called when Form is submitted
+const sendEmail = (e) => {
+  emailjs.sendForm(email_type, email_template, e.target, email_user_id)
+    .then((result) => {
+        alert(result.text);
+    }, (error) => {
+        alert(error.text);
+    });
+  
+}
+
+// Form variables
 const Form = () => {
-  const [body, setBody] = React.useState('');
-  const [name, setName] = React.useState('');
-  const [subject, setSubject] = React.useState('');
+  const [message, setMessage] = React.useState('');
+  const [first_name, setName] = React.useState('');
+  const [last_name, setSubject] = React.useState('');
   const [email, setEmail] = React.useState('');
   const [isEmailValid, setEmailValid] = React.useState(false);
   const [isVisited, setIsVisited] = React.useState(false);
@@ -38,33 +57,36 @@ const Form = () => {
     setEmail(value);
   };
   
-  const onSubmit = (event) => {
-    
-    const formData = {
-      email
-    }
-
-    console.log('form data is ', formData)
-  };
-
   return <div className='contact-container'>
     <Display2 marginBottom="scale1000"> Contact Us </Display2>
-    <form onSubmit={event => event.preventDefault()}>
+    <form onSubmit={sendEmail}>
         
         <FormControl label="Your Name" >
           <Input
-            id="name-id"
-            value={name}
+            placeholder="First Name"
+            name="first_name"
+            value={first_name}
             onChange={event => setName(event.currentTarget.value)}
+            required
+        />
+        
+        </FormControl>
+        <FormControl label="Last Name" >
+          <Input
+            placeholder="Last Name"
+            name="last_name"
+            value={last_name}
+            onChange={event => setSubject(event.currentTarget.value)}
         />
         </FormControl>
-        
         <FormControl
+          
           label="Your Email Address"
           error={ shouldShowError ? 'Please input a valid email address' : null }
         >
           <Input
-            id="email-input-id"
+            placeholder="Enter your email"
+            name="email"
             value={email}
             onChange={onEmailChange}
             onBlur={() => setIsVisited(true)}
@@ -74,24 +96,17 @@ const Form = () => {
             required
           />
         </FormControl>
-        
-        <FormControl label="Email Subject" >
-          <Input
-            id="subject-id"
-            value={subject}
-            onChange={event => setSubject(event.currentTarget.value)}
-        />
-        </FormControl>
-
-        <FormControl label="Email Body" >
+ 
+        <FormControl label="Message" >
           <Textarea
-            id="body-id"
-            value={body}
-            onChange={event => setBody(event.currentTarget.value)}
-        />
+            placeholder="Enter your message"
+            name="message"
+            value={message}
+            onChange={event => setMessage(event.currentTarget.value)}
+          />
         </FormControl>
         
-        <Button type="submit" onClick={onSubmit}>Submit Email</Button>
+        <Button type="submit">Submit</Button>
       
       </form>
   </div> 

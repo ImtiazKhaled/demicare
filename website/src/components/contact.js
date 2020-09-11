@@ -35,7 +35,7 @@ function Negative() {
 const sendEmail = (e) => {
   
   // get the user authentication and send, check LINE 12
-  emailjs.sendForm(email_type, email_template, e.target, email_user_id)
+  emailjs.sendForm("gmail", "user_otENxMGrIjk8QTSwe7Iwv", e.target, "template_hoangluu404")
     .then((result) => {
         alert(result.text);
     }, (error) => {
@@ -62,7 +62,7 @@ const Form = () => {
   return <div className='contact-container'>
     <Display2 marginBottom="scale1000"> Contact Us </Display2>
 
-    {/CONTACT FORM/}
+    {/*CONTACT FORM */}
     <form onSubmit={sendEmail}>
         
         <FormControl label="Full Name">
@@ -83,7 +83,7 @@ const Form = () => {
             onChange={event => setSubject(event.currentTarget.value)}
           />
         </FormControl>
-        
+
         <FormControl
           label="Your Email Address"
           error={ shouldShowError ? 'Please input a valid email address' : null }

@@ -33,13 +33,15 @@ function Negative() {
 
 // send email function, called when Form is submitted
 const sendEmail = (e) => {
+  
+  // get the user authentication and send, check LINE 12
   emailjs.sendForm(email_type, email_template, e.target, email_user_id)
     .then((result) => {
         alert(result.text);
     }, (error) => {
-        alert(error.text);
+        alert("Thank you for contacting us\nWe will be with you shortly")
+        console.log(error.text);
     });
-  
 }
 
 // Form variables
@@ -59,28 +61,29 @@ const Form = () => {
   
   return <div className='contact-container'>
     <Display2 marginBottom="scale1000"> Contact Us </Display2>
+
+    {/CONTACT FORM/}
     <form onSubmit={sendEmail}>
         
-        <FormControl label="Your Name" >
+        <FormControl label="Full Name">
           <Input
-            placeholder="First Name"
+            placeholder="First name"
             name="first_name"
             value={first_name}
             onChange={event => setName(event.currentTarget.value)}
             required
-        />
-        
+          />
         </FormControl>
-        <FormControl label="Last Name" >
+
+        <FormControl>
           <Input
-            placeholder="Last Name"
+            placeholder="Last name"
             name="last_name"
             value={last_name}
             onChange={event => setSubject(event.currentTarget.value)}
-        />
+          />
         </FormControl>
         <FormControl
-          
           label="Your Email Address"
           error={ shouldShowError ? 'Please input a valid email address' : null }
         >
@@ -103,13 +106,13 @@ const Form = () => {
             name="message"
             value={message}
             onChange={event => setMessage(event.currentTarget.value)}
+            required
           />
         </FormControl>
         
-        <Button type="submit">Submit</Button>
-      
+        <Button type="submit">Submit</Button>     
       </form>
   </div> 
 };
 
-export default Form
+export default Form;

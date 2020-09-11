@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { StyledLink } from "baseui/link";
 import { ChevronDown, Delete } from "baseui/icon";
 import { Unstable_AppNavBar as AppNavBar, POSITION } from "baseui/app-nav-bar";
-import { setLanguage, translate, t } from "react-switch-lang";
+import { setLanguage, t } from "react-switch-lang";
 
 function renderItem(item) {
   return item.label;
@@ -17,6 +17,7 @@ const MAIN_NAV = [
     mapItemToString: renderItem,
     navExitIcon: Delete,
     navPosition: { desktop: POSITION.horizontal },
+
     nav: [
       {
         item: { label: "English" },
@@ -89,7 +90,7 @@ const Menu = () => {
       }}
       href={"/"}
     >
-      Research Project
+      {t("researchProject")}
     </StyledLink>
   );
 

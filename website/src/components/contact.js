@@ -10,6 +10,7 @@ import { validate as validateEmail } from 'email-validator'
 import emailjs from 'emailjs-com'
 import { t } from "react-switch-lang"
 
+
 // layout style
 const Negative = () => {
   const [css, theme] = useStyletron()
@@ -26,8 +27,6 @@ const Negative = () => {
     </div>
   )
 }
-
-
 
 // Form variables
 const Form = () => {
@@ -71,8 +70,7 @@ const Form = () => {
             value={first_name}
             onChange={event => setName(event.currentTarget.value)}
             required
-        />
-        
+          />
         </FormControl>
         <FormControl label={`${t("emailSubject")}`} >
           <Input
@@ -80,10 +78,9 @@ const Form = () => {
             name="last_name"
             value={last_name}
             onChange={event => setSubject(event.currentTarget.value)}
-        />
+          />
         </FormControl>
         <FormControl
-          
           label={`${t("yourEmail")}`}
           error={ shouldShowError ? `${t("emailErreurMessage")}` : null }
         >
@@ -106,14 +103,14 @@ const Form = () => {
             name="message"
             value={message}
             onChange={event => setMessage(event.currentTarget.value)}
+            required
           />
         </FormControl>
         
         <Button type="submit">{t("submitEmail")}</Button>
-      
-      </form>
+    </form>
     </div>
   )
 }
 
-export default Form
+export default Form;

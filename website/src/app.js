@@ -11,10 +11,11 @@ import en from "./components/common/english.json";
 import zh from "./components/common/chinese.json";
 import ko from "./components/common/korean.json";
 
-import { setTranslations, setDefaultLanguage, translate } from "react-switch-lang";
+import { setTranslations, setDefaultLanguage, translate, setLanguageCookie } from "react-switch-lang";
 
 setTranslations({ en, zh, ko });
 setDefaultLanguage("en");
+setLanguageCookie("language", { path: "/", maxAge: 157680000 }, undefined);
 
 const engine = new Styletron();
 

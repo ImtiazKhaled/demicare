@@ -47,7 +47,8 @@ const Form = () => {
     var email_type = "gmail"
     var email_user_id = "imtiazkhaled07"
     var email_template = "template_hoangluu404"
-
+    e.preventDefault()
+    console.log(e.target)
     emailjs.sendForm(email_type, email_template, e.target, email_user_id)
       .then((result) => {
           alert(result.text)

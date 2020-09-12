@@ -21,6 +21,10 @@ Website: [carrolltonhealth.com](https://carrolltonhealth.com)
 
 export default () => {
 
+  const showAllLocations = () => {
+    console.log('should show all maps now')
+  }
+
   const DATA = [
     ['Carrolton Health & Rehabilitation Center', mdData],
     ['Carrolton Health & Rehabilitation Center', mdData],
@@ -28,7 +32,7 @@ export default () => {
 
   return <div className='community-container'>
     <Display2 marginBottom="scale1000"> Community Resources </Display2>
-    <Button> See facilites by location (Map) </Button> <br /> <br />
+    <Button onClick={() => showAllLocations()}> See facilites by location (Map) </Button> <br /> <br />
     <StyledTable>
       <StyledHead>
         <StyledHeadCell>Title</StyledHeadCell>

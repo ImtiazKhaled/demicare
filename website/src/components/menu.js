@@ -1,140 +1,148 @@
-import * as React from 'react'
-import { useHistory } from 'react-router-dom'
-import { StyledLink } from 'baseui/link'
-import { ChevronDown, Delete } from 'baseui/icon'
-import { Unstable_AppNavBar as AppNavBar, POSITION } from 'baseui/app-nav-bar'
+import * as React from "react";
+import { useHistory } from "react-router-dom";
+import { StyledLink } from "baseui/link";
+import { ChevronDown, Delete } from "baseui/icon";
+import { Unstable_AppNavBar as AppNavBar, POSITION } from "baseui/app-nav-bar";
+import { setLanguage, t } from "react-switch-lang";
 
 function renderItem(item) {
-  return item.label
+  let navTitle = item.label;
+
+  return t(navTitle);
 }
 
 const MAIN_NAV = [
-    {
-        icon: ChevronDown,
-        item: {label: 'Languages'},
+  {
+    icon: ChevronDown,
+    item: { label: "languages" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+    navExitIcon: Delete,
+    navPosition: { desktop: POSITION.horizontal },
+
+    nav: [
+      {
+        item: { label: "English" },
         mapItemToNode: renderItem,
         mapItemToString: renderItem,
-        navExitIcon: Delete,
-        navPosition: {desktop: POSITION.horizontal},
-        nav: [
-            {
-              item: {label: 'English'},
-              mapItemToNode: renderItem,
-              mapItemToString: renderItem,
-              },{
-              item: {label: 'Chinese'},
-              mapItemToNode: renderItem,
-              mapItemToString: renderItem,
-            },{
-              item: {label: 'Korean'},
-              mapItemToNode: renderItem,
-              mapItemToString: renderItem,
-            },
-        ],
-    },{
-        item: {label: 'Community Resources'},
+      },
+      {
+        item: { label: "Chinese" },
         mapItemToNode: renderItem,
         mapItemToString: renderItem,
-    },{
-        item: {label: 'Dementia Information'},
+      },
+      {
+        item: { label: "Korean" },
         mapItemToNode: renderItem,
         mapItemToString: renderItem,
-    },{
-        item: {label: 'Research'},
-        mapItemToNode: renderItem,
-        mapItemToString: renderItem,
-    },{
-        item: {label: 'Outreach'},
-        mapItemToNode: renderItem,
-        mapItemToString: renderItem,
-    },{
-        item: {label: 'Contact Us'},
-        mapItemToNode: renderItem,
-        mapItemToString: renderItem,
-    }
-]
+      },
+    ],
+  },
+  {
+    item: { label: "communityResources" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+  },
+  {
+    item: { label: "dementiaInformation" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+  },
+  {
+    item: { label: "research" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+  },
+  {
+    item: { label: "outreach" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+  },
+  {
+    item: { label: "contactUs" },
+    mapItemToNode: renderItem,
+    mapItemToString: renderItem,
+  },
+];
 
 function isActive(arr, item, activeItem) {
-  let active = false
+  let active = false;
   for (let i = 0; i < arr.length; i++) {
-    const elm = arr[i]
+    const elm = arr[i];
     if (elm === item) {
-      if (item === activeItem) return true
-      return isActive(
-        (item && item.nav) || [],
-        activeItem,
-        activeItem,
-      )
+      if (item === activeItem) return true;
+      return isActive((item && item.nav) || [], activeItem, activeItem);
     } else if (elm.nav) {
-      active = isActive(elm.nav || [], item, activeItem)
+      active = isActive(elm.nav || [], item, activeItem);
     }
   }
-  return active
+  return active;
 }
 const Menu = () => {
+  let history = useHistory();
+  const [activeNavItem, setActiveNavItem] = React.useState();
 
-  let history = useHistory()
-  const [activeNavItem, setActiveNavItem] = React.useState()
-  
   const appDisplayName = (
     <StyledLink
       $style={{
-        textDecoration: 'none',
-        color: 'inherit',
-        ':hover': {color: 'inherit'},
-        ':visited': {color: 'inherit'},
+        textDecoration: "none",
+        color: "inherit",
+        ":hover": { color: "inherit" },
+        ":visited": { color: "inherit" },
       }}
-      href={'/'}
+      href={"/"}
     >
-      Research Project
+      {t("researchProject")}
     </StyledLink>
-  )
+  );
 
-  const onNavChange = ({item}) => {
-    const newItem = item.item.label 
-    if (item === activeNavItem) return
-    switch(newItem) {
-      case 'Community Resources':
-        history.push('/community')
-        break
-      case 'Research':
-        history.push('/research')
-        break
-      case 'Contact Us':
-        history.push('/contact')
-        break
-      case 'Outreach':
-        history.push('/outreach')
-        break
-      case 'Dementia Information':
-        history.push('/dementia')
-        break
-      case 'English':
-        break
-      case 'Korean':
-        break
-      case 'Chinese':
-        break
-      case 'Languages':
-        break
+  const onNavChange = ({ item }) => {
+    const newItem = item.item.label;
+    if (item === activeNavItem) return;
+    switch (newItem) {
+      case "communityResources":
+        history.push("/community");
+        break;
+      case "research":
+        history.push("/research");
+        break;
+      case "contactUs":
+        history.push("/contact");
+        break;
+      case "outreach":
+        history.push("/outreach");
+        break;
+      case "dementiaInformation":
+        history.push("/dementia");
+        break;
+      case "English":
+        setLanguage("en");
+        break;
+      case "Korean":
+        setLanguage("ko");
+        break;
+      case "Chinese":
+        setLanguage("zh");
+        break;
+      case "languages":
+        break;
       default:
-        history.push('/')
-        break
+        history.push("/");
+        break;
     }
-    setActiveNavItem(item)
-  }
-  
-  return <AppNavBar
-    appDisplayName={appDisplayName}
-    mainNav={MAIN_NAV}
-    isNavItemActive={({item}) => {
-      return (
-        item === activeNavItem ||
-        isActive(MAIN_NAV, item, activeNavItem)
-      )
-    }}
-    onNavItemSelect={onNavChange}
-  />
-}
+    setActiveNavItem(item);
+  };
 
-export default Menu
+  return (
+    <AppNavBar
+      appDisplayName={appDisplayName}
+      mainNav={MAIN_NAV}
+      isNavItemActive={({ item }) => {
+        return item === activeNavItem || isActive(MAIN_NAV, item, activeNavItem);
+      }}
+      onNavItemSelect={onNavChange}
+    />
+  );
+};
+
+export default Menu;

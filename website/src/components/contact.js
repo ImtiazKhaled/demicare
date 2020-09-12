@@ -10,7 +10,6 @@ import { validate as validateEmail } from 'email-validator'
 import emailjs from 'emailjs-com'
 import { t } from "react-switch-lang"
 
-
 // layout style
 const Negative = () => {
   const [css, theme] = useStyletron()

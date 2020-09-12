@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { Button } from 'baseui/button'
 import {Select} from 'baseui/select'
-import { setLanguage, t } from 'react-switch-lang'
+import { setLanguage, t, getLanguage } from 'react-switch-lang'
 
 const OPTIONS = [
   {id: t('English'), langCode: 'en'},
@@ -11,8 +11,25 @@ const OPTIONS = [
 
 const Home = (props) => {
 
-  const [value, setValue] = React.useState([{id: t('English'), langCode: 'en'}]);
+  const [value, setValue] = React.useState([]);
   
+  React.useEffect(() => {
+    switch(getLanguage()) {
+      case 'ko':
+        setValue([{id: t('Korean'), langCode: 'ko'}])
+        break
+      case 'zh':
+        setValue([{id: t('Chinese'), langCode: 'zh'}])
+        break
+      case 'en':
+        setValue([{id: t('English'), langCode: 'en'}])
+        break
+      default:
+        setValue([{id: t('English'), langCode: 'en'}])
+        break
+    }
+  },[])
+
   const updateLanguage = (selected) => {
     setLanguage(selected.value[0].langCode)
     setValue(selected.value)

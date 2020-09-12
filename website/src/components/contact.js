@@ -3,10 +3,9 @@ import { FormControl } from 'baseui/form-control'
 import { Input } from 'baseui/input'
 import { useStyletron } from 'baseui'
 import { Alert } from 'baseui/icon'
-import { Button, SIZE } from 'baseui/button'
+import { Button } from 'baseui/button'
 import { Textarea } from 'baseui/textarea'
 import { Display2 } from 'baseui/typography'
-import { Block } from "baseui/block";
 import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
 import emailjs from 'emailjs-com'
@@ -60,9 +59,9 @@ const Form = () => {
     console.log(e.target)
     emailjs.sendForm(email_type, email_template, e.target, email_user_id)
       .then((result) => {
-        console.log(result)
         let toastKey;
         const msg = t('emailSuccess')
+        console.log(result, toastKey)
         toastKey = toaster.info((<>{msg}</>), {
           onClose: ()=>console.log('Toast closed.'),
           overrides: {InnerContainer: {style: {width: '100%'}}}});
@@ -70,7 +69,7 @@ const Form = () => {
       }, (error) => {
         let toastKey;
         const msg = t('emailFail')
-        console.error(error)
+        console.error(error, toastKey)
         toastKey = toaster.negative((<>{msg}</>), {
           onClose: ()=>console.log('Toast closed.'),
           overrides: {InnerContainer: {style: {width: '100%'}}}});

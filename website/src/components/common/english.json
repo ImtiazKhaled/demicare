@@ -21,11 +21,13 @@
   "research": "Research",
   "outreach": "Outreach",
   "contactUs": "Contact Us",
-  "researchProject": "Research Project",
+  "researchProject": "Demi-Care",
   "translateInterview": "Translate Interview",
   "more": "More",
   "cancel": "Cancel",
   "okay": "Okay",
   "weChat": "Connect on WeChat",
-  "kakaoTalk": "Connect on KakaoTalk"
+  "kakaoTalk": "Connect on KakaoTalk",
+  "emailSuccess": "The email has been successfully sent, you will be contacted soon.",
+  "emailFail": "There was a problem sending the email, please try again."
 }

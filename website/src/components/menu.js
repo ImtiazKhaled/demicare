@@ -56,6 +56,11 @@ const Menu = () => {
   let history = useHistory()
   const [activeNavItem, setActiveNavItem] = React.useState()
 
+  const SelectedTitle = () => {
+    history.push("/")
+    setActiveNavItem(undefined)
+  }
+
   const appDisplayName = (
     <StyledLink
       $style={{
@@ -64,7 +69,7 @@ const Menu = () => {
         ":hover": { color: "inherit", cursor: "pointer" },
         ":visited": { color: "inherit" },
       }}
-      onClick={() => history.push("/")}
+      onClick={SelectedTitle}
     >
       {t("researchProject")}
     </StyledLink>

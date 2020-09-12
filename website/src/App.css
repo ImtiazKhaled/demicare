@@ -37,3 +37,9 @@
 .outreach-button {
   margin: 5vw;
 }
+
+.select-language {
+  position: absolute;
+  right: 3vw;
+  width: 30%;
+}

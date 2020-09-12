@@ -21,11 +21,13 @@
   "research": "研究",
   "outreach": "外展",
   "contactUs": "联系我们",
-  "researchProject": "研究项目",
+  "researchProject": "Demi-Care",
   "translateInterview": "安排面试",
   "more": "更多",
   "cancel": "取消",
   "okay": "好的",
   "weChat": "在微信上连接",
-  "kakaoTalk": "在KakaoTalk上连接"
+  "kakaoTalk": "在KakaoTalk上连接",
+  "emailSuccess": "电子邮件已成功发送，将尽快与您联系。",
+  "emailFail": "发送电子邮件时出现问题，请重试。"
 }

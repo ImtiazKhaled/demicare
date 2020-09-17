@@ -51,7 +51,11 @@ const MAIN_NAV = [
         item: {label: 'Contact Us'},
         mapItemToNode: renderItem,
         mapItemToString: renderItem,
-    }
+    },{
+      item: {label: 'Team'},
+      mapItemToNode: renderItem,
+      mapItemToString: renderItem,
+  }
 ]
 
 function isActive(arr, item, activeItem) {
@@ -102,6 +106,9 @@ const Menu = () => {
         break
       case 'Contact Us':
         history.push('/contact')
+        break
+      case 'Team':
+        history.push('/team')
         break
       case 'Outreach':
         history.push('/outreach')

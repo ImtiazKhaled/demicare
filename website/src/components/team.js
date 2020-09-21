@@ -1,19 +1,24 @@
 import React, {Component} from 'react';
 
+import {Card} from "react-bootstrap";
+
 class Team extends Component{
     render(){
         return(
             <div className="team">
 
-                <hr/>
-                This is our team
-		<div className="members">
-		<h1> Hoang Luu  </h1>
-		<h1> Aawaj Bhaukajee</h1>
-		<h1> Bijay Parajuli </h1>
-		<h1> Imtiaz Khaled</h1>
-		<h1> Israel Tshitenge</h1>
-		</div>
+<Card style={{ width: '18rem' }}>
+  <Card.Img variant="top" src="holder.js/100px180" />
+  <Card.Body>
+    <Card.Title>Card Title</Card.Title>
+    <Card.Text>
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </Card.Text>
+    
+  </Card.Body>
+</Card>
+		
                
 
             </div>

@@ -9,7 +9,7 @@ import Home from './home'
 import Team from './team'
 
 const Navigation = (props) => {
-
+    
     return <Switch>
         <Route path='/community'>
             <Community />
@@ -33,6 +33,7 @@ const Navigation = (props) => {
             <Home changeTheme={() => props.changeTheme()} />
         </Route>
     </Switch>
+    
 }
 
   export default Navigation

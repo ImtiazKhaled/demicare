@@ -1,28 +1,33 @@
-import React, {Component} from 'react';
-
+import React from 'react';
 import {Card} from "react-bootstrap";
+import me from "../assets/img/me.jpg"
+import me1 from "../assets/img/me1.jpg"
 
-class Team extends Component{
-    render(){
-        return(
-            <div className="team">
 
-<Card style={{ width: '18rem' }}>
-  <Card.Img variant="top" src="holder.js/100px180" />
-  <Card.Body>
-    <Card.Title>Card Title</Card.Title>
-    <Card.Text>
-      Some quick example text to build on the card title and make up the bulk of
-      the card's content.
-    </Card.Text>
+const Team = () => {
+  const teamMembers = [
+    {image: me,title:"Aawaj Bhaukajee",text:"Member 1"},
+    {image: me1,title:"Imtiaz Khaled",text:"Member 2"},
+    {image: me1,title:"Bijay Parajuli",text:"Member 3"},
+    {image: me1,title:"Hoang Lu",text:"Member 4"},
+    {image: me1,title:"Israel Tshitenge",text:"Member 5"},
+  ];
     
+  const renderCard = (card,index) => {
+    return( 
+      <Card style = {{width: '10rem'}} key = {index}>
+      <Card.Img variant="top" src="holder.js/100px180" src={card.image} />
+      <Card.Body>
+    <Card.Title>{card.title}</Card.Title>
+      <Card.Text>
+     {card.text}
+      </Card.Text>
   </Card.Body>
 </Card>
-		
-               
 
-            </div>
-        );
-    }
-}
+    );
+  };
+        return<div className = "team">{teamMembers.map(renderCard)}</div>;
+    };
+
 export default Team;

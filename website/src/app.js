@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Menu from './components/menu'
 import Navigation from './components/navigation'
+
 import { Provider as StyletronProvider } from 'styletron-react'
 import { Client as Styletron } from 'styletron-engine-atomic'
 import { LightTheme, BaseProvider, DarkTheme } from 'baseui'
@@ -15,7 +16,6 @@ const App = () => {
   const [ theme, changeTheme ] = useState(LightTheme)
 
   document.documentElement.style.setProperty('background', theme.colors.background);
-  
   return <StyletronProvider value={engine}>
     <Router>
       <BaseProvider theme={theme}>
@@ -24,6 +24,7 @@ const App = () => {
       </BaseProvider>
     </Router>
   </StyletronProvider> 
+  
 }
 
 export default App

@@ -42,3 +42,8 @@
   min-height: 80vh;
   min-width: 90vw;
 }
+.select-language {
+  position: absolute;
+  right: 3vw;
+  width: 30%;
+}

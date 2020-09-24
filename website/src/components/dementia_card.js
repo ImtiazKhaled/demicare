@@ -1,13 +1,12 @@
-import * as React from "react";
-import { Card, StyledBody, StyledAction } from "baseui/card";
-import { Button } from "baseui/button";
-import { Modal, ModalHeader, ModalBody, ModalFooter, ModalButton, SIZE, ROLE } from "baseui/modal";
-import { KIND as ButtonKind } from "baseui/button";
-import ReactMD from "react-markdown";
-import { t } from "react-switch-lang";
+import * as React from "react"
+import { Card, StyledBody, StyledAction } from "baseui/card"
+import { Button, KIND as ButtonKind } from "baseui/button"
+import { Modal, ModalHeader, ModalBody, ModalFooter, ModalButton, SIZE, ROLE } from "baseui/modal"
+import ReactMD from "react-markdown"
+import { t } from "react-switch-lang"
 
 const DementiaCard = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false)
 
   return (
     <div>
@@ -32,7 +31,7 @@ const DementiaCard = (props) => {
         </ModalFooter>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default DementiaCard;
+export default DementiaCard

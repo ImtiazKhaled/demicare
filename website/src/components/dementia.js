@@ -10,18 +10,21 @@ let dementia = [
     title: "10 Signs of Alzheimer's",
     description: "Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl.",
     image: "https://source.unsplash.com/user/erondu/700x400",
+    video: "https://www.youtube.com/embed/QmLStxU12F0",
   },
   {
     id: "2",
     title: "Interactive Brain Tour",
     description: "Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl.",
     image: "https://source.unsplash.com/user/erondu/700x400",
+    video: "https://www.youtube.com/embed/9DLw3cCfbm0",
   },
   {
     id: "3",
     title: "Caregivers",
     description: "Proin ut dui sed metus pharetra hend rerit vel non mi. Nulla ornare faucibus ex, non facilisis nisl.",
     image: "https://source.unsplash.com/user/erondu/700x400",
+    video: "https://www.youtube.com/embed/cRLB7WqX0fU",
   },
 ];
 

@@ -1,13 +1,13 @@
-import * as React from "react"
-import { useHistory } from "react-router-dom"
-import { StyledLink } from "baseui/link"
-import { Unstable_AppNavBar as AppNavBar } from "baseui/app-nav-bar"
-import { t } from "react-switch-lang"
+import * as React from "react";
+import { useHistory } from "react-router-dom";
+import { StyledLink } from "baseui/link";
+import { Unstable_AppNavBar as AppNavBar } from "baseui/app-nav-bar";
+import { t } from "react-switch-lang";
 
 function renderItem(item) {
-  let navTitle = item.label
+  let navTitle = item.label;
 
-  return t(navTitle)
+  return t(navTitle);
 }
 
 const MAIN_NAV = [
@@ -32,34 +32,34 @@ const MAIN_NAV = [
     mapItemToString: renderItem,
   },
   {
-    item: { label: "contactUs" },
+    item: { label: "aboutUs" },
     mapItemToNode: renderItem,
     mapItemToString: renderItem,
   },
-]
+];
 
 function isActive(arr, item, activeItem) {
-  let active = false
+  let active = false;
   for (let i = 0; i < arr.length; i++) {
-    const elm = arr[i]
+    const elm = arr[i];
     if (elm === item) {
-      if (item === activeItem) return true
-      return isActive((item && item.nav) || [], activeItem, activeItem)
+      if (item === activeItem) return true;
+      return isActive((item && item.nav) || [], activeItem, activeItem);
     } else if (elm.nav) {
-      active = isActive(elm.nav || [], item, activeItem)
+      active = isActive(elm.nav || [], item, activeItem);
     }
   }
-  return active
+  return active;
 }
 
 const Menu = () => {
-  let history = useHistory()
-  const [activeNavItem, setActiveNavItem] = React.useState()
+  let history = useHistory();
+  const [activeNavItem, setActiveNavItem] = React.useState();
 
   const SelectedTitle = () => {
-    history.push("/")
-    setActiveNavItem(undefined)
-  }
+    history.push("/");
+    setActiveNavItem(undefined);
+  };
 
   const appDisplayName = (
     <StyledLink
@@ -73,46 +73,46 @@ const Menu = () => {
     >
       {t("researchProject")}
     </StyledLink>
-  )
+  );
 
   const onNavChange = ({ item }) => {
-    const newItem = item.item.label
-    if (item === activeNavItem) return
+    const newItem = item.item.label;
+    if (item === activeNavItem) return;
     switch (newItem) {
       case "communityResources":
-        history.push("/community")
-        break
+        history.push("/community");
+        break;
       case "research":
-        history.push("/research")
-        break
-      case "contactUs":
-        history.push("/contact")
-        break
+        history.push("/research");
+        break;
+      case "aboutUs":
+        history.push("/about");
+        break;
       case "outreach":
-        history.push("/outreach")
-        break
+        history.push("/outreach");
+        break;
       case "dementiaInformation":
-        history.push("/dementia")
-        break
+        history.push("/dementia");
+        break;
       case "languages":
-        break
+        break;
       default:
-        history.push("/")
-        break
+        history.push("/");
+        break;
     }
-    setActiveNavItem(item)
-  }
+    setActiveNavItem(item);
+  };
 
   return (
     <AppNavBar
       appDisplayName={appDisplayName}
       mainNav={MAIN_NAV}
       isNavItemActive={({ item }) => {
-        return item === activeNavItem || isActive(MAIN_NAV, item, activeNavItem)
+        return item === activeNavItem || isActive(MAIN_NAV, item, activeNavItem);
       }}
       onNavItemSelect={onNavChange}
     />
-  )
-}
+  );
+};
 
-export default Menu
+export default Menu;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Display2, Display4 } from "baseui/typography";
 import { Button } from "baseui/button";
-import Appointment from "./appointment";
+import Calendly from "./calendly";
 
 import { t } from "react-switch-lang";
 
@@ -13,7 +13,7 @@ const Research = () => {
       <Display4 marginTop="scale1000" marginBottom="scale800">
         {t("scheduleAPhoneInterview")}
       </Display4>
-      <Appointment />
+      <Calendly />
     </div>
   );
 };

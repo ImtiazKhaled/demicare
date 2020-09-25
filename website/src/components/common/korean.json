@@ -21,11 +21,13 @@
   "research": "연구",
   "outreach": "지원 활동",
   "contactUs": "문의하기",
-  "researchProject": "연구 프로젝트",
+  "researchProject": "Demi-Care",
   "translateInterview": "인터뷰 일정",
   "more": "더",
   "cancel": "취소",
   "okay": "괜찮아",
   "weChat": "WeChat에서 연결",
-  "kakaoTalk": "카카오 톡에서 연결"
+  "kakaoTalk": "카카오 톡에서 연결",
+  "emailSuccess": "이메일이 성공적으로 전송되었습니다. 곧 연락 드리겠습니다.",
+  "emailFail": "이메일을 보내는 중에 문제가 발생했습니다. 다시 시도하십시오."
 }

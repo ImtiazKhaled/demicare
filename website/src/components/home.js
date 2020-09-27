@@ -28,7 +28,7 @@ const Home = (props) => {
         setValue([{id: t('English'), langCode: 'en'}])
         break
     }
-  },[])
+  },[ props.lang ])
 
   const updateLanguage = (selected) => {
     setLanguage(selected.value[0].langCode)

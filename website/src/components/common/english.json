@@ -29,5 +29,6 @@
   "weChat": "Connect on WeChat",
   "kakaoTalk": "Connect on KakaoTalk",
   "emailSuccess": "The email has been successfully sent, you will be contacted soon.",
-  "emailFail": "There was a problem sending the email, please try again."
+  "emailFail": "There was a problem sending the email, please try again.",
+  "welcomeTo,": "Welcome to,"
 }

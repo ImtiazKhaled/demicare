@@ -1,22 +1,21 @@
-import * as React from "react";
-import { Card, StyledBody, StyledAction } from "baseui/card";
-import { Button, KIND as ButtonKind } from "baseui/button";
-import { Modal, ModalHeader, ModalBody, ModalFooter, ModalButton, SIZE, ROLE } from "baseui/modal";
-import ReactMD from "react-markdown";
-import { t } from "react-switch-lang";
-import { Textarea } from "baseui/textarea";
+import * as React from "react"
+import { Card, StyledBody, StyledAction } from "baseui/card"
+import { Button } from "baseui/button"
+import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from "baseui/modal"
+import ReactMD from "react-markdown"
+import { t } from "react-switch-lang"
 
 const DementiaCard = (props) => {
-  const [isOpen, setIsOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = React.useState(false)
 
   const video =
     props.video === undefined || props.video === "" ? (
       ""
     ) : (
       <div className="video-responsive">
-        <iframe title="unique" width="500" height="315" src={props.video} frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe title="unique" width="500" height="315" src={props.video} frameborder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowfullscreen></iframe>
       </div>
-    );
+    )
 
   return (
     <div>
@@ -41,7 +40,7 @@ const DementiaCard = (props) => {
         <ModalFooter>{video}</ModalFooter>
       </Modal>
     </div>
-  );
-};
+  )
+}
 
-export default DementiaCard;
+export default DementiaCard

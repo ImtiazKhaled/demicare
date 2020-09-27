@@ -79,7 +79,7 @@ const Form = () => {
   return (  
     <ToasterContainer placement={PLACEMENT.bottomRight} autoHideDuration='10000'>
       <div className='contact-container'>
-      <Display2 marginBottom="scale1000"> {`${t("contactUs")}`} </Display2>
+      <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
       <form onSubmit={sendEmail}>
           
           <FormControl label={`${t("yourName")}`} >

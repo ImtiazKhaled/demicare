@@ -7,7 +7,7 @@ import Dementia from './dementia'
 import Outreach from './outreach'
 import SocialLinks from './social_links'
 import Home from './home'
-import { setLanguage, t, getLanguage } from 'react-switch-lang'
+import { setLanguage, t } from 'react-switch-lang'
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/modal'
 import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"

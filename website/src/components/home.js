@@ -1,18 +1,24 @@
 import * as React from 'react'
 import { Button } from 'baseui/button'
-import {Select} from 'baseui/select'
+import { Select } from 'baseui/select'
 import { setLanguage, t, getLanguage } from 'react-switch-lang'
 
 const OPTIONS = [
   {id: t('English'), langCode: 'en'},
   {id: t('Korean'), langCode: 'ko'},
   {id: t('Chinese'), langCode: 'zh'},
-];
+]
+
+const getWidth = () => window.innerWidth 
+  || document.documentElement.clientWidth 
+  || document.body.clientWidth;
 
 const Home = (props) => {
 
-  const [value, setValue] = React.useState([]);
-  
+  const [ value, setValue ] = React.useState([])
+  const [ containerClass, setContainerClass ] = React.useState('home-container home-container-height')
+  let [ width, setWidth ] = React.useState(getWidth());
+
   React.useEffect(() => {
     switch(getLanguage()) {
       case 'ko':
@@ -28,7 +34,26 @@ const Home = (props) => {
         setValue([{id: t('English'), langCode: 'en'}])
         break
     }
-  },[ props.lang ])
+  },[props.lang])
+
+  React.useEffect(() => {
+    if(window.innerHeight < width) {
+      setContainerClass('home-container home-container-height')
+    } else {
+      setContainerClass('home-container')
+    }
+    
+    let timeoutId = null;
+    const resizeListener = () => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => setWidth(getWidth()), 150);
+    };
+    window.addEventListener('resize', resizeListener);
+
+    return () => {
+      window.removeEventListener('resize', resizeListener);
+    }    
+  }, [width])
 
   const updateLanguage = (selected) => {
     setLanguage(selected.value[0].langCode)
@@ -36,7 +61,7 @@ const Home = (props) => {
   }
   
   return (
-    <div className='home-container'>
+    <div className={containerClass}>
       <div className='select-language'>
         <Select  
           options={OPTIONS}

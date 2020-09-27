@@ -42,7 +42,7 @@ const Navigation = (props) => {
   return (
     <div>
       <Switch>
-        <Route path='/community'>
+        <Route lang={lang} path='/community'>
           <Community />
         </Route>
         <Route path='/research'>

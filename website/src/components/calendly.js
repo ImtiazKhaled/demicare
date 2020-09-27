@@ -12,7 +12,7 @@ const Calendly = () => {
   
   return (
     <div className='appointment-container'>
-      <InlineWidget url="https://calendly.com/hoangluu404/60min" />
+      <InlineWidget url="https://calendly.com/hoangluu404/30min" />
     </div>
   )
 }

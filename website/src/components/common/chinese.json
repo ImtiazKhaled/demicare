@@ -29,5 +29,6 @@
   "weChat": "在微信上连接",
   "kakaoTalk": "在KakaoTalk上连接",
   "emailSuccess": "电子邮件已成功发送，将尽快与您联系。",
-  "emailFail": "发送电子邮件时出现问题，请重试。"
+  "emailFail": "发送电子邮件时出现问题，请重试。",
+  "welcomeTo": "欢迎来到，"
 }

@@ -10,8 +10,8 @@ import PropTypes from "prop-types";
 import en from "./components/common/english.json";
 import zh from "./components/common/chinese.json";
 import ko from "./components/common/korean.json";
-
 import { setTranslations, setDefaultLanguage, translate, setLanguageCookie } from "react-switch-lang";
+
 
 setTranslations({ en, zh, ko });
 setDefaultLanguage("en");
@@ -35,7 +35,9 @@ const App = () => {
     </StyletronProvider>
   );
 };
+
 App.propTypes = {
   t: PropTypes.func.isRequired,
 };
+
 export default translate(App);

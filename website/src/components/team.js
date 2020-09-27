@@ -1,8 +1,8 @@
 import React from 'react';
-import {Card} from "react-bootstrap";
+// import {Card} from "react-bootstrap";
 import me from "../assets/img/me.jpg"
 import me1 from "../assets/img/me1.jpg"
-
+import "./Box.css"
 
 const Team = () => {
   const teamMembers = [
@@ -15,19 +15,17 @@ const Team = () => {
     
   const renderCard = (card,index) => {
     return( 
-      <Card style = {{width: '10rem'}} key = {index}>
-      <Card.Img variant="top" src="holder.js/100px180" src={card.image} />
-      <Card.Body>
-    <Card.Title>{card.title}</Card.Title>
-      <Card.Text>
-     {card.text}
-      </Card.Text>
-  </Card.Body>
-</Card>
+        <div>
 
+            <div className="cardDiv">
+              <img src={card.image}/>
+              <p>{card.title}</p>              
+              <p>{card.text}</p>
+            </div>
+        </div>        
     );
   };
-        return<div className = "team">{teamMembers.map(renderCard)}</div>;
+        return<div className = "grid">{teamMembers.map(renderCard)}</div>;
     };
 
 export default Team;

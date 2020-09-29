@@ -30,5 +30,8 @@
   "kakaoTalk": "Connect on KakaoTalk",
   "emailSuccess": "The email has been successfully sent, you will be contacted soon.",
   "emailFail": "There was a problem sending the email, please try again.",
-  "welcomeTo,": "Welcome to,"
+  "welcomeTo,": "Welcome to,",
+  "English": "English",
+  "Korean": "한국어 (Korean)",
+  "Chinese": "中文 (Chinese)"
 }

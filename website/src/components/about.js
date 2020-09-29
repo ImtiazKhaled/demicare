@@ -32,7 +32,6 @@ const Negative = () => {
 const Form = () => {
   const [message, setMessage] = React.useState('')
   const [first_name, setName] = React.useState('')
-  const [last_name, setSubject] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [isEmailValid, setEmailValid] = React.useState(false)
   const [isVisited, setIsVisited] = React.useState(false)
@@ -46,7 +45,6 @@ const Form = () => {
   const clearForm = () => {
     setMessage('')
     setName('')
-    setSubject('')
     setEmail('')
   }
 
@@ -91,15 +89,7 @@ const Form = () => {
               required
             />
           </FormControl>
-          <FormControl label={`${t("emailSubject")}`} >
-            <Input
-              placeholder={`${t("emailSubject")}`}
-              name="last_name"
-              value={last_name}
-              onChange={event => setSubject(event.currentTarget.value)}
-            />
-          </FormControl>
-
+          
           <FormControl
             label={`${t("yourEmail")}`}
             error={ shouldShowError ? `${t("emailErreurMessage")}` : null }

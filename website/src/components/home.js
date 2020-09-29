@@ -3,18 +3,18 @@ import { Button } from 'baseui/button'
 import { Select } from 'baseui/select'
 import { setLanguage, t, getLanguage } from 'react-switch-lang'
 
-const OPTIONS = [
-  {id: t('English'), langCode: 'en'},
-  {id: t('Korean'), langCode: 'ko'},
-  {id: t('Chinese'), langCode: 'zh'},
-]
-
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
   || document.body.clientWidth;
 
 const Home = (props) => {
 
+  const OPTIONS = [
+    {id: t('English'), langCode: 'en'},
+    {id: t('Korean'), langCode: 'ko'},
+    {id: t('Chinese'), langCode: 'zh'},
+  ]
+  
   const [ value, setValue ] = React.useState([])
   const [ containerClass, setContainerClass ] = React.useState('home-container home-container-height')
   let [ width, setWidth ] = React.useState(getWidth());
@@ -26,9 +26,6 @@ const Home = (props) => {
         break
       case 'zh':
         setValue([{id: t('Chinese'), langCode: 'zh'}])
-        break
-      case 'en':
-        setValue([{id: t('English'), langCode: 'en'}])
         break
       default:
         setValue([{id: t('English'), langCode: 'en'}])
@@ -56,6 +53,7 @@ const Home = (props) => {
   }, [width])
 
   const updateLanguage = (selected) => {
+    console.log(t('Korean'))
     setLanguage(selected.value[0].langCode)
     setValue(selected.value)
   }
@@ -66,7 +64,7 @@ const Home = (props) => {
         <Select  
           options={OPTIONS}
           labelKey='id'
-          langCode='color'
+          langCode='langCode'
           searchable={false}
           clearable={false}
           onChange={updateLanguage}

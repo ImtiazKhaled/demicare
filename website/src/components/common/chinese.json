@@ -30,5 +30,8 @@
   "kakaoTalk": "在KakaoTalk上连接",
   "emailSuccess": "电子邮件已成功发送，将尽快与您联系。",
   "emailFail": "发送电子邮件时出现问题，请重试。",
-  "welcomeTo": "欢迎来到，"
+  "welcomeTo": "欢迎来到，",
+  "English": "English (英语)",
+  "Korean": "한국어 (韩语)",
+  "Chinese": "中文"
 }

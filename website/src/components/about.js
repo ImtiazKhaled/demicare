@@ -6,11 +6,12 @@ import { Alert } from 'baseui/icon'
 import { Button } from 'baseui/button'
 import { Textarea } from 'baseui/textarea'
 import { Display2 } from 'baseui/typography'
-import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast"
-import { FlexGrid, FlexGridItem } from "baseui/flex-grid"
+import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
-import emailjs from 'emailjs-com'
+import emailjs, {init} from 'emailjs-com'
 import { t } from "react-switch-lang"
+
+init("user_JW3ks5oI2VRhlP9KdZiiR")
 
 // layout style
 const Negative = () => {
@@ -32,8 +33,8 @@ const Negative = () => {
 // Form variables
 const Form = () => {
   const [message, setMessage] = React.useState('')
-  const [first_name, setFirstName] = React.useState('')
-  const [last_name, setLastName] = React.useState('')
+  const [first_name, setName] = React.useState('')
+  const [last_name, setSubject] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [isEmailValid, setEmailValid] = React.useState(false)
   const [isVisited, setIsVisited] = React.useState(false)
@@ -46,34 +47,34 @@ const Form = () => {
 
   const clearForm = () => {
     setMessage('')
-    setFirstName('')
-    setLastName('')
+    setName('')
+    setSubject('')
     setEmail('')
   }
 
   // send email function, called when Form is submitted
   const sendEmail = (e) => {    
-    var email_type = "gmail"
-    var email_user_id = "user_otENxMGrIjk8QTSwe7Iwv"
-    var email_template = "template_hoangluu404"
+    var service_id = "DemicareUTA"
+    var email_user_id = "user_JW3ks5oI2VRhlP9KdZiiR"
+    var email_template = "template_DemicareUTA"
     e.preventDefault()
     console.log(e.target)
-    emailjs.sendForm(email_type, email_template, e.target, email_user_id)
+    emailjs.sendForm(service_id, email_template, e.target, email_user_id)
       .then((result) => {
-        let toastKey
+        let toastKey;
         const msg = t('emailSuccess')
         console.log(result, toastKey)
         toastKey = toaster.info((<>{msg}</>), {
           onClose: ()=>console.log('Toast closed.'),
-          overrides: {InnerContainer: {style: {width: '100%'}}}})
+          overrides: {InnerContainer: {style: {width: '100%'}}}});
           clearForm()
       }, (error) => {
-        let toastKey
+        let toastKey;
         const msg = t('emailFail')
         console.error(error, toastKey)
         toastKey = toaster.negative((<>{msg}</>), {
           onClose: ()=>console.log('Toast closed.'),
-          overrides: {InnerContainer: {style: {width: '100%'}}}})
+          overrides: {InnerContainer: {style: {width: '100%'}}}});
       })
   }
 
@@ -82,37 +83,31 @@ const Form = () => {
       <div className='contact-container'>
       <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
       <form onSubmit={sendEmail}>
-          <FlexGrid flexGridColumnCount={2} flexGridColumnGap="scale800" flexGridRowGap="scale800">
-            <FlexGridItem key="1">
-              <FormControl label={`${t("firstName")}`} >
-                <Input
-                  placeholder={`${t("firstName")}`}
-                  name="first_name"
-                  value={first_name}
-                  onChange={event => setFirstName(event.currentTarget.value)}
-                  required
-                />
-              </FormControl>
-            </FlexGridItem>
-            <FlexGridItem key="2">
-              <FormControl label={`${t("lastName")}`} >
-                <Input
-                  placeholder={`${t("lastName")}`}
-                  name="last_name"
-                  value={last_name}
-                  onChange={event => setLastName(event.currentTarget.value)}
-                  required
-                />
-              </FormControl>
-            </FlexGridItem>
-          </FlexGrid>
+          
+          <FormControl label={`${t("First Name")}`} >
+            <Input
+              placeholder={`${t("First Name")}`}
+              name="first_name"
+              value={first_name}
+              onChange={event => setName(event.currentTarget.value)}
+              required
+            />
+          </FormControl>
+          <FormControl label={`${t("Last Name")}`} >
+            <Input
+              placeholder={`${t("Last Name")}`}
+              name="last_name"
+              value={last_name}
+              onChange={event => setSubject(event.currentTarget.value)}
+            />
+          </FormControl>
 
           <FormControl
-            label={`${t("yourEmail")}`}
+            label={`${t("Email")}`}
             error={ shouldShowError ? `${t("emailErreurMessage")}` : null }
           >
             <Input
-              placeholder={`${t("yourEmail")}`}
+              placeholder={`${t("Email")}`}
               name="email"
               value={email}
               onChange={onEmailChange}
@@ -124,9 +119,9 @@ const Form = () => {
             />
           </FormControl>
   
-          <FormControl label={`${t("emailBody")}`} >
+          <FormControl label={`${t("Message")}`} >
             <Textarea
-              placeholder={`${t("emailBody")}`}
+              placeholder={`${t("Message")}`}
               name="message"
               value={message}
               onChange={event => setMessage(event.currentTarget.value)}
@@ -141,4 +136,4 @@ const Form = () => {
   )
 }
 
-export default Form
+export default Form;

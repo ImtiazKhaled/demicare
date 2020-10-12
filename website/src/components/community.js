@@ -1,24 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table";
 import { Display2 } from "baseui/typography";
 import { Button } from "baseui/button";
-import { t, getLanguage } from "react-switch-lang";
+import { t } from "react-switch-lang";
 import CommunityRow from "./community_row";
-import db from "./common/Firebase";
+import { useResource, useResourceUpdate } from '../context/ResourcesContext'
 
-const Community = (props) => {
-  const [DATA, setResources] = useState([]);
-  useEffect(() => {
-    db.collection("facilities").onSnapshot((snapshot) => setResources(snapshot.docs.map((doc) => doc.data())));
-  }, []);
-
-  let resources;
-
-  if (getLanguage() === "en") {
-    resources = DATA;
-  } else {
-    resources = DATA.filter((facility) => facility.lang === getLanguage());
-  }
+const Community = () => {
+  const DATA = useResource();
 
   const showAllLocations = () => {
     console.log("should show all maps now");
@@ -34,7 +23,7 @@ const Community = (props) => {
           <StyledHeadCell>{t("resource")}</StyledHeadCell>
         </StyledHead>
         <StyledBody>
-          {resources.map((row, index) => (
+          {DATA.map((row, index) => (
             <CommunityRow key={index} id={index} {...row} />
           ))}
         </StyledBody>

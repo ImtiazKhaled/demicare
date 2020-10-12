@@ -3,6 +3,7 @@ import { Button } from 'baseui/button'
 import { Select } from 'baseui/select'
 import { setLanguage, t, getLanguage } from 'react-switch-lang'
 import { useThemeUpdate } from '../context/ThemeContext';
+import { useResourceUpdate } from '../context/ResourcesContext'
 
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
@@ -20,6 +21,7 @@ const Home = (props) => {
   const [ value, setValue ] = React.useState([])
   const [ containerClass, setContainerClass ] = React.useState('home-container home-container-height')
   let [ width, setWidth ] = React.useState(getWidth());
+  const updateResources = useResourceUpdate();  
 
   React.useEffect(() => {
     switch(getLanguage()) {
@@ -55,9 +57,9 @@ const Home = (props) => {
   }, [width])
 
   const updateLanguage = (selected) => {
-    console.log(t('Korean'))
     setLanguage(selected.value[0].langCode)
     setValue(selected.value)
+    updateResources()
   }
   
   return (

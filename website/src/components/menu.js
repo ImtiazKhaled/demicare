@@ -9,11 +9,11 @@ const Menu = () => {
   let history = useHistory();
 
   const [mainItems, setMainItems] = React.useState([
-    { label: t('communityResources') },
-    { label: t('dementiaInformation') },
-    { label: t('research') },
-    { label: t('outreach') },
-    { label: t('aboutUs') },
+    { key: 'community', label: t('communityResources') },
+    { key: 'dementia', label: t('dementiaInformation') },
+    { key: 'research', label: t('research') },
+    { key: 'outreach', label: t('outreach') },
+    { key: 'about', label: t('aboutUs') },
   ]);
 
   const appDisplayName = (
@@ -24,7 +24,7 @@ const Menu = () => {
         ":hover": { color: "inherit", cursor: "pointer" },
         ":visited": { color: "inherit" },
       }}
-      onClick={() => history.push('/')}
+      onClick={() => { setMainItems(prev => setItemActive(prev, {label:'whatis',active:false})); history.push('/')}}
     >
       {t("researchProject")}
     </StyledLink>
@@ -32,23 +32,21 @@ const Menu = () => {
 
   const onItemSelect = (item) => {
     setMainItems(prev => setItemActive(prev, item));
-    switch (item.label) {
-      case t('communityResources'):
+    switch (item.key) {
+      case 'community':
         history.push('/community');
         break;
-      case t('research'):
+      case 'research':
         history.push('/research');
         break;
-      case t('aboutUs'):
+      case 'about':
         history.push('/about');
         break;
-      case t('outreach'):
+      case 'outreach':
         history.push('/outreach');
         break;
-      case t('dementiaInformation'):
+      case 'dementia':
         history.push('/dementia');
-        break;
-      case t('languages'):
         break;
       default:
         history.push('/');

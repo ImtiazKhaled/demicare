@@ -7,6 +7,7 @@ import Dementia from './dementia'
 import Outreach from './outreach'
 import SocialLinks from './social_links'
 import Home from './home'
+import Admin from './admin'
 import { setLanguage, t } from 'react-switch-lang'
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/modal'
 import { ButtonGroup } from "baseui/button-group"
@@ -60,6 +61,9 @@ const Navigation = () => {
         </Route>
         <Route path='/outreach'>
           <Outreach />
+        </Route>
+        <Route path='/admin'>
+          <Admin />
         </Route>
         <Route path='/'>
           <Home lang={lang} />

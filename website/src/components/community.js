@@ -4,7 +4,7 @@ import { Display2 } from "baseui/typography";
 import { Button } from "baseui/button";
 import { t } from "react-switch-lang";
 import CommunityRow from "./community_row";
-import { useResource, useResourceUpdate } from '../context/ResourcesContext'
+import { useResource } from '../context/ResourcesContext'
 
 const Community = () => {
   const DATA = useResource();

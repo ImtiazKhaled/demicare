@@ -1,12 +1,15 @@
 import React from 'react'
 import ThemeProvider from './ThemeContext'
 import ResourceProvider from './ResourcesContext'
+import DementiaProvider from './DementiaContext'
 
 export default function AllContextProvider({children}) {
     return (
         <ThemeProvider>
             <ResourceProvider>
-                {children}
+                <DementiaProvider>
+                    {children}
+                </DementiaProvider>
             </ResourceProvider>
         </ThemeProvider>
     )

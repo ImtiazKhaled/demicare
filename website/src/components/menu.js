@@ -1,65 +1,20 @@
 import * as React from "react";
+import { AppNavBar, setItemActive } from "baseui/app-nav-bar";
 import { useHistory } from "react-router-dom";
 import { StyledLink } from "baseui/link";
-import { Unstable_AppNavBar as AppNavBar } from "baseui/app-nav-bar";
 import { t } from "react-switch-lang";
 
-function renderItem(item) {
-  let navTitle = item.label;
-
-  return t(navTitle);
-}
-
-const MAIN_NAV = [
-  {
-    item: { label: "communityResources" },
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    item: { label: "dementiaInformation" },
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    item: { label: "research" },
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    item: { label: "outreach" },
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-  {
-    item: { label: "aboutUs" },
-    mapItemToNode: renderItem,
-    mapItemToString: renderItem,
-  },
-];
-
-function isActive(arr, item, activeItem) {
-  let active = false;
-  for (let i = 0; i < arr.length; i++) {
-    const elm = arr[i];
-    if (elm === item) {
-      if (item === activeItem) return true;
-      return isActive((item && item.nav) || [], activeItem, activeItem);
-    } else if (elm.nav) {
-      active = isActive(elm.nav || [], item, activeItem);
-    }
-  }
-  return active;
-}
-
 const Menu = () => {
-  let history = useHistory();
-  const [activeNavItem, setActiveNavItem] = React.useState();
 
-  const SelectedTitle = () => {
-    history.push("/");
-    setActiveNavItem(undefined);
-  };
+  let history = useHistory();
+
+  const [mainItems, setMainItems] = React.useState([
+    { label: t('communityResources') },
+    { label: t('dementiaInformation') },
+    { label: t('research') },
+    { label: t('outreach') },
+    { label: t('aboutUs') },
+  ]);
 
   const appDisplayName = (
     <StyledLink
@@ -69,50 +24,45 @@ const Menu = () => {
         ":hover": { color: "inherit", cursor: "pointer" },
         ":visited": { color: "inherit" },
       }}
-      onClick={SelectedTitle}
+      onClick={() => history.push('/')}
     >
       {t("researchProject")}
     </StyledLink>
   );
 
-  const onNavChange = ({ item }) => {
-    const newItem = item.item.label;
-    if (item === activeNavItem) return;
-    switch (newItem) {
-      case "communityResources":
-        history.push("/community");
+  const onItemSelect = (item) => {
+    setMainItems(prev => setItemActive(prev, item));
+    switch (item.label) {
+      case t('communityResources'):
+        history.push('/community');
         break;
-      case "research":
-        history.push("/research");
+      case t('research'):
+        history.push('/research');
         break;
-      case "aboutUs":
-        history.push("/about");
+      case t('aboutUs'):
+        history.push('/about');
         break;
-      case "outreach":
-        history.push("/outreach");
+      case t('outreach'):
+        history.push('/outreach');
         break;
-      case "dementiaInformation":
-        history.push("/dementia");
+      case t('dementiaInformation'):
+        history.push('/dementia');
         break;
-      case "languages":
+      case t('languages'):
         break;
       default:
-        history.push("/");
+        history.push('/');
         break;
     }
-    setActiveNavItem(item);
-  };
+  }
 
   return (
     <AppNavBar
-      appDisplayName={appDisplayName}
-      mainNav={MAIN_NAV}
-      isNavItemActive={({ item }) => {
-        return item === activeNavItem || isActive(MAIN_NAV, item, activeNavItem);
-      }}
-      onNavItemSelect={onNavChange}
+      title={appDisplayName}
+      mainItems={mainItems}
+      onMainItemSelect={onItemSelect}
     />
   );
-};
+}
 
 export default Menu;

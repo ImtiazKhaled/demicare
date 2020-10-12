@@ -2,6 +2,7 @@ import * as React from 'react'
 import { Button } from 'baseui/button'
 import { Select } from 'baseui/select'
 import { setLanguage, t, getLanguage } from 'react-switch-lang'
+import { useThemeUpdate } from '../context/ThemeContext';
 
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
@@ -15,6 +16,7 @@ const Home = (props) => {
     {id: t('Chinese'), langCode: 'zh'},
   ]
   
+  const toggleTheme = useThemeUpdate()
   const [ value, setValue ] = React.useState([])
   const [ containerClass, setContainerClass ] = React.useState('home-container home-container-height')
   let [ width, setWidth ] = React.useState(getWidth());
@@ -72,7 +74,7 @@ const Home = (props) => {
         />
       </div>
       <br /><br /><br />
-      <Button onClick={() => props.changeTheme()}>{t('changeTheme')}</Button>
+      <Button onClick={toggleTheme}>{t('changeTheme')}</Button>
     </div>
   )
 }

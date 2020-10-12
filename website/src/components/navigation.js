@@ -13,7 +13,7 @@ import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
 
 
-const Navigation = (props) => {
+const Navigation = () => {
   const [ isOpen, setIsOpen ] = React.useState(false)
   const [ lang, setLang ] = React.useState('en')
 
@@ -58,7 +58,7 @@ const Navigation = (props) => {
           <Outreach />
         </Route>
         <Route path='/'>
-          <Home lang={lang} changeTheme={() => props.changeTheme()} />
+          <Home lang={lang} />
         </Route>
       </Switch>
 

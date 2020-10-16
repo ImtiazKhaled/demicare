@@ -2,19 +2,21 @@ import * as React from "react";
 import { AppNavBar, setItemActive } from "baseui/app-nav-bar";
 import { useHistory } from "react-router-dom";
 import { StyledLink } from "baseui/link";
-import { t } from "react-switch-lang";
+import { translate, t } from "react-switch-lang";
 
 const Menu = () => {
 
   let history = useHistory();
 
-  const [mainItems, setMainItems] = React.useState([
+  let [mainItems, setMainItems] = React.useState([]);
+
+  mainItems = [
     { key: 'community', label: t('communityResources') },
     { key: 'dementia', label: t('dementiaInformation') },
     { key: 'research', label: t('research') },
     { key: 'outreach', label: t('outreach') },
     { key: 'about', label: t('aboutUs') },
-  ]);
+  ];
 
   const appDisplayName = (
     <StyledLink
@@ -24,7 +26,7 @@ const Menu = () => {
         ":hover": { color: "inherit", cursor: "pointer" },
         ":visited": { color: "inherit" },
       }}
-      onClick={() => { setMainItems(prev => setItemActive(prev, {label:'whatis',active:false})); history.push('/')}}
+      onClick={() => { setMainItems(prev => setItemActive(prev, { label: 'whatis', active: false })); history.push('/') }}
     >
       {t("researchProject")}
     </StyledLink>
@@ -63,4 +65,4 @@ const Menu = () => {
   );
 }
 
-export default Menu;
+export default translate(Menu);

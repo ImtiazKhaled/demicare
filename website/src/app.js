@@ -22,9 +22,9 @@ const App = () => {
   return (
     <AllContextProvider>
       <StyletronProvider value={engine}>
-          <Router>
-            <Main />
-          </Router>
+        <Router>
+          <Main />
+        </Router>
       </StyletronProvider>
     </AllContextProvider>
   );

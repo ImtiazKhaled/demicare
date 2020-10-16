@@ -4,6 +4,8 @@ import Navigation from './navigation'
 import { BaseProvider } from "baseui"
 import { useTheme } from '../context/ThemeContext'
 
+import { translate } from "react-switch-lang";
+
 
 const Main = () => {
 
@@ -17,4 +19,4 @@ const Main = () => {
     )
 }
 
-export default Main
+export default translate(Main);

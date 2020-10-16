@@ -11,8 +11,9 @@ const firebaseConfig = {
   measurementId: "G-W448NDBSED",
 };
 
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+export const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
 
 export default db;
+

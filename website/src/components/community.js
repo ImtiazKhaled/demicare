@@ -5,8 +5,11 @@ import { Button } from "baseui/button";
 import { t } from "react-switch-lang";
 import CommunityRow from "./community_row";
 import { useResource } from '../context/ResourcesContext'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 const Community = () => {
+  const { user, setUser } = useContext(UserContext)
   const DATA = useResource();
 
   const showAllLocations = () => {
@@ -15,6 +18,7 @@ const Community = () => {
 
   return (
     <div className="community-container">
+      {user && <h1>Hello <code>{user}</code></h1>}
       <Display2 marginBottom="scale1000"> {t("communityResources")} </Display2>
       <Button onClick={() => showAllLocations()}> {t("seeFacilities")} </Button> <br /> <br />
       <StyledTable>

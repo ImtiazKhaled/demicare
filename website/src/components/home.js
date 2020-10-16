@@ -4,6 +4,8 @@ import { Select } from 'baseui/select'
 import { setLanguage, t, getLanguage } from 'react-switch-lang'
 import { useThemeUpdate } from '../context/ThemeContext';
 import { useResourceUpdate } from '../context/ResourcesContext'
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 const getWidth = () => window.innerWidth 
   || document.documentElement.clientWidth 
@@ -17,6 +19,7 @@ const Home = (props) => {
     {id: t('Chinese'), langCode: 'zh'},
   ]
   
+  const { user, setUser } = useContext(UserContext)
   const toggleTheme = useThemeUpdate()
   const [ value, setValue ] = React.useState([])
   const [ containerClass, setContainerClass ] = React.useState('home-container home-container-height')
@@ -56,6 +59,8 @@ const Home = (props) => {
     }    
   }, [width])
 
+  
+
   const updateLanguage = (selected) => {
     setLanguage(selected.value[0].langCode)
     setValue(selected.value)
@@ -64,6 +69,7 @@ const Home = (props) => {
   
   return (
     <div className={containerClass}>
+      {user && <h1>Hello <code>{user}</code></h1>}
       <div className='select-language'>
         <Select  
           options={OPTIONS}

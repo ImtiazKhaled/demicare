@@ -7,7 +7,8 @@ const Calendly = () => {
     const head = document.querySelector('head')
     const script = document.createElement('script')
     script.setAttribute('src',  'https://assets.calendly.com/assets/external/widget.js')
-    head.appendChild(script)
+    if(script)
+      head.appendChild(script)
   },[])
   
   return (

@@ -1,10 +1,11 @@
 import * as React from 'react'
+import Login from './login'
 
 const Main = () => {
 
     return (
         <div>
-            This is the admin login page
+            <Login/>
         </div>
     )
 }

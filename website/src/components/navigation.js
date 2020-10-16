@@ -13,10 +13,11 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/m
 import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
 import { useResourceUpdate } from '../context/ResourcesContext'
-
+import { UserContext } from '../context/UserContext'
 
 const Navigation = () => {
 
+  const [ user, setUser ] = React.useState('')
   const [ isOpen, setIsOpen ] = React.useState(false)
   const [ lang, setLang ] = React.useState('en')
   const updateResources = useResourceUpdate();  
@@ -46,30 +47,31 @@ const Navigation = () => {
 
   return (
     <div>
-      <Switch>
-        <Route lang={lang} path='/community'>
-          <Community />
-        </Route>
-        <Route path='/research'>
-          <Research />
-        </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/dementia'>
-          <Dementia />
-        </Route>
-        <Route path='/outreach'>
-          <Outreach />
-        </Route>
-        <Route path='/admin'>
-          <Admin />
-        </Route>
-        <Route path='/'>
-          <Home lang={lang} />
-        </Route>
-      </Switch>
-
+      <UserContext.Provider value={{user, setUser}}>
+        <Switch>
+          <Route lang={lang} path='/community'>
+            <Community />
+          </Route>
+          <Route path='/research'>
+            <Research />
+          </Route>
+          <Route path='/about'>
+            <About />
+          </Route>
+          <Route path='/dementia'>
+            <Dementia />
+          </Route>
+          <Route path='/outreach'>
+            <Outreach />
+          </Route>
+          <Route path='/admin'>
+            <Admin />
+          </Route>
+          <Route path='/'>
+            <Home lang={lang} />
+          </Route>
+        </Switch>
+      </UserContext.Provider>
       <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
         <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
         <ModalBody>Select your preferred language</ModalBody>

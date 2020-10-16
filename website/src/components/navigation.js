@@ -1,5 +1,5 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import About from './about'
 import Research from './research'
 import Community from './community'
@@ -14,20 +14,21 @@ import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
 import { useResourceUpdate } from '../context/ResourcesContext'
 import { UserContext } from '../context/UserContext'
+import NotFound from './NotFound';
 
 const Navigation = () => {
 
-  const [ user, setUser ] = React.useState('')
-  const [ isOpen, setIsOpen ] = React.useState(false)
-  const [ lang, setLang ] = React.useState('en')
-  const updateResources = useResourceUpdate();  
+  const [user, setUser] = React.useState('')
+  const [isOpen, setIsOpen] = React.useState(false)
+  const [lang, setLang] = React.useState('en')
+  const updateResources = useResourceUpdate();
 
   React.useEffect(() => {
     setIsOpen(true)
   }, [])
 
   const LanguageSelected = (selected) => {
-    switch(selected) {
+    switch (selected) {
       case 'KOR':
         setLang('ko')
         setLanguage('ko')
@@ -47,29 +48,33 @@ const Navigation = () => {
 
   return (
     <div>
-      <UserContext.Provider value={{user, setUser}}>
+      <UserContext.Provider value={{ user, setUser }}>
         <Switch>
-          <Route lang={lang} path='/community'>
+          <Route exact lang={lang} path='/community'>
             <Community />
           </Route>
-          <Route path='/research'>
+          <Route exact path='/research'>
             <Research />
           </Route>
-          <Route path='/about'>
+          <Route exact path='/about'>
             <About />
           </Route>
-          <Route path='/dementia'>
+          <Route exact path='/dementia'>
             <Dementia />
           </Route>
-          <Route path='/outreach'>
+          <Route exact path='/outreach'>
             <Outreach />
           </Route>
-          <Route path='/admin'>
+          <Route exact path='/admin'>
             <Admin />
           </Route>
-          <Route path='/'>
+          <Route exact path="/not-found">
+            <NotFound />
+          </Route>
+          <Route exact path='/'>
             <Home lang={lang} />
           </Route>
+          <Redirect to="/not-found" />
         </Switch>
       </UserContext.Provider>
       <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
@@ -77,7 +82,7 @@ const Navigation = () => {
         <ModalBody>Select your preferred language</ModalBody>
         <ModalBody>选择您喜欢的语言</ModalBody>
         <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
-        <ModalBody> 
+        <ModalBody>
           <ButtonGroup>
             <Button onClick={() => LanguageSelected('ENG')}>English</Button>
             <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>

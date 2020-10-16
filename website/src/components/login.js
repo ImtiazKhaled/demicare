@@ -8,7 +8,8 @@ import { Button } from 'baseui/button'
 import { validate as validateEmail } from 'email-validator'
 import { t } from "react-switch-lang"
 import {firebaseApp as fire} from './common/Firebase'
-
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
 // layout style
 const Negative = () => {
@@ -29,7 +30,7 @@ const Negative = () => {
 
 // Form variables
 const Form = () => {
-    const [user, setUser] = React.useState(null)
+    const { user, setUser } = useContext(UserContext)
     const [loggedIn, setLoggedIn] = React.useState(false)
     const [email, setEmail] = React.useState('')
     const [password, setPassword] = React.useState('')
@@ -78,7 +79,6 @@ const Form = () => {
 
     function logout(even){
         fire.auth().signOut()
-        alert('signing out')
     }
     function authListener(){
         fire.auth().onAuthStateChanged(user =>{

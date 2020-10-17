@@ -13,10 +13,10 @@ export function useResourceUpdate() {
     return React.useContext(ResourceUpdateContext)
 }
 
-export default function ResourceProvider({children}) {
- 
-    const [ resources, setResources ] = React.useState([])
-    
+export default function ResourceProvider({ children }) {
+
+    const [resources, setResources] = React.useState([])
+
     function changeResource() {
         db.collection("facilities").onSnapshot((snapshot) => {
             var data = []
@@ -25,7 +25,7 @@ export default function ResourceProvider({children}) {
             if (getLanguage() !== "en") {
                 data = data.filter((facility) => facility.lang === getLanguage());
             }
-    
+
             setResources(data)
         });
     }

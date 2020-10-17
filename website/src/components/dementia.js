@@ -8,15 +8,15 @@ import { useContext } from 'react'
 import { UserContext } from '../context/UserContext'
 
 const Dementia = () => {
-  
-  const { user, setUser } = useContext(UserContext)
-  const dementia = useDementia()
-  const updateDementia = useDementiaUpdate()
+
+  const { user, setUser } = useContext(UserContext);
+  const dementia = useDementia();
+  const updateDementia = useDementiaUpdate();
 
   React.useEffect(() => {
     updateDementia()
-  },[])
-  
+  }, [])
+
   return (
     <div className="dementia-container">
       {user && <h1>Hello <code>{user}</code></h1>}

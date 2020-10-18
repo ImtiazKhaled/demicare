@@ -1,24 +1,22 @@
-import React from "react";
-import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table";
-import { Display2 } from "baseui/typography";
-import { Button } from "baseui/button";
-import { t } from "react-switch-lang";
-import CommunityRow from "./community_row";
+import React from "react"
+import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table"
+import { Display2 } from "baseui/typography"
+import { Button } from "baseui/button"
+import { t } from "react-switch-lang"
+import CommunityRow from "./community_row"
 import { useResource } from '../context/ResourcesContext'
-import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { useUser } from '../context/UserContext'
 
 const Community = () => {
-  const { user, setUser } = useContext(UserContext)
-  const DATA = useResource();
+  const user = useUser()
+  const DATA = useResource()
 
   const showAllLocations = () => {
-    console.log("should show all maps now");
-  };
+    console.log("should show all maps now")
+  }
 
   return (
     <div className="community-container">
-      {user && <h1>Hello <code>{user}</code></h1>}
       <Display2 marginBottom="scale1000"> {t("communityResources")} </Display2>
       <Button onClick={() => showAllLocations()}> {t("seeFacilities")} </Button> <br /> <br />
       <StyledTable>
@@ -34,7 +32,7 @@ const Community = () => {
       </StyledTable>
       <div style={{ margin: "10vh" }} />
     </div>
-  );
-};
+  )
+}
 
-export default Community;
+export default Community

@@ -12,17 +12,13 @@ import { setLanguage, t } from 'react-switch-lang'
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/modal'
 import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
-import { useResourceUpdate } from '../context/ResourcesContext'
-import { UserContext } from '../context/UserContext'
 import NotFound from './NotFound';
 
 const Navigation = () => {
 
-  const [user, setUser] = React.useState('')
   const [isOpen, setIsOpen] = React.useState(false)
   const [lang, setLang] = React.useState('en')
-  const updateResources = useResourceUpdate();
-
+  
   React.useEffect(() => {
     setIsOpen(true)
   }, [])
@@ -42,56 +38,52 @@ const Navigation = () => {
         setLanguage('en')
     }
 
-    updateResources()
     setIsOpen(false)
   }
 
   return (
     <div>
-      <UserContext.Provider value={{ user, setUser }}>
-        <Switch>
-          <Route exact lang={lang} path='/community'>
-            <Community />
-          </Route>
-          <Route exact path='/research'>
-            <Research />
-          </Route>
-          <Route exact path='/about'>
-            <About />
-          </Route>
-          <Route exact path='/dementia'>
-            <Dementia />
-          </Route>
-          <Route exact path='/outreach'>
-            <Outreach />
-          </Route>
-          <Route exact path='/admin'>
-            <Admin />
-          </Route>
-          <Route exact path="/not-found">
-            <NotFound />
-          </Route>
-          <Route exact path='/'>
-            <Home lang={lang} />
-          </Route>
-          <Redirect to="/not-found" />
-        </Switch>
-      </UserContext.Provider>
-      <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
-        <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
-        <ModalBody>Select your preferred language</ModalBody>
-        <ModalBody>选择您喜欢的语言</ModalBody>
-        <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
-        <ModalBody>
-          <ButtonGroup>
-            <Button onClick={() => LanguageSelected('ENG')}>English</Button>
-            <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>
-            <Button onClick={() => LanguageSelected('CHI')}>Chinese</Button>
-          </ButtonGroup>
-        </ModalBody>
-        <ModalFooter><SocialLinks /></ModalFooter>
-      </Modal>
-
+      <Switch>
+        <Route exact lang={lang} path='/community'>
+          <Community />
+        </Route>
+        <Route exact path='/research'>
+          <Research />
+        </Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
+        <Route exact path='/dementia'>
+          <Dementia />
+        </Route>
+        <Route exact path='/outreach'>
+          <Outreach />
+        </Route>
+        <Route exact path='/admin'>
+          <Admin />
+        </Route>
+        <Route exact path="/not-found">
+          <NotFound />
+        </Route>
+        <Route exact path='/'>
+          <Home lang={lang} />
+        </Route>
+        <Redirect to="/not-found" />
+      </Switch>
+    <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
+      <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
+      <ModalBody>Select your preferred language</ModalBody>
+      <ModalBody>选择您喜欢的语言</ModalBody>
+      <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
+      <ModalBody>
+        <ButtonGroup>
+          <Button onClick={() => LanguageSelected('ENG')}>English</Button>
+          <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>
+          <Button onClick={() => LanguageSelected('CHI')}>Chinese</Button>
+        </ButtonGroup>
+      </ModalBody>
+      <ModalFooter><SocialLinks /></ModalFooter>
+    </Modal>
     </div>
   )
 }

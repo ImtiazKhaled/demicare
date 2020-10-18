@@ -1,6 +1,6 @@
 import React from 'react'
 import db from '../components/common/Firebase'
-import { getLanguage } from "react-switch-lang";
+import { getLanguage } from "react-switch-lang"
 
 const ResourceContext = React.createContext()
 const ResourceUpdateContext = React.createContext()
@@ -23,11 +23,11 @@ export default function ResourceProvider({ children }) {
 
             data = snapshot.docs.map((doc) => doc.data())
             if (getLanguage() !== "en") {
-                data = data.filter((facility) => facility.lang === getLanguage());
+                data = data.filter((facility) => facility.lang === getLanguage())
             }
 
             setResources(data)
-        });
+        })
     }
 
     return (

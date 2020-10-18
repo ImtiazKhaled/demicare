@@ -4,6 +4,7 @@ import { Display2 } from "baseui/typography"
 import { Button } from "baseui/button"
 import { t } from "react-switch-lang"
 import CommunityRow from "./community_row"
+import AddCommunity from './add_community'
 import { useResource } from '../context/ResourcesContext'
 import { useUser } from '../context/UserContext'
 
@@ -28,6 +29,11 @@ const Community = () => {
           {DATA.map((row, index) => (
             <CommunityRow key={index} id={index} {...row} />
           ))}
+          {
+            user === null ? 
+            <div /> : 
+            <AddCommunity />
+          }
         </StyledBody>
       </StyledTable>
       <div style={{ margin: "10vh" }} />

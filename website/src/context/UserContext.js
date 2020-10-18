@@ -20,7 +20,7 @@ export function useUserUpdate(uid) {
 
 const UserProvider = ({ children }) => {
 
-    const [user, setUser] = React.useState({})
+    const [user, setUser] = React.useState(null)
     const [username, setUsername] = React.useState('')
 
     function changeUser(uid) {

@@ -12,13 +12,15 @@ import { setLanguage, t } from 'react-switch-lang'
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/modal'
 import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
-import NotFound from './NotFound';
+import NotFound from './NotFound'
+import { useResourceUpdate } from '../context/ResourcesContext'
 
 const Navigation = () => {
 
   const [isOpen, setIsOpen] = React.useState(false)
   const [lang, setLang] = React.useState('en')
-  
+  const updateResources = useResourceUpdate()
+
   React.useEffect(() => {
     setIsOpen(true)
   }, [])
@@ -38,6 +40,7 @@ const Navigation = () => {
         setLanguage('en')
     }
 
+    updateResources()
     setIsOpen(false)
   }
 

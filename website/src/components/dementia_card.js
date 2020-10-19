@@ -7,13 +7,13 @@ import { t } from "react-switch-lang"
 
 const DementiaCard = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
-
+  
   const video =
     props.video === undefined || props.video === "" ? (
       ""
     ) : (
         <div className="video-responsive">
-          <iframe title="unique" width="500" height="315" src={props.video} frameborder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowfullscreen></iframe>
+          <iframe title="unique" width="500" height="315" src={props.video} frameborder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
         </div>
       )
 

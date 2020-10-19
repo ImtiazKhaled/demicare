@@ -5,9 +5,9 @@
 }
 
 .community-container {
-  padding-left: 5vw;
-  padding-right: 5vw;
-  padding-top: 2vw;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin-right: 600px;
 }
 
 .research-container {
@@ -56,4 +56,13 @@
   position: absolute;
   right: 3vw;
   width: 30%;
+}
+
+.leaflet-container{
+  width:70%;
+  height:70vh;
+  margin-left: 650px;
+  margin-top: 0px;
+  margin-right: 60px;
+  margin-bottom: 0px;
 }

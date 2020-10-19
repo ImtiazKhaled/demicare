@@ -3,13 +3,10 @@ import Menu from './menu'
 import Navigation from './navigation'
 import { BaseProvider } from "baseui"
 import { useTheme } from '../context/ThemeContext'
-
-import { translate } from "react-switch-lang";
-
+import { translate } from "react-switch-lang"
 
 const Main = () => {
-
-    const theme = useTheme()
+const theme = useTheme()
 
     return (
         <BaseProvider theme={theme}>
@@ -19,4 +16,4 @@ const Main = () => {
     )
 }
 
-export default translate(Main);
+export default translate(Main)

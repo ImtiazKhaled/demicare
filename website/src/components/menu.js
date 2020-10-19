@@ -1,14 +1,18 @@
-import * as React from "react";
-import { AppNavBar, setItemActive } from "baseui/app-nav-bar";
-import { useHistory } from "react-router-dom";
-import { StyledLink } from "baseui/link";
-import { translate, t } from "react-switch-lang";
+import * as React from "react"
+import { AppNavBar, setItemActive } from "baseui/app-nav-bar"
+import { useHistory } from "react-router-dom"
+import { StyledLink } from "baseui/link"
+import { translate, t } from "react-switch-lang"
+import { useUser, useUsername } from '../context/UserContext'
 
-const Menu = () => {
+function Menu() {
 
-  let history = useHistory();
+  const user = useUser()
+  const username = useUsername()
 
-  let [mainItems, setMainItems] = React.useState([]);
+  let history = useHistory()
+
+  let [mainItems, setMainItems] = React.useState([])
 
   mainItems = [
     { key: 'community', label: t('communityResources') },
@@ -16,7 +20,7 @@ const Menu = () => {
     { key: 'research', label: t('research') },
     { key: 'outreach', label: t('outreach') },
     { key: 'about', label: t('aboutUs') },
-  ];
+  ]
 
   const appDisplayName = (
     <StyledLink
@@ -30,39 +34,48 @@ const Menu = () => {
     >
       {t("researchProject")}
     </StyledLink>
-  );
+  )
 
   const onItemSelect = (item) => {
-    setMainItems(prev => setItemActive(prev, item));
+    setMainItems(prev => setItemActive(prev, item))
     switch (item.key) {
       case 'community':
-        history.push('/community');
-        break;
+        history.push('/community')
+        break
       case 'research':
-        history.push('/research');
-        break;
+        history.push('/research')
+        break
       case 'about':
-        history.push('/about');
-        break;
+        history.push('/about')
+        break
       case 'outreach':
-        history.push('/outreach');
-        break;
+        history.push('/outreach')
+        break
       case 'dementia':
-        history.push('/dementia');
-        break;
+        history.push('/dementia')
+        break
       default:
-        history.push('/');
-        break;
+        history.push('/')
+        break
     }
   }
 
-  return (
+  return user === null ?
     <AppNavBar
       title={appDisplayName}
       mainItems={mainItems}
       onMainItemSelect={onItemSelect}
-    />
-  );
+    /> : <AppNavBar
+      title={appDisplayName}
+      mainItems={mainItems}
+      onMainItemSelect={onItemSelect}
+      username={username}
+      userItems={[
+        { label: "Admin Tab" },
+
+      ]}
+      onUserItemSelect={() => history.push("/admin")}
+    /> 
 }
 
-export default translate(Menu);
+export default translate(Menu)

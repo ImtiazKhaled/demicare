@@ -13,12 +13,11 @@ import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/m
 import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
 import { useResourceUpdate } from '../context/ResourcesContext'
-import { UserContext } from '../context/UserContext'
+
 import NotFound from './NotFound';
 
 const Navigation = () => {
 
-  const [user, setUser] = React.useState('')
   const [isOpen, setIsOpen] = React.useState(false)
   const [lang, setLang] = React.useState('en')
   const updateResources = useResourceUpdate();
@@ -48,35 +47,35 @@ const Navigation = () => {
 
   return (
     <div>
-      <UserContext.Provider value={{ user, setUser }}>
-        <Switch>
-          <Route exact lang={lang} path='/community'>
-            <Community />
-          </Route>
-          <Route exact path='/research'>
-            <Research />
-          </Route>
-          <Route exact path='/about'>
-            <About />
-          </Route>
-          <Route exact path='/dementia'>
-            <Dementia />
-          </Route>
-          <Route exact path='/outreach'>
-            <Outreach />
-          </Route>
-          <Route exact path='/admin'>
-            <Admin />
-          </Route>
-          <Route exact path="/not-found">
-            <NotFound />
-          </Route>
-          <Route exact path='/'>
-            <Home lang={lang} />
-          </Route>
-          <Redirect to="/not-found" />
-        </Switch>
-      </UserContext.Provider>
+
+      <Switch>
+        <Route exact lang={lang} path='/community'>
+          <Community />
+        </Route>
+        <Route exact path='/research'>
+          <Research />
+        </Route>
+        <Route exact path='/about'>
+          <About />
+        </Route>
+        <Route exact path='/dementia'>
+          <Dementia />
+        </Route>
+        <Route exact path='/outreach'>
+          <Outreach />
+        </Route>
+        <Route exact path='/admin'>
+          <Admin />
+        </Route>
+        <Route exact path="/not-found">
+          <NotFound />
+        </Route>
+        <Route exact path='/'>
+          <Home lang={lang} />
+        </Route>
+        <Redirect to="/not-found" />
+      </Switch>
+
       <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
         <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
         <ModalBody>Select your preferred language</ModalBody>

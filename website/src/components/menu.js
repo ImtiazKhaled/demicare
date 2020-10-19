@@ -3,8 +3,14 @@ import { AppNavBar, setItemActive } from "baseui/app-nav-bar";
 import { useHistory } from "react-router-dom";
 import { StyledLink } from "baseui/link";
 import { translate, t } from "react-switch-lang";
+// import { Overflow } from "baseui/icon";
+import { useContext } from 'react'
+import { UserContext } from '../context/UserContext'
 
-const Menu = () => {
+function Menu() {
+
+
+  const { user } = useContext(UserContext);
 
   let history = useHistory();
 
@@ -61,6 +67,13 @@ const Menu = () => {
       title={appDisplayName}
       mainItems={mainItems}
       onMainItemSelect={onItemSelect}
+      username={user}
+      // usernameSubtitle="5 Stars"
+      userItems={[
+        { label: "Admin Tab" },
+
+      ]}
+      onUserItemSelect={item => history.push("/admin")}
     />
   );
 }

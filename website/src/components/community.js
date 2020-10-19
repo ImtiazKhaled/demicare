@@ -1,40 +1,48 @@
-import React from "react";
-import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table";
-import { Display2 } from "baseui/typography";
-import { Button } from "baseui/button";
-import { t } from "react-switch-lang";
-import CommunityRow from "./community_row";
+import React from "react"
+import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table"
+import { Display2 } from "baseui/typography"
+import { t } from "react-switch-lang"
+import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
+import CommunityCard from "./community_card"
+import AddCommunity from './add_community'
 import { useResource } from '../context/ResourcesContext'
-import { useContext } from 'react'
-import { UserContext } from '../context/UserContext'
+import { useUser } from '../context/UserContext'
+import ComMap from "./map"
+
 
 const Community = () => {
-  const { user, setUser } = useContext(UserContext)
-  const DATA = useResource();
-
-  const showAllLocations = () => {
-    console.log("should show all maps now");
-  };
+  const user = useUser()
+  const DATA = useResource()
 
   return (
     <div className="community-container">
-      {user && <h1>Hello <code>{user}</code></h1>}
       <Display2 marginBottom="scale1000"> {t("communityResources")} </Display2>
-      <Button onClick={() => showAllLocations()}> {t("seeFacilities")} </Button> <br /> <br />
-      <StyledTable>
-        <StyledHead>
-          <StyledHeadCell>{t("title")}</StyledHeadCell>
-          <StyledHeadCell>{t("resource")}</StyledHeadCell>
-        </StyledHead>
-        <StyledBody>
-          {DATA.map((row, index) => (
-            <CommunityRow key={index} id={index} {...row} />
-          ))}
-        </StyledBody>
-      </StyledTable>
-      <div style={{ margin: "10vh" }} />
-    </div>
-  );
-};
 
-export default Community;
+      <FlexGrid
+        className="community-map"
+        flexGridColumnCount={[1, 1, 2, 2]}
+      >
+        <FlexGridItem>
+          {
+            DATA.map((row, index) => (
+              <CommunityCard key={index} id={index} {...row} />
+            ))
+          }
+          {
+            user === null ?
+              <div /> :
+              <AddCommunity />
+          }
+        </FlexGridItem>
+
+        <FlexGridItem>
+          <ComMap />
+        </FlexGridItem>
+      </FlexGrid>
+    </div>
+  )
+
+}
+
+
+export default Community

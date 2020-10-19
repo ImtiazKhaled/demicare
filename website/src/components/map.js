@@ -3,7 +3,7 @@
 
 
 // export  function App() {
-  
+
 //   const [activeLocation, setActiveLocation]=React.useState(null);
 
 //   return (
@@ -18,13 +18,13 @@
 //         park.geometry.coordinates[0],
 //         park.geometry.coordinates[1]
 //       ]}
-      
+
 //       onclick={()=>{
 //         setActiveLocation(park);
 //       }}
 //       />
 //      ))}
-     
+
 
 //     {activeLocation && (
 //       <Popup position={[activeLocation.geometry.coordinates[0],activeLocation.geometry.coordinates[1]
@@ -47,50 +47,47 @@
 
 // export default Map;
 
-import React,{Component} from 'react';
-import {Map, Marker,Popup, TileLayer} from "react-leaflet";
+import * as React from 'react';
+import { Map, Marker, Popup, TileLayer } from "react-leaflet";
 import * as locationData from "./locations.json";
-import '../App.css';
 
-export default function App() {
-
-  const [activeLocation, setActiveLocation]=React.useState(null);
+export default function ComMap() {
+  const [activeLocation, setActiveLocation] = React.useState(null);
 
   return (
-  <Map center= {[32.947361, -96.898666]} zoom ={12}>
-     <TileLayer
-      url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-      attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;%3EOpenStreetMap</a> contributors"
-    />
-
-     {locationData.features.map(park=>(
-      <Marker key={park.properties.PARK_ID} position={[
-        park.geometry.coordinates[0],
-        park.geometry.coordinates[1]
-      ]}
-
-      onclick={()=>{
-        setActiveLocation(park);
-      }}
+    <Map center={[32.947361, -96.898666]} zoom={12}>
+      <TileLayer
+        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+        attribution="&copy; <a href=&quot;http://osm.org/copyright&quot;%3EOpenStreetMap</a> contributors"
       />
-     ))}
 
+      {locationData.features.map(park => (
+        <Marker key={park.properties.PARK_ID} position={[
+          park.geometry.coordinates[0],
+          park.geometry.coordinates[1]
+        ]}
 
-    {activeLocation && (
-      <Popup position={[activeLocation.geometry.coordinates[0],activeLocation.geometry.coordinates[1]
-      ]}
-      onClose={()=>{
-        setActiveLocation(null);
-      }}
+          onclick={() => {
+            setActiveLocation(park);
+          }}
+        />
+      ))}
 
-      >
-        <div>
-          <h2>{activeLocation.properties.NAME}</h2>
-          <p>{activeLocation.properties.DESCRIPTIO}</p>
-        </div>
-    </Popup>
-    )}
+      {activeLocation && (
+        <Popup position={[activeLocation.geometry.coordinates[0], activeLocation.geometry.coordinates[1]
+        ]}
+          onClose={() => {
+            setActiveLocation(null);
+          }}
 
-  </Map>
-  );
+        >
+          <div>
+            <h2>{activeLocation.properties.NAME}</h2>
+            <p>{activeLocation.properties.DESCRIPTIO}</p>
+          </div>
+        </Popup>
+      )}
+
+    </Map>
+  )
 }

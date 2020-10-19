@@ -1,7 +1,6 @@
 import React from 'react'
 import db from '../components/common/Firebase'
 import { getLanguage } from "react-switch-lang"
-import { add } from 'date-fns'
 
 const ResourceContext = React.createContext()
 const ResourceUpdateContext = React.createContext()

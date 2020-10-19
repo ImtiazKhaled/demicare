@@ -10,6 +10,10 @@
   margin-right: 600px;
 }
 
+.community-map {
+  width: 95vw;
+}
+
 .research-container {
   padding-left: 5vw;
   padding-right: 5vw;
@@ -59,10 +63,6 @@
 }
 
 .leaflet-container{
-  width:70%;
-  height:70vh;
-  margin-left: 650px;
-  margin-top: 0px;
-  margin-right: 60px;
-  margin-bottom: 0px;
+  width:100%;
+  height:100%;
 }

@@ -13,8 +13,7 @@ export function useUsername() {
     return React.useContext(UsernameContext)
 }
 
-export function useUserUpdate(uid) {
-    console.log(uid)
+export function useUserUpdate() {
     return React.useContext(UserUpdateContext)
 }
 
@@ -24,7 +23,7 @@ const UserProvider = ({ children }) => {
     const [username, setUsername] = React.useState('')
 
     function changeUser(uid) {
-        if(uid !== "") {
+        if(uid !== "" || uid !== null) {
             db.collection("admin").doc(uid).onSnapshot((snapshot) => {
                 setUser(snapshot.data())
                 setUsername(snapshot.data().firstName + " " + snapshot.data().lastName)

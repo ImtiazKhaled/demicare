@@ -5,13 +5,19 @@
 }
 
 .community-container {
+  padding-top: 2vw;
   padding-left: 2vw;
   padding-right: 2vw;
   margin-right: 600px;
+  margin-bottom: 5vh;
 }
 
 .community-map {
   width: 95vw;
+}
+
+.community-input {
+  width: 100%;
 }
 
 .research-container {

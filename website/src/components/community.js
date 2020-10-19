@@ -3,7 +3,7 @@ import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/tabl
 import { Display2 } from "baseui/typography"
 import { t } from "react-switch-lang"
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
-import CommunityRow from "./community_row"
+import CommunityCard from "./community_card"
 import AddCommunity from './add_community'
 import { useResource } from '../context/ResourcesContext'
 import { useUser } from '../context/UserContext'
@@ -20,26 +20,19 @@ const Community = () => {
 
       <FlexGrid
         className="community-map"
-        flexGridColumnCount={2}
+        flexGridColumnCount={[1, 1, 2, 2]}
       >
         <FlexGridItem>
-          <StyledTable>
-            <StyledHead>
-              <StyledHeadCell>{t("title")}</StyledHeadCell>
-              <StyledHeadCell>{t("resource")}</StyledHeadCell>
-            </StyledHead>
-            <StyledBody>
-              {DATA.map((row, index) => (
-                <CommunityRow key={index} id={index} {...row} />
-              ))}
-              {
-                user === null ?
-                  <div /> :
-                  <AddCommunity />
-              }
-            </StyledBody>
-          </StyledTable>
-          <div style={{ margin: "10vh" }} />
+          {
+            DATA.map((row, index) => (
+              <CommunityCard key={index} id={index} {...row} />
+            ))
+          }
+          {
+            user === null ?
+              <div /> :
+              <AddCommunity />
+          }
         </FlexGridItem>
 
         <FlexGridItem>

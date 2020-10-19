@@ -14,12 +14,16 @@ import { ButtonGroup } from "baseui/button-group"
 import { Button } from "baseui/button"
 import NotFound from './not_found'
 import { useResourceUpdate } from '../context/ResourcesContext'
+import { firebaseApp as fire } from '../components/common/Firebase'
+import { useUserUpdate } from '../context/UserContext'
+
 
 const Navigation = () => {
 
   const [isOpen, setIsOpen] = React.useState(false)
   const [lang, setLang] = React.useState('en')
   const updateResources = useResourceUpdate()
+  const setUser = useUserUpdate()
 
   React.useEffect(() => {
     setIsOpen(true)
@@ -40,8 +44,17 @@ const Navigation = () => {
         setLanguage('en')
     }
 
+    CloseModal()
+  }
+
+  const CloseModal = () => {
     updateResources()
     setIsOpen(false)
+    
+    const user = fire.auth().currentUser
+    if(user !== null) {
+      setUser(user.uid)
+    }
   }
 
   return (
@@ -73,7 +86,7 @@ const Navigation = () => {
         </Route>
         <Redirect to="/not-found" />
       </Switch>
-    <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
+    <Modal onClose={CloseModal} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
       <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
       <ModalBody>Select your preferred language</ModalBody>
       <ModalBody>选择您喜欢的语言</ModalBody>

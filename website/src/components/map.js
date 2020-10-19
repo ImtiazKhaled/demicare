@@ -49,7 +49,7 @@
 
 import * as React from 'react';
 import { Map, Marker, Popup, TileLayer } from "react-leaflet";
-import * as locationData from "./locations.json";
+import * as locationData from "./common/locations.json";
 
 export default function ComMap() {
   const [activeLocation, setActiveLocation] = React.useState(null);

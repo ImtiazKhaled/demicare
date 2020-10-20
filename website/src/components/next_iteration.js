@@ -5,8 +5,8 @@ const NextIter = () => {
 
     return(
         <div style={{alignContent:'space-around'}}>
-            <img src={picture} height='auto' width='100%'></img>
             <img src={timeline} height='auto' width='100%'></img>
+            <img src={picture} height='auto' width='100%'></img>
         </div>
         
     )

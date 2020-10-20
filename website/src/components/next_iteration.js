@@ -1,6 +1,7 @@
 import React from 'react'
 import picture from './future.png'
-const next_iter = () => {
+
+const NextIter = () => {
 
     return(
         <div style={{alignContent:'space-around'}}>
@@ -10,4 +11,4 @@ const next_iter = () => {
     )
 }
 
-export default next_iter;
+export default NextIter;

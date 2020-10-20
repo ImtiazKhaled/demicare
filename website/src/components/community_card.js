@@ -13,7 +13,7 @@ const CommunityRow = (props) => {
       navigator.geolocation.getCurrentPosition((position) => {
         var tempMarkdown = markdown.replace("0000", position.coords.latitude.toString())
         tempMarkdown = tempMarkdown.replace("0000", position.coords.longitude.toString())
-        tempMarkdown = tempMarkdown.replaceAll("<newline>", `\n\n`)
+        tempMarkdown = tempMarkdown.replaceAll("<newline>", `\n\n<br />`)
         setMarkdown(tempMarkdown)
       })
     } else {

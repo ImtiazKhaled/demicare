@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 import { StyledLink } from 'baseui/link'
 import { translate, t } from 'react-switch-lang'
 import { useUser, useUsername, useUserUpdate } from '../context/UserContext'
+import { firebaseApp as fire } from './common/Firebase'
 
 function Menu() {
 
@@ -82,8 +83,12 @@ function Menu() {
         { label: 'Log Out', tab: '/logout' }
       ]}
       onUserItemSelect={(item) => {
-        if(item.tab === '/logout') setUser(' ')  
-        else history.push(item.tab)
+        if(item.tab === '/logout') {
+          fire.auth().signOut()
+          setUser(' ')  
+        } else { 
+          history.push(item.tab)
+        }
       }}
     />
 }

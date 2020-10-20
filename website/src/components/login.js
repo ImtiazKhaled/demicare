@@ -74,6 +74,8 @@ const Form = () => {
           case "auth/wrong-password":
             setPasswordError(err.message)
             break
+          default:
+            break
         }
       })
 
@@ -81,6 +83,7 @@ const Form = () => {
 
   function logout() {
     fire.auth().signOut()
+    setUser(' ')
   }
 
   function authListener() {
@@ -96,7 +99,7 @@ const Form = () => {
       }
       else {
         setLoggedIn(false)
-        setUser('')
+        setUser(' ')
       }
     })
   }

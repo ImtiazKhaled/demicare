@@ -5,6 +5,7 @@ import Research from './research'
 import Community from './community'
 import Dementia from './dementia'
 import Outreach from './outreach'
+import Team from './team'
 import SocialLinks from './social_links'
 import Home from './home'
 import Admin from './admin'
@@ -74,6 +75,9 @@ const Navigation = () => {
         </Route>
         <Route exact path='/outreach'>
           <Outreach />
+          </Route>
+        <Route path='/team'>
+            <Team />
         </Route>
         <Route exact path='/admin'>
           <Admin />

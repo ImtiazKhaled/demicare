@@ -25,8 +25,13 @@ const UserProvider = ({ children }) => {
     function changeUser(uid) {
         if(uid !== "" || uid !== null) {
             db.collection("admin").doc(uid).onSnapshot((snapshot) => {
-                setUser(snapshot.data())
-                setUsername(snapshot.data().firstName + " " + snapshot.data().lastName)
+                if(snapshot.data() !== undefined) {
+                    setUser(snapshot.data())
+                    setUsername(snapshot.data().firstName + " " + snapshot.data().lastName)
+                } else {
+                    setUser(null)
+                    setUsername('')
+                }
             })
         }
     }

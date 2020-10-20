@@ -1,5 +1,4 @@
 import React from "react"
-import { StyledTable, StyledHead, StyledHeadCell, StyledBody } from "baseui/table"
 import { Display2 } from "baseui/typography"
 import { t } from "react-switch-lang"
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'

@@ -1,14 +1,15 @@
-import * as React from "react"
-import { AppNavBar, setItemActive } from "baseui/app-nav-bar"
-import { useHistory } from "react-router-dom"
-import { StyledLink } from "baseui/link"
-import { translate, t } from "react-switch-lang"
-import { useUser, useUsername } from '../context/UserContext'
+import * as React from 'react'
+import { AppNavBar, setItemActive } from 'baseui/app-nav-bar'
+import { useHistory } from 'react-router-dom'
+import { StyledLink } from 'baseui/link'
+import { translate, t } from 'react-switch-lang'
+import { useUser, useUsername, useUserUpdate } from '../context/UserContext'
 
 function Menu() {
 
   const user = useUser()
   const username = useUsername()
+  const setUser = useUserUpdate()
 
   let history = useHistory()
 
@@ -27,14 +28,14 @@ function Menu() {
   const appDisplayName = (
     <StyledLink
       $style={{
-        textDecoration: "none",
-        color: "inherit",
-        ":hover": { color: "inherit", cursor: "pointer" },
-        ":visited": { color: "inherit" },
+        textDecoration: 'none',
+        color: 'inherit',
+        ':hover': { color: 'inherit', cursor: 'pointer' },
+        ':visited': { color: 'inherit' },
       }}
       onClick={() => { setMainItems(prev => setItemActive(prev, { label: 'whatis', active: false })); history.push('/') }}
     >
-      {t("researchProject")}
+      {t('researchProject')}
     </StyledLink>
   )
 
@@ -76,12 +77,14 @@ function Menu() {
       onMainItemSelect={onItemSelect}
       username={username}
       userItems={[
-        { label: "Admin Tab", tab: "/admin" },
-        { label: "Next Iteration", tab: "/team" },
-        { label: "Log Out" }
-
+        { label: 'Admin Tab', tab: '/admin' },
+        { label: 'Next Iteration', tab: '/future' },
+        { label: 'Log Out', tab: '/logout' }
       ]}
-      onUserItemSelect={(item) => history.push(item.tab)}
+      onUserItemSelect={(item) => {
+        if(item.tab === '/logout') setUser(' ')  
+        else history.push(item.tab)
+      }}
     />
 }
 

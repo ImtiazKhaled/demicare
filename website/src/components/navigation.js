@@ -9,6 +9,7 @@ import Team from './team'
 import SocialLinks from './social_links'
 import Home from './home'
 import Admin from './admin'
+import Next from './next_iteration'
 import { setLanguage, t } from 'react-switch-lang'
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from 'baseui/modal'
 import { ButtonGroup } from "baseui/button-group"
@@ -88,7 +89,11 @@ const Navigation = () => {
         <Route exact path='/'>
           <Home lang={lang} />
         </Route>
+        <Route exact path='/future'>
+          <Next />
+        </Route>
         <Redirect to="/not-found" />
+        
       </Switch>
     <Modal onClose={CloseModal} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
       <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>

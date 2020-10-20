@@ -71,12 +71,12 @@ function Menu() {
       onMainItemSelect={onItemSelect}
       username={username}
       userItems={[
-        { label: "Admin Tab", tab: history.push("/admin") },
+        { label: "Admin Tab" },
         { label: "Next Iteration", },
         { label: "Log Out" }
 
       ]}
-      onUserItemSelect={(item) => item.tab}
+      onUserItemSelect={() => history.push("/admin")}
     />
 }
 

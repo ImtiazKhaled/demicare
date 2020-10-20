@@ -51,9 +51,9 @@ const Navigation = () => {
   const CloseModal = () => {
     updateResources()
     setIsOpen(false)
-    
+
     const user = fire.auth().currentUser
-    if(user !== null) {
+    if (user !== null) {
       setUser(user.uid)
     }
   }
@@ -75,9 +75,9 @@ const Navigation = () => {
         </Route>
         <Route exact path='/outreach'>
           <Outreach />
-          </Route>
+        </Route>
         <Route path='/team'>
-            <Team />
+          <Team />
         </Route>
         <Route exact path='/admin'>
           <Admin />
@@ -90,20 +90,20 @@ const Navigation = () => {
         </Route>
         <Redirect to="/not-found" />
       </Switch>
-    <Modal onClose={CloseModal} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
-      <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
-      <ModalBody>Select your preferred language</ModalBody>
-      <ModalBody>选择您喜欢的语言</ModalBody>
-      <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
-      <ModalBody>
-        <ButtonGroup>
-          <Button onClick={() => LanguageSelected('ENG')}>English</Button>
-          <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>
-          <Button onClick={() => LanguageSelected('CHI')}>Chinese</Button>
-        </ButtonGroup>
-      </ModalBody>
-      <ModalFooter><SocialLinks /></ModalFooter>
-    </Modal>
+      <Modal onClose={CloseModal} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
+        <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
+        <ModalBody>Select your preferred language</ModalBody>
+        <ModalBody>选择您喜欢的语言</ModalBody>
+        <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
+        <ModalBody>
+          <ButtonGroup>
+            <Button onClick={() => LanguageSelected('ENG')}>English</Button>
+            <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>
+            <Button onClick={() => LanguageSelected('CHI')}>Chinese</Button>
+          </ButtonGroup>
+        </ModalBody>
+        <ModalFooter><SocialLinks /></ModalFooter>
+      </Modal>
     </div>
   )
 }

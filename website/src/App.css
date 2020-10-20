@@ -38,6 +38,12 @@
   padding-top: 2vw;
 }
 
+.teams-container {
+  padding-left: 5vw;
+  padding-right: 5vw;
+  padding-top: 2vw;
+}
+
 .home-container {
   background-image: url(https://storage.googleapis.com/imkkhld/demi-care/background.jfif);
   background-repeat: no-repeat;

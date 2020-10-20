@@ -20,6 +20,8 @@ function Menu() {
     { key: 'research', label: t('research') },
     { key: 'outreach', label: t('outreach') },
     { key: 'about', label: t('aboutUs') },
+    { key: 'team', label: t('Team') },
+
   ]
 
   const appDisplayName = (
@@ -53,6 +55,9 @@ function Menu() {
         break
       case 'dementia':
         history.push('/dementia')
+        break
+      case 'team':
+        history.push('/team')
         break
       default:
         history.push('/')

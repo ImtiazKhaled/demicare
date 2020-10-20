@@ -22,8 +22,6 @@ function Menu() {
     { key: 'research', label: t('research') },
     { key: 'outreach', label: t('outreach') },
     { key: 'about', label: t('aboutUs') },
-    { key: 'team', label: t('Team') },
-
   ]
 
   const appDisplayName = (

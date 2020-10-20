@@ -5,10 +5,11 @@ import { useStyletron } from 'baseui'
 import { Alert } from 'baseui/icon'
 import { Button } from 'baseui/button'
 import { Textarea } from 'baseui/textarea'
-import { Display2 } from 'baseui/typography'
+import { Display2, Display4 } from 'baseui/typography'
 import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
 import emailjs, {init} from 'emailjs-com'
+import Team from './team'
 import { t } from "react-switch-lang"
 
 init("user_JW3ks5oI2VRhlP9KdZiiR")
@@ -83,7 +84,9 @@ const Form = () => {
       <div className='contact-container'>
       <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
       <form onSubmit={sendEmail}>
-          
+          <Team />
+          <div style={{minHeight: '15vh'}} />
+          <Display4 marginBottom="scale1000"> Contact Us </Display4>
           <FormControl label={`${t("First Name")}`} >
             <Input
               placeholder={`${t("First Name")}`}
@@ -130,6 +133,7 @@ const Form = () => {
           </FormControl>
           
           <Button type="submit">{t("submitEmail")}</Button>
+          <div style={{minHeight: '15vh'}} />
       </form>
       </div>
     </ToasterContainer>

@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Display2 } from "baseui/typography";
-import { Button } from "baseui/button";
-import { RiWechatFill, RiKakaoTalkFill } from "react-icons/ri";
-import { t } from "react-switch-lang";
+import * as React from "react"
+import { Display2 } from "baseui/typography"
+import { Button } from "baseui/button"
+import { RiWechatFill, RiKakaoTalkFill } from "react-icons/ri"
+import { t } from "react-switch-lang"
 
 const Outreach = () => {
   return (
@@ -24,7 +24,7 @@ const Outreach = () => {
         {t("kakaoTalk")}
       </Button>
     </div>
-  );
-};
+  )
+}
 
-export default Outreach;
+export default Outreach

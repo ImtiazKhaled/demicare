@@ -77,10 +77,12 @@ function Menu() {
       username={username}
       userItems={[
         { label: "Admin Tab" },
+        { label: "Next Iteration", },
+        { label: "Log Out" }
 
       ]}
       onUserItemSelect={() => history.push("/admin")}
-    /> 
+    />
 }
 
 export default translate(Menu)

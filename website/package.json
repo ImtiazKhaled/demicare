@@ -13,6 +13,7 @@
     "emailjs-com": "^2.6.3",
     "firebase": "^7.22.0",
     "leaflet": "^1.7.1",
+    "leaflet-routing-machine": "^3.2.12",
     "react": "^16.13.1",
     "react-calendly": "^1.1.0",
     "react-dom": "^16.13.1",

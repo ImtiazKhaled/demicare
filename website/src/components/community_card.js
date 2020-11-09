@@ -7,7 +7,7 @@ import ReactMD from "react-markdown"
 import { StyledLink } from "baseui/link";
 
 
-const CommunityRow = (props) => {
+const AdminEditCommunityCard = (props) => {
   // const [markdown, setMarkdown] = React.useState(props.description)
   const [address, setAddress] = React.useState(props.gmaps);
   const tel = `tel:${props.phoneNumber}`;
@@ -40,7 +40,7 @@ const CommunityRow = (props) => {
     <Card>
       <StyledRow key={props.id}>
         <StyledCell>
-          <StyledBodyCell>{props.title}</StyledBodyCell>
+          <StyledBodyCell><h3>{props.title}</h3></StyledBodyCell>
         </StyledCell>
         <StyledCell>
           <StyledBodyCell>
@@ -66,4 +66,4 @@ const CommunityRow = (props) => {
   )
 }
 
-export default CommunityRow
+export default AdminEditCommunityCard

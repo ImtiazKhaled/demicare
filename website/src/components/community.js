@@ -3,7 +3,7 @@ import { Display2 } from "baseui/typography"
 import { t } from "react-switch-lang"
 import { FlexGrid, FlexGridItem } from 'baseui/flex-grid'
 import CommunityCard from "./community_card"
-import AddCommunity from './add_community'
+// import AddCommunity from './add_community'
 import { useResource } from '../context/ResourcesContext'
 import { useUser } from '../context/UserContext'
 import ComMap from "./map"
@@ -11,7 +11,7 @@ import ComMap from "./map"
 
 const Community = () => {
   const user = useUser()
-  const DATA = useResource()
+  const DATA = useResource().sort((a, b) => a.title.localeCompare(b.title));
 
   return (
     <div className="community-container">
@@ -27,11 +27,11 @@ const Community = () => {
               <CommunityCard key={index} id={index} {...row} />
             ))
           }
-          {
+          {/* {
             user === null ?
               <div /> :
               <AddCommunity />
-          }
+          } */}
         </FlexGridItem>
 
         <FlexGridItem>

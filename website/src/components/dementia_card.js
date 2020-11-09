@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Card, StyledBody, StyledAction } from "baseui/card"
-import { Button } from "baseui/button"
+
+import { Button, KIND, SHAPE } from "baseui/button";
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from "baseui/modal"
 import ReactMD from "react-markdown"
 
@@ -45,7 +46,8 @@ const DementiaCard = (props) => {
         {description}
 
         <StyledAction>
-          <Button onClick={() => setIsOpen(true)} overrides={{ BaseButton: { style: { width: "100%" } } }}>
+          <Button kind={KIND.secondary}
+            shape={SHAPE.pill} onClick={() => setIsOpen(true)} overrides={{ BaseButton: { style: { width: "100%" } } }}>
             {t("more")}
           </Button>
         </StyledAction>

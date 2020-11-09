@@ -3,11 +3,23 @@ import { Card, StyledBody, StyledAction } from "baseui/card"
 import { Button } from "baseui/button"
 import { Modal, ModalHeader, ModalBody, ModalFooter, SIZE, ROLE } from "baseui/modal"
 import ReactMD from "react-markdown"
+
+import { StyledLink } from "baseui/link";
 import { t } from "react-switch-lang"
 
 const DementiaCard = (props) => {
   const [isOpen, setIsOpen] = React.useState(false);
-  
+
+  const description =
+
+    props.description === undefined || props.description === "" ? (
+      ""
+    ) : (
+        <StyledBody>
+          <ReactMD source={props.description.substring(0, 150)} />
+        </StyledBody>
+      );
+
   const video =
     props.video === undefined || props.video === "" ? (
       ""
@@ -17,12 +29,20 @@ const DementiaCard = (props) => {
         </div>
       )
 
+  const article =
+    props.article === undefined || props.article === "" ? (
+      ""
+    ) : (
+        <StyledLink href={props.article}>
+          {t("readArticle")}
+        </StyledLink>
+      )
+
+
   return (
     <div>
       <Card overrides={{ Root: { style: { width: "328px" } } }} headerImage={props.image} title={props.title}>
-        <StyledBody>
-          <ReactMD source={props.description} />
-        </StyledBody>
+        {description}
 
         <StyledAction>
           <Button onClick={() => setIsOpen(true)} overrides={{ BaseButton: { style: { width: "100%" } } }}>
@@ -31,13 +51,13 @@ const DementiaCard = (props) => {
         </StyledAction>
       </Card>
 
-      <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
+      <Modal onClose={() => setIsOpen(false)} closeable isOpen={isOpen} animate autoFocus size={SIZE.default} role={ROLE.dialog}>
         <ModalHeader>{props.title}</ModalHeader>
         <ModalBody>{props.description}</ModalBody>
 
-        <ModalBody></ModalBody>
-
         <ModalFooter>{video}</ModalFooter>
+        <ModalBody>{article}</ModalBody>
+
       </Modal>
     </div>
   )

@@ -16,7 +16,7 @@ export default function AdminEdit() {
             }}
             activeKey={activeKey}
         >
-            <Tab title="Community Resources">
+            <Tab title={<h3>Community Resources</h3>}>
 
                 <h2>Add New Facility</h2>
                 <AddCommunity />
@@ -28,7 +28,7 @@ export default function AdminEdit() {
                 <h2>List of Facilities</h2>
                 <AdminCommunityCard />
             </Tab>
-            <Tab title="Dementia Information">
+            <Tab title={<h3>Community Resources</h3>} >
                 <AdminEditDementiaInfo />
             </Tab>
 

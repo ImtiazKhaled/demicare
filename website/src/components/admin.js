@@ -2,10 +2,13 @@ import * as React from 'react'
 import AdminEdit from './adminEdit'
 import Login from './login'
 
+import { useUser } from '../context/UserContext'
+
 
 const Main = () => {
 
     const classes = style;
+    const user = useUser()
 
     return (
         <div>
@@ -14,7 +17,7 @@ const Main = () => {
                 <Login />
             </div>
 
-            <div style={classes.container}> <AdminEdit /></div>
+            {user && <div style={classes.container}> <AdminEdit /></div>}
 
 
         </div>

@@ -20,13 +20,16 @@ const engine = new Styletron()
 const App = () => {
 
   return (
-    <AllContextProvider>
-      <StyletronProvider value={engine}>
-        <Router>
-          <Main />
-        </Router>
-      </StyletronProvider>
-    </AllContextProvider>
+    <div className="app">
+      <AllContextProvider>
+        <StyletronProvider value={engine}>
+          <Router>
+            <Main />
+          </Router>
+        </StyletronProvider>
+      </AllContextProvider>
+    </div>
+
   )
 }
 

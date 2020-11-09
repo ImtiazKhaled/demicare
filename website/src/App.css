@@ -1,3 +1,18 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300&display=swap");
+
+.app {
+  font-family: "Kumbh Sans", sans-serif;
+  position: relative;
+  min-height: 100vh;
+  /* |background-image: url("../src/images/Pattern-Randomized.svg"); */
+}
+
+.wrapped-content {
+  margin-top: 50px;
+  padding-bottom: 2.5rem;
+}
+
 .contact-container {
   padding-left: 5vw;
   padding-right: 5vw;

@@ -4,7 +4,8 @@ import { StyledBodyCell } from "baseui/table-grid"
 import { FormControl } from "baseui/form-control"
 import { Input } from "baseui/input"
 import { Checkbox } from 'baseui/checkbox'
-import { Button } from 'baseui/button'
+
+import { Button, SHAPE } from "baseui/button";
 import { useAddResource } from '../context/ResourcesContext'
 import { Card } from "baseui/card"
 
@@ -26,6 +27,11 @@ const CommunityRow = () => {
     const addResource = () => {
         const result = { number, address, website, name, checkboxes }
         addResrc(result)
+
+        setNumber("");
+        setName("");
+        setWebsite("");
+        setAddress("");
     }
 
     return (
@@ -68,7 +74,7 @@ const CommunityRow = () => {
                     </StyledBodyCell>
                 </StyledCell>
             </StyledRow>
-            <Button onClick={addResource}>Add Resource</Button>
+            <Button shape={SHAPE.pill} onClick={addResource}>Add Resource</Button>
         </Card>
     )
 }

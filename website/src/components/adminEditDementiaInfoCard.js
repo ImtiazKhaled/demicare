@@ -3,14 +3,14 @@ import editIcon from "../images/edit-solid.svg";
 import { Input } from "baseui/input";
 
 import db from '../components/common/Firebase'
-import { ButtonGroup, SHAPE } from "baseui/button-group";
-import { Button } from 'baseui/button';
-import { StyledRow, StyledCell } from "baseui/table"
-import { StyledBodyCell } from "baseui/table-grid"
+
+import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import DementiaCard from './dementia_card';
 
 import { Textarea } from "baseui/textarea";
 import { Card } from "baseui/card";
+import { FlexGrid } from 'baseui/flex-grid';
+import { FlexGridItem } from 'baseui/flex-grid';
 
 function AdminEditDementiaInfoCard(props) {
 
@@ -86,58 +86,76 @@ function AdminEditDementiaInfoCard(props) {
         <br />
         <br />
 
-        <ButtonGroup shape={SHAPE.pill}>
-
-            <Button onClick={() => saveEntry()}>SAVE</Button>
-
-            <Button onClick={() => setEdit(false)}>CANCEL</Button>
-
-        </ButtonGroup>
+        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
+        <span>&nbsp;&nbsp;</span>
+        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
 
     </div>;
 
-    const displayMode = <a style={{ cursor: "pointer" }}>
+    const displayMode = <Button kind={KIND.minimal}
+        size={SIZE.large}
+        shape={SHAPE.pill} style={{ cursor: "pointer" }}>
         <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
 
-    </a>
-
-
-
-
-
-
-
+    </Button>
 
 
     const view = edit === true ? editMode : displayMode;
 
+
+    const itemProps = {
+        backgroundColor: 'mono300',
+        height: 'scale1000',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    };
+
+
+    const wideItemProps = {
+        ...itemProps,
+        overrides: {
+            Block: {
+                style: ({ $theme }) => ({
+                    width: `calc((200% - ${$theme.sizing.scale800}) / 3)`,
+                }),
+            },
+        },
+    };
+
+
     return (
         <div>
             <Card>
-                <StyledRow>
 
-                    <StyledCell>
-
-                        <StyledBodyCell>
-
-                            <DementiaCard {...props} />
-
-                        </StyledBodyCell>
-
-                    </StyledCell>
+                <FlexGrid
+                    flexGridColumnCount={[1, 1, 1, 2]}
+                    flexGridColumnGap="scale800"
+                    flexGridRowGap="scale800"
+                >
+                    <FlexGridItem >
+                        <DementiaCard {...props} />
+                    </FlexGridItem>
 
 
-                    <StyledCell>
-                        <StyledBodyCell>
 
-                            {view}
+                    <FlexGridItem style={{
 
-                        </StyledBodyCell>
+                        alignItems: 'center',
+                        justifyContent: 'center',
 
-                    </StyledCell>
+                    }}>
+                        {view}
+                    </FlexGridItem>
+
+                </FlexGrid>
 
 
-                </StyledRow>
+
+
+
+
+
 
 
             </Card>

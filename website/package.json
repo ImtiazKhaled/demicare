@@ -17,6 +17,7 @@
     "react": "^16.13.1",
     "react-calendly": "^1.1.0",
     "react-dom": "^16.13.1",
+    "react-flip-move": "^3.0.4",
     "react-icons": "^3.11.0",
     "react-leaflet": "^2.7.0",
     "react-markdown": "^4.3.1",

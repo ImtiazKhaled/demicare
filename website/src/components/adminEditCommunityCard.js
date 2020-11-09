@@ -5,8 +5,8 @@ import { Card } from "baseui/card"
 import { PhoneInput } from "baseui/phone-input";
 import { Input } from "baseui/input";
 
-import { ButtonGroup, SHAPE } from "baseui/button-group";
-import { Button } from 'baseui/button';
+// import { ButtonGroup, SHAPE } from "baseui/button-group";
+import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import { StyledLink } from "baseui/link";
 
 import editIcon from "../images/edit-solid.svg";
@@ -104,10 +104,12 @@ const CommunityRow = (props) => {
                 </p>
 
 
-                <a style={{ cursor: "pointer" }}>
+                <Button kind={KIND.minimal}
+                    size={SIZE.large}
+                    shape={SHAPE.pill} style={{ cursor: "pointer" }}>
                     <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
 
-                </a>
+                </Button>
 
             </StyledBodyCell>
 
@@ -177,13 +179,13 @@ const CommunityRow = (props) => {
         <br />
         <br />
 
-        <ButtonGroup shape={SHAPE.pill}>
 
-            <Button onClick={() => saveEntry()}>SAVE</Button>
 
-            <Button onClick={() => setEdit(false)}>CANCEL</Button>
+        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
+        <span>&nbsp;</span>
+        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
 
-        </ButtonGroup>
+
 
     </div>
 

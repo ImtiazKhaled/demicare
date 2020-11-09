@@ -37,11 +37,11 @@ const AdminEditCommunityCard = (props) => {
 
 
   return (
-    <Card>
+    <Card title={props.title}>
       <StyledRow key={props.id}>
-        <StyledCell>
+        {/* <StyledCell>
           <StyledBodyCell><h3>{props.title}</h3></StyledBodyCell>
-        </StyledCell>
+        </StyledCell> */}
         <StyledCell>
           <StyledBodyCell>
             <p> Phone Number :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>

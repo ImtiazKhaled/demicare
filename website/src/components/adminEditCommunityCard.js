@@ -11,6 +11,7 @@ import { StyledLink } from "baseui/link";
 
 import editIcon from "../images/edit-solid.svg";
 import db from '../components/common/Firebase'
+import { H6 } from 'baseui/typography';
 
 
 const CommunityRow = (props) => {
@@ -20,14 +21,14 @@ const CommunityRow = (props) => {
 
     const [edit, setEdit] = React.useState(false);
 
-    const [title, setTitle] = React.useState(props.title);
+    const [title, setTitle] = React.useState("");
 
-    const [url, setUrl] = React.useState(props.url);
+    const [url, setUrl] = React.useState("");
     const [country, setCountry] = React.useState(undefined);
-    const [phoneNumber, setPhoneNumber] = React.useState(props.phoneNumber);
-    const [address, setAddress] = React.useState(props.address);
-    const [gmaps, setGmaps] = React.useState(props.gmaps);
-    const [lang, setLang] = React.useState(props.lang);
+    const [phoneNumber, setPhoneNumber] = React.useState("");
+    const [address, setAddress] = React.useState("");
+    const [gmaps, setGmaps] = React.useState("");
+    const [lang, setLang] = React.useState("");
 
 
 
@@ -53,8 +54,37 @@ const CommunityRow = (props) => {
     }, [props.description])
 
 
+
+    const handleEdit = () => {
+        setTitle(props.title);
+        setUrl(props.url);
+        setCountry(undefined);
+        setPhoneNumber(props.phoneNumber);
+        setAddress(props.address);
+        setGmaps(props.gmaps);
+        setLang(props.lang);
+        setEdit(true);
+    }
+
+
+    const saveEntry = () => {
+        db.collection('facilities').doc(props.id).set({
+            address: address,
+            description: "",
+            gmaps: gmaps,
+            lang: lang,
+            phoneNumber: phoneNumber,
+            title: title,
+            url: url
+
+        });
+
+        setEdit(false);
+    }
+
+
     const displayMode = <StyledRow key={props.id}>  <StyledCell>
-        <StyledBodyCell><h3>{props.title}</h3></StyledBodyCell>
+        <StyledBodyCell><H6>{props.title}</H6></StyledBodyCell>
     </StyledCell>
         <StyledCell>
             <StyledBodyCell>
@@ -75,11 +105,9 @@ const CommunityRow = (props) => {
 
 
                 <a style={{ cursor: "pointer" }}>
-                    <img onClick={() => setEdit(true)} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
+                    <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
 
                 </a>
-
-
 
             </StyledBodyCell>
 
@@ -88,22 +116,6 @@ const CommunityRow = (props) => {
     </StyledRow>;
 
 
-
-
-    const saveEntry = () => {
-        db.collection('facilities').doc(props.id).set({
-            address: address,
-            description: "Phone number: [713-271-6100](tej:7132716100) <newline> Address: [9800 Town Park, Houston, TX 77036](https://www.google.com/maps/dir/0000,0000/9800+Town+Park+Dr,+Houston,+TX+77036) <newline> Website: [ccchouston.org](https://ccchouston.org/)",
-            gmaps: gmaps,
-            lang: lang,
-            phoneNumber: phoneNumber,
-            title: title,
-            url: url
-
-        });
-
-        setEdit(false);
-    }
 
     const editMode = <div >
 
@@ -173,26 +185,13 @@ const CommunityRow = (props) => {
 
         </ButtonGroup>
 
-
-
-
-        {/* <input type="text" className="form-control my-2" value={matchFr} placeholder="matchFr" onChange={(e) => setMatchFr(e.target.value)} />
-    <input type="text" className="form-control my-2" value={match} placeholder="match" onChange={(e) => setMatch(e.target.value)} />
-    <input type="text" className="form-control my-2" value={word} placeholder="word" onChange={(e) => setWord(e.target.value)} />
-    <input type="text" className="form-control my-2" value={plural} placeholder="plural" onChange={(e) => setPlural(e.target.value)} />
-    <input type="text" className="form-control my-2" value={meaning} placeholder="meaning" onChange={(e) => setMeaning(e.target.value)} />
-    <input type="text" className="form-control my-2" value={synonyms} placeholder="synonyms" onChange={(e) => setSynomyms(e.target.value)} />
-    <input type="text" className="form-control my-2" value={wordType} placeholder="wordType" onChange={(e) => setWordType(e.target.value)} />
-    <input type="text" className="form-control my-2" value={audio} placeholder="audio" onChange={(e) => setAudio(e.target.value)} />
-
-    <button onClick={save} type="submit" className="btn btn-primary" >SUBMIT</button> */}
     </div>
 
     const view = edit === true ? editMode : displayMode;
 
 
     return (
-        <Card>
+        <Card >
 
             {view}
 

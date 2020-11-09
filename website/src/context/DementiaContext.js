@@ -12,15 +12,17 @@ export function useDementiaUpdate() {
     return React.useContext(DementiaUpdateContext)
 }
 
-export default function DementiaProvider({children}) {
- 
-    const [ dementia, setDementia ] = React.useState([])
-    
+export default function DementiaProvider({ children }) {
+
+    const [dementia, setDementia] = React.useState([])
+
     function changeDementia() {
-        db.collection("dementia-info").onSnapshot((snapshot) => {
-            console.log('this is called')
-            setDementia(snapshot.docs.map((doc) => doc.data()))
-        });
+        db.collection("dementia-info").onSnapshot(
+            (snapshot) => {
+                console.log('this is called')
+                setDementia(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+                )
+            });
     }
 
     return (

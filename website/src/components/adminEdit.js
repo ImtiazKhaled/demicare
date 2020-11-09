@@ -4,6 +4,7 @@ import AdminCommunityCard from './adminCommunityCard';
 
 import { Display2 } from "baseui/typography";
 import AddCommunity from './add_community'
+import AdminEditDementiaInfo from './adminEditDementiaInfo';
 export default function AdminEdit() {
     const [activeKey, setActiveKey] = useState("0")
 
@@ -27,7 +28,9 @@ export default function AdminEdit() {
                 <h2>List of Facilities</h2>
                 <AdminCommunityCard />
             </Tab>
-            <Tab title="Dementia Information">Dementia Info</Tab>
+            <Tab title="Dementia Information">
+                <AdminEditDementiaInfo />
+            </Tab>
 
         </Tabs>
     );

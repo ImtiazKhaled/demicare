@@ -45,7 +45,7 @@ export default function ResourceProvider({ children }) {
 
 
         // const description = `Phone number: ${numberformatted} <newline> Address: ${addressformatted} <newline> Website: ${websiteformatted}`
-        const payload = { lang, title: resource.name, phoneNumber: numberformatted, url: websiteformatted, address: resource.address, gmaps: addressformatted }
+        const payload = { lang, title: resource.name, phoneNumber: resource.number, url: websiteformatted, address: resource.address, gmaps: addressformatted }
 
         console.log(payload)
 

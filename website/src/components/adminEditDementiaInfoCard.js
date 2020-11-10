@@ -1,5 +1,6 @@
 import * as React from "react"
-import editIcon from "../images/edit-solid.svg";
+
+import editIcon from "../images/edit-regular.svg";
 import { Input } from "baseui/input";
 
 import db from '../components/common/Firebase'
@@ -42,6 +43,14 @@ function AdminEditDementiaInfoCard(props) {
             image: image ? image : "",
 
         });
+
+        setEdit(false);
+    }
+
+    const deleteEntry = () => {
+
+        console.log(video);
+        db.collection('dementia-info').doc(props.id).delete();
 
         setEdit(false);
     }
@@ -90,6 +99,8 @@ function AdminEditDementiaInfoCard(props) {
 
         <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
         <span>&nbsp;&nbsp;</span>
+        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>DELETE</Button>
+        <span>&nbsp;</span>
         <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
 
     </div>;

@@ -81,10 +81,10 @@ function Menu() {
         { label: 'Log Out', tab: '/logout' }
       ]}
       onUserItemSelect={(item) => {
-        if(item.tab === '/logout') {
+        if (item.tab === '/logout') {
           fire.auth().signOut()
-          setUser(' ')  
-        } else { 
+          setUser(' ')
+        } else {
           history.push(item.tab)
         }
       }}

@@ -9,7 +9,7 @@ import { Input } from "baseui/input";
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import { StyledLink } from "baseui/link";
 
-import editIcon from "../images/edit-solid.svg";
+import editIcon from "../images/edit-regular.svg";
 import db from '../components/common/Firebase'
 import { H6 } from 'baseui/typography';
 import { FlexGrid } from 'baseui/flex-grid';
@@ -80,6 +80,13 @@ const CommunityRow = (props) => {
 
         setEdit(false);
     }
+
+    const deleteEntry = () => {
+        db.collection('facilities').doc(props.id).delete();
+
+        setEdit(false);
+    }
+
 
 
     const displayMode = <FlexGrid
@@ -187,6 +194,8 @@ const CommunityRow = (props) => {
 
 
         <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
+        <span>&nbsp;</span>
+        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>DELETE</Button>
         <span>&nbsp;</span>
         <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
 

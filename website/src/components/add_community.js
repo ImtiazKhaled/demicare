@@ -25,6 +25,8 @@ const CommunityRow = () => {
     }
 
     const addResource = () => {
+
+        console.log(number, address, website, name)
         const result = { number, address, website, name, checkboxes }
         addResrc(result)
 
@@ -69,7 +71,7 @@ const CommunityRow = () => {
                             <Input className='community-input' value={address} onChange={(e) => setAddress(e.target.value)} />
                         </FormControl>
                         <FormControl label={() => "Website"} >
-                            <Input className='community-input' value={website} onChange={(e) => setWebsite(e.target.value)} />
+                            <Input placeholder="www." className='community-input' value={website} onChange={(e) => setWebsite(e.target.value)} />
                         </FormControl>
                     </StyledBodyCell>
                 </StyledCell>

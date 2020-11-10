@@ -8,7 +8,7 @@ import { Textarea } from 'baseui/textarea'
 import { Display2, Display4 } from 'baseui/typography'
 import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
-import emailjs, {init} from 'emailjs-com'
+import emailjs, { init } from 'emailjs-com'
 import Team from './team'
 import { t } from "react-switch-lang"
 
@@ -54,7 +54,7 @@ const Form = () => {
   }
 
   // send email function, called when Form is submitted
-  const sendEmail = (e) => {    
+  const sendEmail = (e) => {
     var service_id = "DemicareUTA"
     var email_user_id = "user_JW3ks5oI2VRhlP9KdZiiR"
     var email_template = "template_DemicareUTA"
@@ -66,26 +66,28 @@ const Form = () => {
         const msg = t('emailSuccess')
         console.log(result, toastKey)
         toastKey = toaster.info((<>{msg}</>), {
-          onClose: ()=>console.log('Toast closed.'),
-          overrides: {InnerContainer: {style: {width: '100%'}}}});
-          clearForm()
+          onClose: () => console.log('Toast closed.'),
+          overrides: { InnerContainer: { style: { width: '100%' } } }
+        });
+        clearForm()
       }, (error) => {
         let toastKey;
         const msg = t('emailFail')
         console.error(error, toastKey)
         toastKey = toaster.negative((<>{msg}</>), {
-          onClose: ()=>console.log('Toast closed.'),
-          overrides: {InnerContainer: {style: {width: '100%'}}}});
+          onClose: () => console.log('Toast closed.'),
+          overrides: { InnerContainer: { style: { width: '100%' } } }
+        });
       })
   }
 
-  return (  
+  return (
     <ToasterContainer placement={PLACEMENT.bottomRight} autoHideDuration='10000'>
       <div className='contact-container'>
-      <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
-      <form onSubmit={sendEmail}>
+        <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
+        <form onSubmit={sendEmail}>
           <Team />
-          <div style={{minHeight: '15vh'}} />
+          <div style={{ minHeight: '15vh' }} />
           <Display4 marginBottom="scale1000"> Contact Us </Display4>
           <FormControl label={`${t("First Name")}`} >
             <Input
@@ -107,7 +109,7 @@ const Form = () => {
 
           <FormControl
             label={`${t("Email")}`}
-            error={ shouldShowError ? `${t("emailErreurMessage")}` : null }
+            error={shouldShowError ? `${t("emailErreurMessage")}` : null}
           >
             <Input
               placeholder={`${t("Email")}`}
@@ -116,12 +118,12 @@ const Form = () => {
               onChange={onEmailChange}
               onBlur={() => setIsVisited(true)}
               error={shouldShowError}
-              overrides={shouldShowError ? {After: Negative} : {}}
+              overrides={shouldShowError ? { After: Negative } : {}}
               type="email"
               required
             />
           </FormControl>
-  
+
           <FormControl label={`${t("Message")}`} >
             <Textarea
               placeholder={`${t("Message")}`}
@@ -131,10 +133,10 @@ const Form = () => {
               required
             />
           </FormControl>
-          
+
           <Button type="submit">{t("submitEmail")}</Button>
-          <div style={{minHeight: '15vh'}} />
-      </form>
+          <div style={{ minHeight: '15vh' }} />
+        </form>
       </div>
     </ToasterContainer>
   )

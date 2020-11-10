@@ -12,25 +12,13 @@ import { StyledLink } from "baseui/link";
 import editIcon from "../images/edit-solid.svg";
 import db from '../components/common/Firebase'
 import { H6 } from 'baseui/typography';
+import { FlexGrid } from 'baseui/flex-grid';
+import { FlexGridItem } from 'baseui/flex-grid';
 
 
 const CommunityRow = (props) => {
-    // const [markdown, setMarkdown] = React.useState(props.description)
     const [addressToDisplay, setAddressToDisplay] = React.useState(props.gmaps);
     const tel = `tel:${props.phoneNumber}`;
-
-    const [edit, setEdit] = React.useState(false);
-
-    const [title, setTitle] = React.useState("");
-
-    const [url, setUrl] = React.useState("");
-    const [country, setCountry] = React.useState(undefined);
-    const [phoneNumber, setPhoneNumber] = React.useState("");
-    const [address, setAddress] = React.useState("");
-    const [gmaps, setGmaps] = React.useState("");
-    const [lang, setLang] = React.useState("");
-
-
 
     const getLocation = () => {
         if (navigator.geolocation) {
@@ -52,6 +40,17 @@ const CommunityRow = (props) => {
     React.useEffect(() => {
         getLocation()
     }, [props.description])
+
+    const [edit, setEdit] = React.useState(false);
+
+    const [title, setTitle] = React.useState("");
+
+    const [url, setUrl] = React.useState("");
+    const [country, setCountry] = React.useState(undefined);
+    const [phoneNumber, setPhoneNumber] = React.useState("");
+    const [address, setAddress] = React.useState("");
+    const [gmaps, setGmaps] = React.useState("");
+    const [lang, setLang] = React.useState("");
 
 
 
@@ -83,39 +82,45 @@ const CommunityRow = (props) => {
     }
 
 
-    const displayMode = <StyledRow key={props.id}>  <StyledCell>
-        <StyledBodyCell><H6>{props.title}</H6></StyledBodyCell>
-    </StyledCell>
-        <StyledCell>
-            <StyledBodyCell>
-                <p> Phone Number :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
-
-                <p>Address : &nbsp;
-                <StyledLink href={address}>
-                        {props.address}
-                    </StyledLink>
-                </p>
+    const displayMode = <FlexGrid
+        flexGridColumnCount={[1, 1, 1, 2]}
+        flexGridColumnGap="scale800"
+        flexGridRowGap="scale800"
 
 
-                <p>Website : &nbsp;
-                <StyledLink href={props.url}>
-                        Link to Website
+    >
+        <FlexGridItem > <H6>{props.title}</H6></FlexGridItem>
+
+        <FlexGridItem >
+            <p> Phone Number :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
+            <p>Address : &nbsp;
+            <StyledLink href={addressToDisplay}>
+                    {props.address}
+                </StyledLink>
+            </p>
+
+
+            <p>Website : &nbsp;
+            <StyledLink href={props.url}>
+                    Link to Website
             </StyledLink>
-                </p>
+            </p>
 
 
-                <Button kind={KIND.minimal}
-                    size={SIZE.large}
-                    shape={SHAPE.pill} style={{ cursor: "pointer" }}>
-                    <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
+            <Button kind={KIND.minimal}
+                size={SIZE.large}
+                shape={SHAPE.pill} style={{ cursor: "pointer" }}>
+                <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
 
-                </Button>
+            </Button>
 
-            </StyledBodyCell>
+        </FlexGridItem>
 
 
-        </StyledCell>
-    </StyledRow>;
+
+    </FlexGrid>
+
+
 
 
 

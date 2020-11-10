@@ -3,7 +3,7 @@ import AdminEditCommunityCard from "./adminEditCommunityCard"
 import { useResource } from '../context/ResourcesContext'
 
 
-function AdminCommunityCard() {
+function AdminEditCommunity() {
 
     const DATA = useResource().sort((a, b) => a.title.localeCompare(b.title));
 
@@ -20,4 +20,4 @@ function AdminCommunityCard() {
     )
 }
 
-export default AdminCommunityCard
+export default AdminEditCommunity

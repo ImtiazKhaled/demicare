@@ -38,15 +38,14 @@ export default function ResourceProvider({ children }) {
     function addResource(resource) {
         const lang = resource.checkboxes[0] && resource.checkboxes[1] ? 'en' : resource.checkboxes[0] ? 'ko' : 'zh'
 
-        const numberformatted = `[${resource.number.substr(0, 3)}-${resource.number.substr(3, 6)}-${resource.number.substr(6)}](tel:${resource.number})`
-        const websiteformatted = `[${resource.website}](http://${resource.website}/)`
-        var addressformatted = `[${resource.address}](https://www.google.com/maps/dir/0000,0000/`
+        const numberformatted = `${resource.number.substr(0, 3)}-${resource.number.substr(3, 6)}-${resource.number.substr(6)}`
+        const websiteformatted = `http://${resource.website}/`
+        var addressformatted = `https://www.google.com/maps/dir/0000,0000/`
         resource.address.split(' ').forEach(word => addressformatted += word + '+')
-        addressformatted += ")"
 
 
-        const description = `Phone number: ${numberformatted} <newline> Address: ${addressformatted} <newline> Website: ${websiteformatted}`
-        const payload = { lang, title: resource.name, description }
+        // const description = `Phone number: ${numberformatted} <newline> Address: ${addressformatted} <newline> Website: ${websiteformatted}`
+        const payload = { lang, title: resource.name, phoneNumber: numberformatted, url: websiteformatted, address: resource.address, gmaps: addressformatted }
 
         console.log(payload)
 

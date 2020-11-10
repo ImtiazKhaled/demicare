@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Tab } from "baseui/tabs";
-import AdminCommunityCard from './adminCommunityCard';
+import AdminEditCommunity from './adminEditCommunity';
 
 import { Display2 } from "baseui/typography";
 import AddCommunity from './add_community'
@@ -26,9 +26,9 @@ export default function AdminEdit() {
                 </br>
 
                 <h2>List of Facilities</h2>
-                <AdminCommunityCard />
+                <AdminEditCommunity />
             </Tab>
-            <Tab title={<h3>Community Resources</h3>} >
+            <Tab title={<h3>Dementia Information</h3>} >
                 <AdminEditDementiaInfo />
             </Tab>
 

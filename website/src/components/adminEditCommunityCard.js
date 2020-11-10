@@ -69,13 +69,13 @@ const CommunityRow = (props) => {
 
     const saveEntry = () => {
         db.collection('facilities').doc(props.id).set({
-            address: address,
+            address: address ? address : "",
             description: "",
-            gmaps: gmaps,
-            lang: lang,
-            phoneNumber: phoneNumber,
-            title: title,
-            url: url
+            gmaps: gmaps ? gmaps : "",
+            lang: lang ? lang : "",
+            phoneNumber: phoneNumber ? phoneNumber : "",
+            title: title ? title : "",
+            url: url ? url : ""
 
         });
 

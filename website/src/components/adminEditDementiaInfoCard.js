@@ -32,12 +32,14 @@ function AdminEditDementiaInfoCard(props) {
     }
 
     const saveEntry = () => {
+
+        console.log(video);
         db.collection('dementia-info').doc(props.id).set({
 
-            description: description,
-            title: title,
-            video: video,
-            image: image,
+            description: description ? description : "",
+            title: title ? title : "",
+            video: video ? video : "",
+            image: image ? image : "",
 
         });
 

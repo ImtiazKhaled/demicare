@@ -139,39 +139,43 @@ function AdminEditDementiaInfoCard(props) {
 
     return (
         <div>
-            <Card>
 
-                <FlexGrid
-                    flexGridColumnCount={[1, 1, 1, 2]}
-                    flexGridColumnGap="scale800"
-                    flexGridRowGap="scale800"
-                >
-                    <FlexGridItem >
-                        <DementiaCard {...props} />
-                    </FlexGridItem>
+            {/* <Card> */}
+            <FlexGrid
+                flexGridColumnCount={[1, 1, 1, 2]}
+                flexGridColumnGap="scale800"
+                flexGridRowGap="scale800"
+            >
 
 
-
-                    <FlexGridItem style={{
-
-                        alignItems: 'center',
-                        justifyContent: 'center',
-
-                    }}>
-                        {view}
-                    </FlexGridItem>
-
-                </FlexGrid>
+                <FlexGridItem >
+                    <DementiaCard {...props} />
+                </FlexGridItem>
 
 
 
+                <FlexGridItem style={{
+
+                    alignItems: 'center',
+                    justifyContent: 'center',
+
+                }}>
+                    {view}
+                </FlexGridItem>
+
+
+
+            </FlexGrid>
+
+            <br></br>
+
+            {/* </Card> */}
 
 
 
 
 
 
-            </Card>
         </div>
     )
 }

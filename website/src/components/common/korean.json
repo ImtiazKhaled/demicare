@@ -57,5 +57,17 @@
   "nameOfCommunity": "커뮤니티 이름",
   "availableTo": "어떤 커뮤니티에서 사용 가능",
   "password": "암호",
-  "slides": "슬라이드"
+  "slides": "슬라이드",
+  "administrators": "관리자",
+  "edit": "편집하다",
+  "facilityName": "시설 명",
+  "gmapsLink": "Google지도 링크",
+  "description": "기술",
+  "video": "비디오",
+  "image": "영상",
+  "articleTitle": "기사 제목",
+  "addArticle": "기사 추가",
+  "listOfArticles": "기사 목록",
+  "myProfile": "내 프로필",
+  "addAdmin": "관리자 추가"
 }

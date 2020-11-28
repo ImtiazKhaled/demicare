@@ -37,6 +37,6 @@ const style =
     },
     container:
     {
-        margin: 40
+
     }
 }

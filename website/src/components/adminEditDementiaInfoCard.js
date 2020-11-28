@@ -5,7 +5,6 @@ import { Input } from "baseui/input";
 import db from '../components/common/Firebase'
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import DementiaCard from './dementia_card';
-
 import { Textarea } from "baseui/textarea";
 import { Card } from "baseui/card";
 import { FlexGrid } from 'baseui/flex-grid';
@@ -58,7 +57,7 @@ function AdminEditDementiaInfoCard(props) {
         <Input
             value={title}
             onChange={e => setTitle(e.target.value)}
-            placeholder="Information Title"
+            placeholder={t("articleTitle")}
             clearOnEscape
         />
 
@@ -69,7 +68,7 @@ function AdminEditDementiaInfoCard(props) {
         <Textarea
             value={description}
             onChange={e => setDescription(e.target.value)}
-            placeholder="Description"
+            placeholder={t("description")}
             clearOnEscape
         />
 
@@ -80,7 +79,7 @@ function AdminEditDementiaInfoCard(props) {
         <Input
             value={image}
             onChange={e => setImage(e.target.value)}
-            placeholder="Image"
+            placeholder={t("image")}
             clearOnEscape
         />
         <br />
@@ -88,7 +87,7 @@ function AdminEditDementiaInfoCard(props) {
         <Input
             value={video}
             onChange={e => setVideo(e.target.value)}
-            placeholder="Video"
+            placeholder={t("video")}
             clearOnEscape
         />
 

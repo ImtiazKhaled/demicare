@@ -57,5 +57,17 @@
   "slides": "Slides",
   "phoneNumber": "Phone Number",
   "address": "Address",
-  "website": "Website"
+  "website": "Website",
+  "administrators": "Administrators",
+  "edit": "Edit",
+  "facilityName": "Facility Name",
+  "gmapsLink": "Google Maps Link",
+  "description": "Description",
+  "video": "Video",
+  "image": "Image",
+  "articleTitle": "Article Title",
+  "addArticle": "Add Article",
+  "listOfArticles": "List of Articles",
+  "myProfile": "My Profile",
+  "addAdmin": "Add Admin"
 }

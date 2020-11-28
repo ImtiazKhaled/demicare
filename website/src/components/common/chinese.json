@@ -57,5 +57,17 @@
   "nameOfCommunity": "社团名称",
   "availableTo": "适用于哪些社区",
   "password": "密码",
-  "slides": "滑梯"
+  "slides": "滑梯",
+  "administrators": "管理员",
+  "edit": "编辑",
+  "facilityName": "设备名称",
+  "gmapsLink": "谷歌地图链接",
+  "description": "描述",
+  "video": "视频",
+  "image": "图片",
+  "articleTitle": "文章标题",
+  "addArticle": "添加文章",
+  "listOfArticles": "文章清单",
+  "myProfile": "我的简历",
+  "addAdmin": "添加管理员"
 }

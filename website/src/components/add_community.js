@@ -31,6 +31,7 @@ const CommunityRow = () => {
         const result = { number, address, website, name, checkboxes }
         addResrc(result)
 
+        alert("Resource Added!!!")
         setNumber("");
         setName("");
         setWebsite("");

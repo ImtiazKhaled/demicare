@@ -4,6 +4,8 @@ import AdminEditCommunity from './adminEditCommunity';
 import { t } from "react-switch-lang"
 import AddCommunity from './add_community'
 import AdminEditDementiaInfo from './adminEditDementiaInfo';
+import AdminEditAdministrators from './AdminEditAdministrators';
+import AddDementiaInfo from './AddDementiaInfo';
 export default function AdminEdit() {
     const [activeKey, setActiveKey] = useState("0")
 
@@ -28,7 +30,14 @@ export default function AdminEdit() {
                 <AdminEditCommunity />
             </Tab>
             <Tab title={<h3>{t("dementiaInformation")}</h3>} >
+                <h2>{t("addArticle")}</h2>
+                <AddDementiaInfo />
+                <h2>{t("listOfArticles")}</h2>
                 <AdminEditDementiaInfo />
+            </Tab>
+
+            <Tab title={<h3>{t("administrators")}</h3>} >
+                <AdminEditAdministrators />
             </Tab>
 
         </Tabs>

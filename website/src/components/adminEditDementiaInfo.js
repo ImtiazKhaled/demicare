@@ -6,7 +6,7 @@ import AdminEditDementiaInfoCard from './adminEditDementiaInfoCard';
 
 function AdminEditDementiaInfo() {
 
-    const dementia = useDementia();
+    const dementia = useDementia().sort((a, b) => a.title.localeCompare(b.title));
     const updateDementia = useDementiaUpdate();
 
     React.useEffect(() => {

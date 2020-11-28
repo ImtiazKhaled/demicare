@@ -137,7 +137,7 @@ const CommunityRow = (props) => {
         <Input
             value={title}
             onChange={e => setTitle(e.target.value)}
-            placeholder="Facility Name"
+            placeholder={t("facilityName")}
             clearOnEscape
         />
 
@@ -148,7 +148,7 @@ const CommunityRow = (props) => {
         <Input
             value={url}
             onChange={e => setUrl(e.target.value)}
-            placeholder="URL"
+            placeholder={t("website")}
             clearOnEscape
         />
 
@@ -159,7 +159,7 @@ const CommunityRow = (props) => {
         <Input
             value={address}
             onChange={e => setAddress(e.target.value)}
-            placeholder="Address"
+            placeholder={t("address")}
             clearOnEscape
         />
         <br />
@@ -176,7 +176,7 @@ const CommunityRow = (props) => {
         <Input
             value={gmaps}
             onChange={e => setGmaps(e.target.value)}
-            placeholder="Google Maps Link"
+            placeholder={t("gmapsLink")}
             clearOnEscape
         />
 
@@ -185,7 +185,7 @@ const CommunityRow = (props) => {
         <Input
             value={lang}
             onChange={e => setLang(e.target.value)}
-            placeholder="Language"
+            placeholder={t("languages")}
             clearOnEscape
         />
 

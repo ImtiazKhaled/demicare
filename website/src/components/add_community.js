@@ -5,6 +5,7 @@ import { FormControl } from "baseui/form-control"
 import { Input } from "baseui/input"
 import { Checkbox } from 'baseui/checkbox'
 
+import { t } from "react-switch-lang"
 import { Button, SHAPE } from "baseui/button";
 import { useAddResource } from '../context/ResourcesContext'
 import { Card } from "baseui/card"
@@ -41,10 +42,10 @@ const CommunityRow = () => {
             <StyledRow key={'nothing'}>
                 <StyledCell>
                     <StyledBodyCell>
-                        <FormControl label={() => "Name of Community"} >
+                        <FormControl label={() => t("nameOfCommunity")} >
                             <Input className='community-input' value={name} onChange={(e) => setName(e.target.value)} />
                         </FormControl>
-                        <FormControl label={() => "Avaible to which communities"}>
+                        <FormControl label={() => t("availableTo")}>
                             <Checkbox
                                 checked={checkboxes[0]}
                                 onChange={(e) => selectedBox(e, 0)}
@@ -64,19 +65,19 @@ const CommunityRow = () => {
                 </StyledCell>
                 <StyledCell>
                     <StyledBodyCell>
-                        <FormControl label={() => "Phone Number"} >
+                        <FormControl label={() => t("phoneNumber")} >
                             <Input className='community-input' value={number} onChange={e => setNumber(e.currentTarget.value)} />
                         </FormControl>
-                        <FormControl label={() => "Address"} >
+                        <FormControl label={() => t("address")} >
                             <Input className='community-input' value={address} onChange={(e) => setAddress(e.target.value)} />
                         </FormControl>
-                        <FormControl label={() => "Website"} >
+                        <FormControl label={() => t("website")} >
                             <Input placeholder="www." className='community-input' value={website} onChange={(e) => setWebsite(e.target.value)} />
                         </FormControl>
                     </StyledBodyCell>
                 </StyledCell>
             </StyledRow>
-            <Button shape={SHAPE.pill} onClick={addResource}>Add Resource</Button>
+            <Button shape={SHAPE.pill} onClick={addResource}>{t("addResource")}</Button>
         </Card>
     )
 }

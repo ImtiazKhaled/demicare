@@ -8,7 +8,6 @@ import { validate as validateEmail } from 'email-validator'
 import { t } from "react-switch-lang"
 import { firebaseApp as fire } from './common/Firebase'
 import { useUsername, useUserUpdate } from '../context/UserContext'
-
 // layout style
 const Negative = () => {
   const [css, theme] = useStyletron()
@@ -57,7 +56,7 @@ const Form = () => {
   }
 
   const login = (event) => {
-  
+
     clearError()
     event.stopPropagation()
     event.preventDefault()
@@ -112,7 +111,7 @@ const Form = () => {
   return (
 
     <div className='contact-container'>
-      <h1>ADMIN LOGIN</h1>
+      <h1> {t('adminPanel')}</h1>
       {
         loggedIn === false && <form>
           <FormControl
@@ -121,7 +120,7 @@ const Form = () => {
             error={shouldShowError ? `${t("emailErreurMessage")}` : emailError}
           >
             <Input
-              placeholder={`${t("Email")}`}
+              placeholder={`${t("email")}`}
               name="email"
               value={email}
               onChange={onEmailChange}
@@ -136,7 +135,7 @@ const Form = () => {
           <FormControl label={`${t("")}`}
             error={passwordError}>
             <Input
-              placeholder={`${t("Password")}`}
+              placeholder={`${t("password")}`}
               type='password'
               name="password"
               value={password}
@@ -148,12 +147,12 @@ const Form = () => {
           <Button onClick={event => {
             event.preventDefault()
             login(event)
-          }}>Log In</Button>
+          }}>{t("logIn")}</Button>
 
         </form>
       }
 
-      {loggedIn === true && <Button onClick={event => logout(event)} >Log out {username}</Button>}
+      {loggedIn === true && <Button onClick={event => logout(event)} >{t("logOut")} &nbsp; {username}</Button>}
 
     </div>
 

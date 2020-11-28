@@ -2,9 +2,7 @@ import * as React from "react"
 
 import editIcon from "../images/edit-regular.svg";
 import { Input } from "baseui/input";
-
 import db from '../components/common/Firebase'
-
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import DementiaCard from './dementia_card';
 
@@ -12,6 +10,7 @@ import { Textarea } from "baseui/textarea";
 import { Card } from "baseui/card";
 import { FlexGrid } from 'baseui/flex-grid';
 import { FlexGridItem } from 'baseui/flex-grid';
+import { t } from "react-switch-lang";
 
 function AdminEditDementiaInfoCard(props) {
 
@@ -97,11 +96,11 @@ function AdminEditDementiaInfoCard(props) {
         <br />
         <br />
 
-        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
+        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>{t("save")}</Button>
         <span>&nbsp;&nbsp;</span>
-        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>DELETE</Button>
+        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>{t("delete")}</Button>
         <span>&nbsp;</span>
-        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
+        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>{t("cancel")}</Button>
 
     </div>;
 
@@ -139,39 +138,43 @@ function AdminEditDementiaInfoCard(props) {
 
     return (
         <div>
-            <Card>
 
-                <FlexGrid
-                    flexGridColumnCount={[1, 1, 1, 2]}
-                    flexGridColumnGap="scale800"
-                    flexGridRowGap="scale800"
-                >
-                    <FlexGridItem >
-                        <DementiaCard {...props} />
-                    </FlexGridItem>
+            {/* <Card> */}
+            <FlexGrid
+                flexGridColumnCount={[1, 1, 1, 2]}
+                flexGridColumnGap="scale800"
+                flexGridRowGap="scale800"
+            >
 
 
-
-                    <FlexGridItem style={{
-
-                        alignItems: 'center',
-                        justifyContent: 'center',
-
-                    }}>
-                        {view}
-                    </FlexGridItem>
-
-                </FlexGrid>
+                <FlexGridItem >
+                    <DementiaCard {...props} />
+                </FlexGridItem>
 
 
 
+                <FlexGridItem style={{
+
+                    alignItems: 'center',
+                    justifyContent: 'center',
+
+                }}>
+                    {view}
+                </FlexGridItem>
+
+
+
+            </FlexGrid>
+
+            <br></br>
+
+            {/* </Card> */}
 
 
 
 
 
 
-            </Card>
         </div>
     )
 }

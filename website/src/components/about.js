@@ -86,21 +86,19 @@ const Form = () => {
       <div className='contact-container'>
         <Display2 marginBottom="scale1000"> {`${t("aboutUs")}`} </Display2>
         <form onSubmit={sendEmail}>
-          <Team />
-          <div style={{ minHeight: '15vh' }} />
-          <Display4 marginBottom="scale1000"> Contact Us </Display4>
-          <FormControl label={`${t("First Name")}`} >
+
+          <FormControl label={`${t("firstName")}`} >
             <Input
-              placeholder={`${t("First Name")}`}
+              placeholder={`${t("firstName")}`}
               name="first_name"
               value={first_name}
               onChange={event => setName(event.currentTarget.value)}
               required
             />
           </FormControl>
-          <FormControl label={`${t("Last Name")}`} >
+          <FormControl label={`${t("lastName")}`} >
             <Input
-              placeholder={`${t("Last Name")}`}
+              placeholder={`${t("lastName")}`}
               name="last_name"
               value={last_name}
               onChange={event => setSubject(event.currentTarget.value)}
@@ -108,11 +106,11 @@ const Form = () => {
           </FormControl>
 
           <FormControl
-            label={`${t("Email")}`}
+            label={`${t("email")}`}
             error={shouldShowError ? `${t("emailErreurMessage")}` : null}
           >
             <Input
-              placeholder={`${t("Email")}`}
+              placeholder={`${t("email")}`}
               name="email"
               value={email}
               onChange={onEmailChange}
@@ -124,9 +122,9 @@ const Form = () => {
             />
           </FormControl>
 
-          <FormControl label={`${t("Message")}`} >
+          <FormControl label={`${t("message")}`} >
             <Textarea
-              placeholder={`${t("Message")}`}
+              placeholder={`${t("message")}`}
               name="message"
               value={message}
               onChange={event => setMessage(event.currentTarget.value)}
@@ -135,6 +133,10 @@ const Form = () => {
           </FormControl>
 
           <Button type="submit">{t("submitEmail")}</Button>
+
+          <div style={{ minHeight: '15vh' }} />
+          {/* <Display4 marginBottom="scale1000"> Contact Us </Display4> */}
+          <Team />
           <div style={{ minHeight: '15vh' }} />
         </form>
       </div>

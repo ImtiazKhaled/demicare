@@ -76,9 +76,9 @@ function Menu() {
       onMainItemSelect={onItemSelect}
       username={username}
       userItems={[
-        { label: 'Admin Tab', tab: '/admin' },
-        { label: 'Next Iteration', tab: '/future' },
-        { label: 'Log Out', tab: '/logout' }
+        { label: t('adminPanel'), tab: '/admin' },
+        { label: t("slides"), tab: '/future' },
+        { label: t('logOut'), tab: '/logout' }
       ]}
       onUserItemSelect={(item) => {
         if (item.tab === '/logout') {

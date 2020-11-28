@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Tabs, Tab } from "baseui/tabs";
 import AdminEditCommunity from './adminEditCommunity';
-
-import { Display2 } from "baseui/typography";
+import { t } from "react-switch-lang"
 import AddCommunity from './add_community'
 import AdminEditDementiaInfo from './adminEditDementiaInfo';
 export default function AdminEdit() {
@@ -16,19 +15,19 @@ export default function AdminEdit() {
             }}
             activeKey={activeKey}
         >
-            <Tab title={<h3>Community Resources</h3>}>
+            <Tab title={<h3>{t("communityResources")}</h3>}>
 
-                <h2>Add New Facility</h2>
+                <h2>{t("addNewFacilities")}</h2>
                 <AddCommunity />
                 <br>
                 </br>
                 <br>
                 </br>
 
-                <h2>List of Facilities</h2>
+                <h2>{t("listOfFacilities")}</h2>
                 <AdminEditCommunity />
             </Tab>
-            <Tab title={<h3>Dementia Information</h3>} >
+            <Tab title={<h3>{t("dementiaInformation")}</h3>} >
                 <AdminEditDementiaInfo />
             </Tab>
 

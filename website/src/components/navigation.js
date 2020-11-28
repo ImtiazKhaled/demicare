@@ -19,33 +19,32 @@ import { useResourceUpdate } from '../context/ResourcesContext'
 import { firebaseApp as fire } from '../components/common/Firebase'
 import { useUserUpdate } from '../context/UserContext'
 
+import { StatefulButtonGroup, MODE } from 'baseui/button-group';
+import { getLanguage } from 'react-switch-lang';
 
 const Navigation = () => {
 
   const [isOpen, setIsOpen] = React.useState(false)
-  const [lang, setLang] = React.useState('en')
+  let lang = 0;
   const updateResources = useResourceUpdate()
   const setUser = useUserUpdate()
+
+  if (getLanguage() === "en") {
+    lang = 0;
+  }
+  else if (getLanguage() === "ko") {
+    lang = 1;
+  }
+  else if (getLanguage() === "zh") {
+    lang = 2;
+  }
 
   React.useEffect(() => {
     setIsOpen(true)
   }, [])
 
   const LanguageSelected = (selected) => {
-    switch (selected) {
-      case 'KOR':
-        setLang('ko')
-        setLanguage('ko')
-        break
-      case 'CHI':
-        setLang('zh')
-        setLanguage('zh')
-        break
-      default:
-        setLang('en')
-        setLanguage('en')
-    }
-
+    setLanguage(selected)
     CloseModal()
   }
 
@@ -76,9 +75,9 @@ const Navigation = () => {
         </Route>
         <Route exact path='/outreach'>
           <Outreach />
-          </Route>
+        </Route>
         <Route path='/team'>
-            <Team />
+          <Team />
         </Route>
         <Route path='/team'>
           <Team />
@@ -90,25 +89,29 @@ const Navigation = () => {
           <NotFound />
         </Route>
         <Route exact path='/'>
-          <Home lang={lang} />
+          <Home lang={getLanguage} />
         </Route>
         <Route exact path='/future'>
           <Next />
         </Route>
         <Redirect to="/not-found" />
-        
+
       </Switch>
+
       <Modal onClose={CloseModal} closeable isOpen={isOpen} animate autoFocus size={SIZE.auto} role={ROLE.dialog}>
-        <ModalHeader> {t('welcomeTo,')} {t('researchProject')} </ModalHeader>
-        <ModalBody>Select your preferred language</ModalBody>
-        <ModalBody>选择您喜欢的语言</ModalBody>
-        <ModalBody>선호하는 언어를 선택하십시오</ModalBody>
+        <ModalHeader> {t('welcomeTo')} {t('researchProject')} </ModalHeader>
+        <ModalBody>{t("languageSelection")}</ModalBody>
+        {/* <ModalBody>选择您喜欢的语言</ModalBody>
+        <ModalBody>선호하는 언어를 선택하십시오</ModalBody> */}
         <ModalBody>
-          <ButtonGroup>
-            <Button onClick={() => LanguageSelected('ENG')}>English</Button>
-            <Button onClick={() => LanguageSelected('KOR')}>Korean</Button>
-            <Button onClick={() => LanguageSelected('CHI')}>Chinese</Button>
-          </ButtonGroup>
+          <StatefulButtonGroup
+            mode={MODE.radio}
+            initialState={{ selected: lang }}
+          >
+            <Button onClick={() => LanguageSelected('en')}>English</Button>
+            <Button onClick={() => LanguageSelected('ko')}>Korean</Button>
+            <Button onClick={() => LanguageSelected('zh')}>Chinese</Button>
+          </StatefulButtonGroup>
         </ModalBody>
         <ModalFooter><SocialLinks /></ModalFooter>
       </Modal>

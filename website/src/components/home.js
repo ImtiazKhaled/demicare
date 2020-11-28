@@ -17,7 +17,7 @@ const Home = (props) => {
     { id: t('Korean'), langCode: 'ko' },
     { id: t('Chinese'), langCode: 'zh' },
   ]
-  
+
   const username = useUsername();
   const toggleTheme = useThemeUpdate()
   const [value, setValue] = React.useState([])
@@ -68,7 +68,7 @@ const Home = (props) => {
 
   return (
     <div className={containerClass}>
-      {username && <h1>Hello <code>{username}</code></h1>}
+      {username && <h1><code>{t("hello")} {username}</code></h1>}
       <div className='select-language'>
         <Select
           options={OPTIONS}

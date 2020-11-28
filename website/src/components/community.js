@@ -8,7 +8,6 @@ import { useResource } from '../context/ResourcesContext'
 import { useUser } from '../context/UserContext'
 import ComMap from "./map"
 
-
 const Community = () => {
   const user = useUser()
   const DATA = useResource().sort((a, b) => a.title.localeCompare(b.title));
@@ -24,6 +23,7 @@ const Community = () => {
         <FlexGridItem>
           {
             DATA.map((row, index) => (
+
               <CommunityCard key={index} id={index} {...row} />
             ))
           }

@@ -5,6 +5,7 @@ import { Card } from "baseui/card"
 import { PhoneInput } from "baseui/phone-input";
 import { Input } from "baseui/input";
 
+import { t } from "react-switch-lang"
 // import { ButtonGroup, SHAPE } from "baseui/button-group";
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import { StyledLink } from "baseui/link";
@@ -99,18 +100,18 @@ const CommunityRow = (props) => {
         <FlexGridItem > <H6>{props.title}</H6></FlexGridItem>
 
         <FlexGridItem >
-            <p> Phone Number :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
-            <p>Address : &nbsp;
+            <p> {t("phoneNumber")} :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
+            <p>{t("address")} : &nbsp;
             <StyledLink href={addressToDisplay}>
                     {props.address}
                 </StyledLink>
             </p>
 
 
-            <p>Website : &nbsp;
+            <p>{t("website")} : &nbsp;
             <StyledLink href={props.url}>
-                    Link to Website
-            </StyledLink>
+                    {t("linkToWebsite")}
+                </StyledLink>
             </p>
 
 
@@ -193,11 +194,11 @@ const CommunityRow = (props) => {
 
 
 
-        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>SAVE</Button>
+        <Button shape={SHAPE.pill} onClick={() => saveEntry()}>{t("save")}</Button>
         <span>&nbsp;</span>
-        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>DELETE</Button>
+        <Button shape={SHAPE.pill} onClick={() => deleteEntry()}>{t("delete")}</Button>
         <span>&nbsp;</span>
-        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>CANCEL</Button>
+        <Button shape={SHAPE.pill} onClick={() => setEdit(false)}>{t("cancel")}</Button>
 
 
 

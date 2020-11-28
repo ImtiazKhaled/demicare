@@ -5,6 +5,7 @@ import { Card } from "baseui/card"
 import ReactMD from "react-markdown"
 
 import { StyledLink } from "baseui/link";
+import { t } from "react-switch-lang"
 
 
 const AdminEditCommunityCard = (props) => {
@@ -44,19 +45,19 @@ const AdminEditCommunityCard = (props) => {
         </StyledCell> */}
         <StyledCell>
           <StyledBodyCell>
-            <p> Phone Number :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
+            <p> {t("phoneNumber")} :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
 
-            <p>Address : &nbsp;
+            <p> {t("address")} : &nbsp;
               <StyledLink href={address}>
                 {props.address}
               </StyledLink>
             </p>
 
 
-            <p>Website : &nbsp;
+            <p> {t("website")} : &nbsp;
               <StyledLink href={props.url}>
-                Link to Website
-             </StyledLink>
+                {t("linkToWebsite")}
+              </StyledLink>
             </p>
 
           </StyledBodyCell>

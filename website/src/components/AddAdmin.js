@@ -80,6 +80,7 @@ export default function AddAdmin() {
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                     placeholder={t("password")}
+                    type="password"
                     clearOnEscape
                 />
 

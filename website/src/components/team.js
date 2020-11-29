@@ -8,6 +8,10 @@ import { Card, StyledBody, StyledAction } from 'baseui/card'
 import { Button } from 'baseui/button'
 import { SiGithub, SiLinkedin } from "react-icons/si"
 import "./Box.css"
+
+import { useStyletron } from 'baseui';
+
+import { Grid, Cell } from 'baseui/layout-grid';
 import { t } from 'react-switch-lang'
 
 const TeamCard = (props) => {
@@ -52,9 +56,35 @@ const Team = () => {
     { image: awaj, title: "Aawaj Bhaukajee", text: t("developer"), linkedin: "https://www.linkedin.com/in/aawaj-bhaukajee-b7065ab1/", github: "https://github.com/aawajBhaukajee" },
   ]
 
-  return <div className="grid"> {teamMembers.map((member) => <TeamCard member={member} />)} </div>
+  return <Grid >
+    {teamMembers.map((member) => (
+      <Cell span={[12, 12, 2.4]} key={member.id}>
+        <Inner><TeamCard member={member} /></Inner>
+      </Cell>
+
+    ))}
+
+  </Grid>
+
 }
 
+const Inner = ({ children }) => {
+  const [css, theme] = useStyletron();
+  return (
+    <div
+      className={css({
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        // background: theme.colors.accent200,
+        // color: theme.colors.accent700,
+        padding: '.25rem',
+      })}
+    >
+      {children}
+    </div>
+  );
+};
 export default Team
 
 

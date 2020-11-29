@@ -3,7 +3,6 @@ import { StyledRow, StyledCell } from "baseui/table"
 import { StyledBodyCell } from "baseui/table-grid"
 import { Card } from "baseui/card"
 import ReactMD from "react-markdown"
-
 import { StyledLink } from "baseui/link";
 import { t } from "react-switch-lang"
 
@@ -35,11 +34,17 @@ const AdminEditCommunityCard = (props) => {
   }, [props.description])
 
 
-
+  function changeBackground(e) {
+    e.target.style.background = '#F0F';
+  }
+  function buttonColor(e){
+    e.target.style.background = '#FFF';
+  }
 
   return (
-    <Card title={props.title}>
-      <StyledRow key={props.id}>
+
+    <Card title={props.title} onClick={()=>{ props.select(props.iframe)}}  >
+      <StyledRow key={props.id} >
         {/* <StyledCell>
           <StyledBodyCell><h3>{props.title}</h3></StyledBodyCell>
         </StyledCell> */}
@@ -53,7 +58,6 @@ const AdminEditCommunityCard = (props) => {
               </StyledLink>
             </p>
 
-
             <p> {t("website")} : &nbsp;
               <StyledLink href={props.url}>
                 {t("linkToWebsite")}
@@ -64,6 +68,7 @@ const AdminEditCommunityCard = (props) => {
         </StyledCell>
       </StyledRow>
     </Card>
+
   )
 }
 

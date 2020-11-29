@@ -8,6 +8,7 @@ import { validate as validateEmail } from 'email-validator'
 import { t } from "react-switch-lang"
 import { firebaseApp as fire } from './common/Firebase'
 import { useUsername, useUserUpdate } from '../context/UserContext'
+import { Display2 } from 'baseui/typography';
 // layout style
 const Negative = () => {
   const [css, theme] = useStyletron()
@@ -111,7 +112,7 @@ const Form = () => {
   return (
 
     <div className='contact-container'>
-      <h1> {t('adminPanel')}</h1>
+      <Display2 marginBottom="scale1000"> {t('adminPanel')} </Display2>
       {
         loggedIn === false && <form>
           <FormControl

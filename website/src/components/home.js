@@ -68,7 +68,7 @@ const Home = (props) => {
 
   return (
     <div className={containerClass}>
-      {username && <h1><code>{t("hello")} {username}</code></h1>}
+      {username && <h1>{t("hello")}&nbsp;{username}</h1>}
       <div className='select-language'>
         <Select
           options={OPTIONS}

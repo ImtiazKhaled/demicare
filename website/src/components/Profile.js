@@ -1,19 +1,16 @@
 import React from 'react'
-import { Card, StyledBody, StyledAction } from 'baseui/card';
+import { Card, StyledBody } from 'baseui/card';
 import { t } from "react-switch-lang"
-import { useUser, useUsername, useUserUpdate } from '../context/UserContext'
+import { useUsername } from '../context/UserContext'
 import db from '../components/common/Firebase'
 
-import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
+import { Button, SHAPE } from 'baseui/button';
 import { Input } from "baseui/input";
 
 export default function Profile() {
 
-
-    const user = useUser()
     const username = useUsername()
 
-    const [isOpen, setIsOpen] = React.useState(false);
     const [firstName, setFirstName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
     const [edit, setEdit] = React.useState(false);

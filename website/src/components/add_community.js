@@ -16,6 +16,7 @@ const CommunityRow = () => {
     const [address, setAddress] = React.useState("")
     const [website, setWebsite] = React.useState("")
     const [name, setName] = React.useState("")
+    const [iframe, setIframe] = React.useState("")
     const [checkboxes, setCheckboxes] = React.useState([true, true])
     const addResrc = useAddResource()
 
@@ -36,6 +37,7 @@ const CommunityRow = () => {
         setName("");
         setWebsite("");
         setAddress("");
+        setIframe("")
     }
 
     return (
@@ -74,6 +76,9 @@ const CommunityRow = () => {
                         </FormControl>
                         <FormControl label={() => t("website")} >
                             <Input placeholder="www." className='community-input' value={website} onChange={(e) => setWebsite(e.target.value)} />
+                        </FormControl>
+                        <FormControl label="Iframe" >
+                            <Input className='community-input' value={website} onChange={(e) => setIframe(e.target.value)} />
                         </FormControl>
                     </StyledBodyCell>
                 </StyledCell>

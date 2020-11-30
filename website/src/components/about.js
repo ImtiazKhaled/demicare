@@ -135,7 +135,7 @@ const Form = () => {
           <Button type="submit">{t("submitEmail")}</Button>
 
           <div style={{ minHeight: '15vh' }} />
-          {/* <Display4 marginBottom="scale1000"> Contact Us </Display4> */}
+          <Display4 marginBottom="scale1000"> Team </Display4>
           <Team />
           <div style={{ minHeight: '15vh' }} />
         </form>

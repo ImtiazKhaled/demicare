@@ -7,7 +7,7 @@ import hoang from "../assets/img/hoang.png"
 import { Card, StyledBody, StyledAction } from 'baseui/card'
 import { Button } from 'baseui/button'
 import { SiGithub, SiLinkedin } from "react-icons/si"
-import "./Box.css"
+import { Grid, Cell } from 'baseui/layout-grid'
 import { t } from 'react-switch-lang'
 
 const TeamCard = (props) => {
@@ -16,7 +16,6 @@ const TeamCard = (props) => {
 
   return (
     <Card
-      overrides={{ Root: { style: { width: '328px' } } }}
       headerImage={member.image}
       title={member.title}
     >
@@ -52,7 +51,15 @@ const Team = () => {
     { image: awaj, title: "Aawaj Bhaukajee", text: t("developer"), linkedin: "https://www.linkedin.com/in/aawaj-bhaukajee-b7065ab1/", github: "https://github.com/aawajBhaukajee" },
   ]
 
-  return <div className="grid"> {teamMembers.map((member) => <TeamCard member={member} />)} </div>
+  return <div className="grid"> 
+    <Grid>
+      {teamMembers.map((member) => 
+        <Cell span={[3]}>
+          <TeamCard member={member} />
+        </Cell>
+      )} 
+    </Grid>
+  </div>
 }
 
 export default Team

@@ -18,7 +18,7 @@ const Community = () => {
       <Display2 marginBottom="scale1000"> {t("communityResources")} </Display2>
 
       {mapShown? <>
-        <Button style={{position:'fixed', top:'69%', width:'150', zIndex:1 }} onClick={event => {
+        <Button style={{position:'fixed', top:'90%', width:'150', zIndex:1 }} onClick={event => {
             setMapShown(!mapShown)
           }}>{t("Hide Map")}</Button>
           
@@ -33,7 +33,7 @@ const Community = () => {
 
         {mapShown && 
           <FlexGridItem>
-            {<div dangerouslySetInnerHTML={{ __html: loc }} style={{position:'fixed', zIndex:1 }} />}
+            {<div dangerouslySetInnerHTML={{ __html: loc }} style={{position:'fixed', top:'20%', zIndex:1 }} />}
           </FlexGridItem>
         }
 

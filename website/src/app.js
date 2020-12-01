@@ -10,6 +10,9 @@ import zh from "./components/common/chinese.json"
 import ko from "./components/common/korean.json"
 import { setTranslations, setDefaultLanguage, translate, setLanguageCookie } from "react-switch-lang"
 import AllContextProvider from './context/AllContext'
+import { Cube } from 'react-preloaders';
+import { Preloader, Placeholder } from 'react-preloading-screen';
+import logo from '../src/images/logo.svg';
 
 setTranslations({ en, zh, ko })
 setDefaultLanguage("en")
@@ -21,13 +24,19 @@ const App = () => {
 
   return (
     <div className="app">
-      <AllContextProvider>
-        <StyletronProvider value={engine}>
-          <Router>
-            <Main />
-          </Router>
-        </StyletronProvider>
-      </AllContextProvider>
+      <Preloader fadeDuration={900}>
+        <AllContextProvider>
+          <StyletronProvider value={engine}>
+            <Router>
+              <Main />
+            </Router>
+          </StyletronProvider>
+        </AllContextProvider>
+
+        <Placeholder  >
+          <img src={logo}  ></img>
+        </Placeholder>
+      </Preloader>
     </div>
 
   )

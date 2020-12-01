@@ -52,13 +52,13 @@ const Team = () => {
     { image: awaj, title: "Aawaj Bhaukajee", text: t("developer"), linkedin: "https://www.linkedin.com/in/aawaj-bhaukajee-b7065ab1/", github: "https://github.com/aawajBhaukajee" },
   ]
 
-  return <div className="grid"> 
+  return <div className="grid">
     <Grid>
-      {teamMembers.map((member) => 
-        <Cell span={[3]}>
+      {teamMembers.map((member) =>
+        <Cell span={[2.4]}>
           <TeamCard member={member} />
         </Cell>
-      )} 
+      )}
     </Grid>
   </div>
 }

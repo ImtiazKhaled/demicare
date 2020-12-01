@@ -3,6 +3,7 @@ import DementiaCard from "./dementia_card";
 import { Display2 } from "baseui/typography";
 import { FlexGrid, FlexGridItem } from "baseui/flex-grid";
 
+import { getLanguage } from "react-switch-lang"
 import { useStyletron } from 'baseui';
 import { Grid, Cell } from 'baseui/layout-grid';
 import { t } from "react-switch-lang";
@@ -11,7 +12,7 @@ import { useUser } from '../context/UserContext'
 const Dementia = () => {
 
   const user = useUser();
-  const dementia = useDementia();
+  const dementia = useDementia().filter(d => d.lang === "en" || d.lang === getLanguage());
   const updateDementia = useDementiaUpdate();
 
   React.useEffect(() => {

@@ -37,7 +37,7 @@ const Home = (props) => {
         setValue([{ id: t('English'), langCode: 'en' }])
         break
     }
-  }, [props.lang])
+  }, [])
 
   React.useEffect(() => {
     if (window.innerHeight < width) {

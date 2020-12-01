@@ -14,25 +14,25 @@ const TeamCard = (props) => {
 
   return (
     <Card className="team-card">
-        <Grid>
+      <Grid>
         <Cell span={[3]}>
-            <img style={{width: '90%'}} src={member.image} alt={member.title}/>
+          <img style={{ width: '90%' }} src={member.image} alt={member.title} />
         </Cell>
         <Cell span={[9]}>
-            <Display4>
-                {member.title}  
-            </Display4>
-            <StyledBody>
-                {member.occupation}
-            </StyledBody>
-            <StyledBody>
-                {member.location}
-            </StyledBody>
-            <StyledBody>
-                {member.text}
-            </StyledBody>
+          <Display4>
+            {member.title}
+          </Display4>
+          <StyledBody>
+            {member.occupation}
+          </StyledBody>
+          <StyledBody>
+            {member.location}
+          </StyledBody>
+          <StyledBody>
+            {member.text}
+          </StyledBody>
         </Cell>
-        </Grid>
+      </Grid>
     </Card>
   )
 }
@@ -46,13 +46,13 @@ const Team = () => {
     { image: jessica, title: t("jessica cassidy"), occupation: t("MSW"), location: t("jessica location"), text: t("jessica description") },
   ]
 
-  return <div className="grid"> 
+  return <div className="grid">
     <Grid>
-      {teamMembers.map((member) => 
+      {teamMembers.map((member) =>
         <Cell span={[12]}>
           <TeamCard member={member} />
         </Cell>
-      )} 
+      )}
     </Grid>
   </div>
 }

@@ -69,5 +69,19 @@
   "addArticle": "기사 추가",
   "listOfArticles": "기사 목록",
   "myProfile": "내 프로필",
-  "addAdmin": "관리자 추가"
+  "addAdmin": "관리자 추가",
+  "PHD, MSW": "박사",
+  "MSW": "박사과정",
+  "kathy lee": "캐시리",
+  "chang hyun seo": "서창현",
+  "joe zhao": "조자호",
+  "jessica cassidy": "제시카 캐시디",
+  "kathy location": "연구책임자, 조교수, 사회복지학과, 택사스 주립대학 (알링튼)",
+  "chang location": "프로그램 코디네이터, 사회복지학과, 택사스 주립대학 (알링튼)",
+  "joe location": "연구조교, 사회복지학과, 휴스턴대학",
+  "jessica location": "연구조교, 사회복지학과, 택사스 주립대학 (알링튼)",
+  "kathy description": "Dr. Lee is the Principal Investigator for this program supporting East Asian family caregivers of persons with dementia. She is an applied researcher whose primary research goal is to create healthier, more equitable communities for vulnerable and marginalized older adults and their family caregivers.",
+  "chang description": "Dr. Seo supports this program by communicating with Korean family caregivers of persons with dementia. He also helps with quantitative and qualitative data analysis. Dr. Seo is interested in welfare state, welfare regime typology, social policy analysis, and inequality.",
+  "joe description": "Ms. Zhao joined the program as a research assistant in August 2020. He supports this program by communicating with Chinese family caregivers of persons with dementia. He also helps administer the study procedures. He is currently a social work graduate student from the University of Houston. His research interests include Asian American mental health, older adults, family structures, social safety net, and global aging.",
+  "jessica description": "Ms. Cassidy is a graduate research associate for this program. She completed her Master’s in Social Work with a focus on Community and Administrative Practice at the University of Texas Arlington. Her research interests are centered around older adults including, environmental gerontology and bottom up community interventions focused on improving older adults’ health and wellbeing outcomes."
 }

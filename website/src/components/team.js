@@ -1,47 +1,38 @@
 import * as React from 'react'
-import awaj from "../assets/img/awaj.png"
-import Israel from "../assets/img/isreal.png"
-import bj from "../assets/img/bj.png"
-import imtiaz from "../assets/img/imtiaz.png"
-import hoang from "../assets/img/hoang.png"
-import { Card, StyledBody, StyledAction } from 'baseui/card'
-import { Button } from 'baseui/button'
-import { SiGithub, SiLinkedin } from "react-icons/si"
-import "./Box.css"
-
-import { useStyletron } from 'baseui';
-
-import { Grid, Cell } from 'baseui/layout-grid';
+import chang from "../assets/img/chang.jpg"
+import jessica from "../assets/img/jessica.jpg"
+import kathy from "../assets/img/kathy.jpg"
+import joe from "../assets/img/joe.jpg"
+import { Card, StyledBody } from 'baseui/card'
+import { Grid, Cell } from 'baseui/layout-grid'
 import { t } from 'react-switch-lang'
+import { Display4 } from 'baseui/typography'
 
 const TeamCard = (props) => {
 
   const { member } = props
 
   return (
-    <Card
-      overrides={{ Root: { style: { width: '328px' } } }}
-      headerImage={member.image}
-      title={member.title}
-    >
-      <StyledBody>
-        {member.text}
-      </StyledBody>
-      <StyledBody>
-        {member.title}
-      </StyledBody>
-      <StyledAction>
-        <Button
-          className="outreach-button"
-          startEnhancer={SiGithub}
-          onClick={() => window.open(member.github, "_blank")}
-        />
-        <Button
-          className="outreach-button"
-          startEnhancer={SiLinkedin}
-          onClick={() => window.open(member.linkedin, "_blank")}
-        />
-      </StyledAction>
+    <Card className="team-card">
+        <Grid>
+        <Cell span={[3]}>
+            <img style={{width: '90%'}} src={member.image} alt={member.title}/>
+        </Cell>
+        <Cell span={[9]}>
+            <Display4>
+                {member.title}  
+            </Display4>
+            <StyledBody>
+                {member.occupation}
+            </StyledBody>
+            <StyledBody>
+                {member.location}
+            </StyledBody>
+            <StyledBody>
+                {member.text}
+            </StyledBody>
+        </Cell>
+        </Grid>
     </Card>
   )
 }
@@ -49,42 +40,23 @@ const TeamCard = (props) => {
 const Team = () => {
 
   const teamMembers = [
-    { image: imtiaz, title: "Imtiaz Khaled", text: t("developer"), linkedin: "https://www.linkedin.com/in/imtiazkhaled/", github: "https://github.com/ImtiazKhaled" },
-    { image: Israel, title: "Israel Tshitenge", text: t("developer"), linkedin: "https://www.linkedin.com/in/israel-tshitenge-07749012b/", github: "https://github.com/tisral" },
-    { image: bj, title: "Bijay Parajuli", text: t("developer"), linkedin: "https://www.linkedin.com/in/bijay-parajuli-2002a7143/", github: "https://github.com/Bijay1parajuli" },
-    { image: hoang, title: "Hoang Luu", text: t("developer"), linkedin: "https://www.linkedin.com/in/hoangluu0/", github: "https://github.com/hoangluu404" },
-    { image: awaj, title: "Aawaj Bhaukajee", text: t("developer"), linkedin: "https://www.linkedin.com/in/aawaj-bhaukajee-b7065ab1/", github: "https://github.com/aawajBhaukajee" },
+    { image: kathy, title: t("kathy lee"), occupation: t("PHD, MSW"), location: t("kathy location"), text: t("kathy description") },
+    { image: chang, title: t("chang hyun seo"), occupation: t("PHD, MSW"), location: t("chang location"), text: t("chang description") },
+    { image: joe, title: t("joe zhao"), occupation: t("MSW"), location: t("joe location"), text: t("joe description") },
+    { image: jessica, title: t("jessica cassidy"), occupation: t("MSW"), location: t("jessica location"), text: t("jessica description") },
   ]
 
-  return <Grid >
-    {teamMembers.map((member) => (
-      <Cell span={[12, 12, 2.4]} key={member.id}>
-        <Inner><TeamCard member={member} /></Inner>
-      </Cell>
-
-    ))}
-
-  </Grid>
-
+  return <div className="grid"> 
+    <Grid>
+      {teamMembers.map((member) => 
+        <Cell span={[12]}>
+          <TeamCard member={member} />
+        </Cell>
+      )} 
+    </Grid>
+  </div>
 }
 
-const Inner = ({ children }) => {
-  const [css, theme] = useStyletron();
-  return (
-    <div
-      className={css({
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        // background: theme.colors.accent200,
-        // color: theme.colors.accent700,
-        padding: '.25rem',
-      })}
-    >
-      {children}
-    </div>
-  );
-};
 export default Team
 
 

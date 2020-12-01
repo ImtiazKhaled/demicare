@@ -94,3 +94,7 @@
   height:100%;
   z-index: 0;
 }
+
+.team-card {
+  margin-top: 10px;
+}

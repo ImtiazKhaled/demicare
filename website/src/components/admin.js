@@ -17,12 +17,10 @@ const Main = () => {
                 <Login />
             </div>
 
-            {user && <div style={classes.container}> <AdminEdit /></div>}
+            {user && <div> <AdminEdit /></div>}
 
 
         </div>
-
-
 
     )
 }
@@ -35,8 +33,5 @@ const style =
     {
         marginBottom: 10,
     },
-    container:
-    {
-        margin: 40
-    }
+
 }

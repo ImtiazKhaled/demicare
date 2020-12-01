@@ -23,9 +23,9 @@ const UserProvider = ({ children }) => {
     const [username, setUsername] = React.useState('')
 
     function changeUser(uid) {
-        if(uid !== "" || uid !== null) {
+        if (uid !== "" || uid !== null) {
             db.collection("admin").doc(uid).onSnapshot((snapshot) => {
-                if(snapshot.data() !== undefined) {
+                if (snapshot.data() !== undefined) {
                     setUser(snapshot.data())
                     setUsername(snapshot.data().firstName + " " + snapshot.data().lastName)
                 } else {
@@ -39,13 +39,13 @@ const UserProvider = ({ children }) => {
     return (
         <UserContext.Provider value={user}>
             <UserUpdateContext.Provider value={changeUser}>
-                <UsernameContext.Provider value={username}> 
+                <UsernameContext.Provider value={username}>
                     {children}
                 </UsernameContext.Provider>
             </UserUpdateContext.Provider>
         </UserContext.Provider>
     )
-} 
+}
 
 
 export default UserProvider

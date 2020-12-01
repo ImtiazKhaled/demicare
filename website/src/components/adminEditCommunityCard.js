@@ -1,12 +1,9 @@
 import * as React from "react"
-import { StyledRow, StyledCell } from "baseui/table"
-import { StyledBodyCell } from "baseui/table-grid"
 import { Card } from "baseui/card"
 import { PhoneInput } from "baseui/phone-input";
 import { Input } from "baseui/input";
 
 import { t } from "react-switch-lang"
-// import { ButtonGroup, SHAPE } from "baseui/button-group";
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import { StyledLink } from "baseui/link";
 
@@ -24,11 +21,6 @@ const CommunityRow = (props) => {
     const getLocation = () => {
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition((position) => {
-                // var tempMarkdown = markdown.replace("0000", position.coords.latitude.toString())
-                // tempMarkdown = tempMarkdown.replace("0000", position.coords.longitude.toString())
-                // tempMarkdown = tempMarkdown.replaceAll("<newline>", `\n\n`)
-                // setMarkdown(tempMarkdown)
-
                 let tempAddress = addressToDisplay.replace("0000", position.coords.latitude.toString());
                 tempAddress = tempAddress.replace("0000", position.coords.longitude.toString());
                 setAddressToDisplay(tempAddress);
@@ -52,6 +44,7 @@ const CommunityRow = (props) => {
     const [address, setAddress] = React.useState("");
     const [gmaps, setGmaps] = React.useState("");
     const [lang, setLang] = React.useState("");
+    const [iframe, setIframe] = React.useState("");
 
 
 
@@ -62,6 +55,7 @@ const CommunityRow = (props) => {
         setPhoneNumber(props.phoneNumber);
         setAddress(props.address);
         setGmaps(props.gmaps);
+        setIframe(props.iframe);
         setLang(props.lang);
         setEdit(true);
     }
@@ -72,6 +66,7 @@ const CommunityRow = (props) => {
             address: address ? address : "",
             description: "",
             gmaps: gmaps ? gmaps : "",
+            iframe: iframe ? iframe : "",
             lang: lang ? lang : "",
             phoneNumber: phoneNumber ? phoneNumber : "",
             title: title ? title : "",
@@ -177,6 +172,14 @@ const CommunityRow = (props) => {
             value={gmaps}
             onChange={e => setGmaps(e.target.value)}
             placeholder={t("gmapsLink")}
+            clearOnEscape
+        />
+
+        <br />
+        <Input
+            value={iframe}
+            onChange={e => setIframe(e.target.value)}
+            placeholder="iframe"
             clearOnEscape
         />
 

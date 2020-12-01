@@ -9,6 +9,7 @@ import { Display2, Display4 } from 'baseui/typography'
 import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
 import emailjs, { init } from 'emailjs-com'
+import DevTeam from './dev_team'
 import Team from './team'
 import { t } from "react-switch-lang"
 
@@ -137,6 +138,7 @@ const Form = () => {
           <div style={{ minHeight: '15vh' }} />
           <Display4 marginBottom="scale1000"> Team </Display4>
           <Team />
+          <DevTeam />
           <div style={{ minHeight: '15vh' }} />
         </form>
       </div>

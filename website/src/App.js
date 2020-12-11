@@ -1,5 +1,5 @@
 import React from "react"
-import Main from "./components/main"
+import Main from "./components/Main"
 import { Provider as StyletronProvider } from "styletron-react"
 import { Client as Styletron } from "styletron-engine-atomic"
 import { BrowserRouter as Router } from "react-router-dom"
@@ -10,9 +10,8 @@ import zh from "./components/common/chinese.json"
 import ko from "./components/common/korean.json"
 import { setTranslations, setDefaultLanguage, translate, setLanguageCookie } from "react-switch-lang"
 import AllContextProvider from './context/AllContext'
-import { Cube } from 'react-preloaders';
 import { Preloader, Placeholder } from 'react-preloading-screen';
-import logo from '../src/images/logo.svg';
+import logo from './assets/logo.svg';
 
 setTranslations({ en, zh, ko })
 setDefaultLanguage("en")
@@ -34,7 +33,7 @@ const App = () => {
         </AllContextProvider>
 
         <Placeholder  >
-          <img src={logo}  ></img>
+          <img alt = "logo" src={logo}  ></img>
         </Placeholder>
       </Preloader>
     </div>

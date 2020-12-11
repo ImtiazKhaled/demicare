@@ -1,7 +1,6 @@
 import React from "react";
-import DementiaCard from "./dementia_card";
+import DementiaCard from "./DementiaCard";
 import { Display2 } from "baseui/typography";
-import { FlexGrid, FlexGridItem } from "baseui/flex-grid";
 
 import { getLanguage } from "react-switch-lang"
 import { useStyletron } from 'baseui';
@@ -12,7 +11,7 @@ import { useUser } from '../context/UserContext'
 const Dementia = () => {
 
   const user = useUser();
-  const dementia = useDementia().filter(d => d.lang === "en" || d.lang === getLanguage());
+  const dementia = useDementia().filter(d => d.lang === "en" || d.lang === getLanguage()).sort((a, b) => a.title.localeCompare(b.title));
   const updateDementia = useDementiaUpdate();
 
   React.useEffect(() => {

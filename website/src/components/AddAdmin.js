@@ -14,7 +14,6 @@ export default function AddAdmin() {
     const [email, setEmail] = React.useState("");
     const [password, setPassword] = React.useState("");
 
-
     const saveEntry = async () => {
         try {
             let response = await auth.createUserWithEmailAndPassword(email, password)
@@ -94,7 +93,7 @@ export default function AddAdmin() {
             ornare faucibus ex, non facilisis nisl. */}
             </StyledBody>
             {/* <StyledAction>
-           
+
         </StyledAction> */}
         </Card>
     )

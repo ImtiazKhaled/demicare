@@ -38,16 +38,16 @@ export default function ResourceProvider({ children }) {
     function addResource(resource) {
         const lang = resource.checkboxes[0] && resource.checkboxes[1] ? 'en' : resource.checkboxes[0] ? 'ko' : 'zh'
 
-        const numberformatted = `${resource.number.substr(0, 3)}-${resource.number.substr(3, 6)}-${resource.number.substr(6)}`
-        const websiteformatted = `http://${resource.website}/`
+        // const numberformatted = `${resource.number.substr(0, 3)}-${resource.number.substr(3, 6)}-${resource.number.substr(6)}`
+        const websiteformatted = resource.website.startsWith("https://") ? resource.website : `http://${resource.website}/`;
         var addressformatted = `https://www.google.com/maps/dir/0000,0000/`
         resource.address.split(' ').forEach(word => addressformatted += word + '+')
 
 
         // const description = `Phone number: ${numberformatted} <newline> Address: ${addressformatted} <newline> Website: ${websiteformatted}`
-        const payload = { lang, title: resource.name, phoneNumber: resource.number, url: websiteformatted, address: resource.address, gmaps: addressformatted }
+        const payload = { lang, title: resource.name, phoneNumber: resource.number, url: websiteformatted, address: resource.address, gmaps: addressformatted, iframe: resource.iframe }
 
-        console.log(payload)
+        // console.log(payload)
 
         db.collection("facilities").add(payload)
             .then(function () {
@@ -56,7 +56,6 @@ export default function ResourceProvider({ children }) {
             .catch(function (error) {
                 console.error("Error writing document: ", error);
             });
-
         changeResource()
     }
 
@@ -69,4 +68,4 @@ export default function ResourceProvider({ children }) {
             </ResourceUpdateContext.Provider>
         </ResourceContext.Provider>
     )
-} 
+}

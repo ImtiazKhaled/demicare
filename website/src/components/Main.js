@@ -1,6 +1,6 @@
 import * as React from 'react'
-import Menu from './menu'
-import Navigation from './navigation'
+import Menu from './Menu'
+import Navigation from './Navigation'
 import { BaseProvider } from "baseui"
 import { useTheme } from '../context/ThemeContext'
 import { translate } from "react-switch-lang"

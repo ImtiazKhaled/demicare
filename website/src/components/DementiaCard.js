@@ -21,14 +21,23 @@ const DementiaCard = (props) => {
         </StyledBody>
       );
 
-  const video =
-    props.video === undefined || props.video === "" ? (
-      ""
-    ) : (
+  const video = () => {
+
+
+    if (props.video === undefined || props.video === "") {
+      return "";
+    }
+    else {
+      let videoToPlay = props.video;
+      videoToPlay.replace("watch?v=", "embed/");
+
+      return (
         <div className="video-responsive">
-          <iframe title="unique" width="500" height="315" src={props.video} frameBorder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
-        </div>
-      )
+          <iframe title="unique" width="500" height="315" src={videoToPlay} frameBorder="0" allow="accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture" allowFullScreen></iframe>
+        </div>)
+    }
+
+  }
 
   const article =
     props.article === undefined || props.article === "" ? (
@@ -57,7 +66,7 @@ const DementiaCard = (props) => {
         <ModalHeader>{props.title}</ModalHeader>
         <ModalBody>{props.description}</ModalBody>
 
-        <ModalFooter>{video}</ModalFooter>
+        <ModalFooter>{video()}</ModalFooter>
         <ModalBody>{article}</ModalBody>
 
       </Modal>

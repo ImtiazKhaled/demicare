@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, StyledBody } from 'baseui/card';
+import { Card, StyledBody} from 'baseui/card';
 import { t } from "react-switch-lang"
 import { useUsername } from '../context/UserContext'
 import db from '../components/common/Firebase'
@@ -15,6 +15,16 @@ export default function Profile() {
     const [firstName, setFirstName] = React.useState("");
     const [lastName, setLastName] = React.useState("");
     const [edit, setEdit] = React.useState(false);
+
+    // let user = firebase.auth().currentUser;
+    // let newPassword = getASecureRandomPassword();
+
+    // user.updatePassword(newPassword).then(() => {
+    //   // Update successful.
+    // }, (error) => {
+    //   // An error happened.
+    // });
+
 
 
     const handleEdit = () => {
@@ -68,6 +78,8 @@ export default function Profile() {
 
     const view = edit === true ? editMode : displayMode;
 
+
+
     return (
         <Card
             overrides={{ Root: { style: { width: '328px' } } }}
@@ -80,7 +92,8 @@ export default function Profile() {
                 ornare faucibus ex, non facilisis nisl. */}
             </StyledBody>
             {/* <StyledAction>
-               
+                <Button onClick={handleEdit} overrides={{ BaseButton: { style: { width: '100%' } } }}>   {t("password")}
+                </Button>
             </StyledAction> */}
         </Card>
     )

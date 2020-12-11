@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Tabs, Tab } from "baseui/tabs";
-import AdminEditCommunity from './adminEditCommunity';
+import AdminEditCommunity from './AdminEditCommunity';
 import { t } from "react-switch-lang"
-import AddCommunity from './add_community'
-import AdminEditDementiaInfo from './adminEditDementiaInfo';
+import AddCommunity from './AddCommunity'
+import AdminEditDementiaInfo from './AdminEditDementiaInfo';
 import AdminEditAdministrators from './AdminEditAdministrators';
 import AddDementiaInfo from './AddDementiaInfo';
 export default function AdminEdit() {

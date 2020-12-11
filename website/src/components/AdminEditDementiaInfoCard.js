@@ -1,24 +1,23 @@
 import * as React from "react"
 
-import editIcon from "../images/edit-regular.svg";
-import { Input } from "baseui/input";
+import editIcon from "../assets/edit-regular.svg";
+import {Input} from "baseui/input";
 import db from '../components/common/Firebase'
-import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
-import DementiaCard from './dementia_card';
-import { Textarea } from "baseui/textarea";
-import { Card } from "baseui/card";
-import { FlexGrid } from 'baseui/flex-grid';
-import { FlexGridItem } from 'baseui/flex-grid';
-import { t } from "react-switch-lang";
+import {Button, KIND, SIZE, SHAPE} from 'baseui/button';
+import DementiaCard from './DementiaCard';
+import {Textarea} from "baseui/textarea";
+import {FlexGrid} from 'baseui/flex-grid';
+import {FlexGridItem} from 'baseui/flex-grid';
+import {t} from "react-switch-lang";
 
 function AdminEditDementiaInfoCard(props) {
-
-    const [isOpen, setIsOpen] = React.useState(false);
 
     const [title, setTitle] = React.useState("");
     const [description, setDescription] = React.useState("");
     const [image, setImage] = React.useState("");
     const [video, setVideo] = React.useState("");
+    const [article, setArticle] = React.useState("");
+    const [lang, setLang] = React.useState("");
     const [edit, setEdit] = React.useState(false);
 
 
@@ -27,6 +26,8 @@ function AdminEditDementiaInfoCard(props) {
         setDescription(props.description);
         setImage(props.image);
         setVideo(props.video);
+        setArticle(props.article);
+        setLang(props.lang);
         setEdit(true);
     }
 
@@ -39,6 +40,9 @@ function AdminEditDementiaInfoCard(props) {
             title: title ? title : "",
             video: video ? video : "",
             image: image ? image : "",
+            article: article ? article : "",
+            lang: lang ? lang : "",
+
 
         });
 
@@ -52,7 +56,7 @@ function AdminEditDementiaInfoCard(props) {
 
         setEdit(false);
     }
-    const editMode = <div >
+    const editMode = <div>
 
         <Input
             value={title}
@@ -61,8 +65,7 @@ function AdminEditDementiaInfoCard(props) {
             clearOnEscape
         />
 
-        <br />
-
+        <br/>
 
 
         <Textarea
@@ -72,8 +75,7 @@ function AdminEditDementiaInfoCard(props) {
             clearOnEscape
         />
 
-        <br />
-
+        <br/>
 
 
         <Input
@@ -82,7 +84,7 @@ function AdminEditDementiaInfoCard(props) {
             placeholder={t("image")}
             clearOnEscape
         />
-        <br />
+        <br/>
 
         <Input
             value={video}
@@ -90,10 +92,26 @@ function AdminEditDementiaInfoCard(props) {
             placeholder={t("video")}
             clearOnEscape
         />
+        <br/>
+        <Input
+            value={article}
+            onChange={e => setArticle(e.target.value)}
+            placeholder={t("article")}
+            clearOnEscape
+        />
 
 
-        <br />
-        <br />
+        <br/>
+        <Input
+            value={lang}
+            onChange={e => setLang(e.target.value)}
+            placeholder={t("language")}
+            clearOnEscape
+        />
+
+
+        <br/>
+        <br/>
 
         <Button shape={SHAPE.pill} onClick={() => saveEntry()}>{t("save")}</Button>
         <span>&nbsp;&nbsp;</span>
@@ -104,41 +122,17 @@ function AdminEditDementiaInfoCard(props) {
     </div>;
 
     const displayMode = <Button kind={KIND.minimal}
-        size={SIZE.large}
-        shape={SHAPE.pill} style={{ cursor: "pointer" }}>
-        <img onClick={handleEdit} style={{ width: 30, height: 30 }} src={editIcon} alt="editIcon" />
+                                size={SIZE.large}
+                                shape={SHAPE.pill} style={{cursor: "pointer"}}>
+        <img onClick={handleEdit} style={{width: 30, height: 30}} src={editIcon} alt="editIcon"/>
 
     </Button>
 
 
     const view = edit === true ? editMode : displayMode;
 
-
-    const itemProps = {
-        backgroundColor: 'mono300',
-        height: 'scale1000',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    };
-
-
-    const wideItemProps = {
-        ...itemProps,
-        overrides: {
-            Block: {
-                style: ({ $theme }) => ({
-                    width: `calc((200% - ${$theme.sizing.scale800}) / 3)`,
-                }),
-            },
-        },
-    };
-
-
     return (
         <div>
-
-            {/* <Card> */}
             <FlexGrid
                 flexGridColumnCount={[1, 1, 1, 2]}
                 flexGridColumnGap="scale800"
@@ -146,11 +140,9 @@ function AdminEditDementiaInfoCard(props) {
             >
 
 
-                <FlexGridItem >
+                <FlexGridItem>
                     <DementiaCard {...props} />
                 </FlexGridItem>
-
-
 
                 <FlexGridItem style={{
 
@@ -162,16 +154,9 @@ function AdminEditDementiaInfoCard(props) {
                 </FlexGridItem>
 
 
-
             </FlexGrid>
 
             <br></br>
-
-            {/* </Card> */}
-
-
-
-
 
 
         </div>

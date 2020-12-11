@@ -1,8 +1,7 @@
 import React from "react";
 
 import { useDementia, useDementiaUpdate } from '../context/DementiaContext'
-import { Card } from 'baseui/card';
-import AdminEditDementiaInfoCard from './adminEditDementiaInfoCard';
+import AdminEditDementiaInfoCard from './AdminEditDementiaInfoCard';
 
 function AdminEditDementiaInfo() {
 
@@ -11,7 +10,7 @@ function AdminEditDementiaInfo() {
 
     React.useEffect(() => {
         updateDementia()
-    }, [])
+    })
 
     return (
         <div className="dementia-container">

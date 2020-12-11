@@ -64,6 +64,8 @@
   "gmapsLink": "谷歌地图链接",
   "description": "描述",
   "video": "视频",
+  "article" : "文章",
+  "language": "语言",
   "image": "图片",
   "articleTitle": "文章标题",
   "addArticle": "添加文章",

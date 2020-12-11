@@ -106,7 +106,7 @@ const Form = () => {
 
   React.useEffect(() => {
     authListener()
-  }, [])
+  })
 
 
   return (
@@ -153,7 +153,7 @@ const Form = () => {
         </form>
       }
 
-      {loggedIn === true && <Button onClick={event => logout(event)} >{t("logOut")} &nbsp; {username}</Button>}
+      {loggedIn === true && <Button onClick={event => logout(event)} >{t("logOut")}&nbsp;{username}</Button>}
 
     </div>
 

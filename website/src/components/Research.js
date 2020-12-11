@@ -1,7 +1,7 @@
 import React from "react";
 import { Display2, Display4 } from "baseui/typography";
 import { Button } from "baseui/button";
-import Calendly from "./calendly";
+import Calendly from "./Calendly";
 
 import { t } from "react-switch-lang";
 

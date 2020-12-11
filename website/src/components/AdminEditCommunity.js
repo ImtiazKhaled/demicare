@@ -1,12 +1,11 @@
 import React from 'react';
-import AdminEditCommunityCard from "./adminEditCommunityCard"
+import AdminEditCommunityCard from "./AdminEditCommunityCard"
 import { useResource } from '../context/ResourcesContext'
 
 
 function AdminEditCommunity() {
 
     const DATA = useResource().sort((a, b) => a.title.localeCompare(b.title));
-
 
     return (
         <div >

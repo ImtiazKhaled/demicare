@@ -7,7 +7,7 @@ import { t } from "react-switch-lang"
 import { Button, KIND, SIZE, SHAPE } from 'baseui/button';
 import { StyledLink } from "baseui/link";
 
-import editIcon from "../images/edit-regular.svg";
+import editIcon from "../assets/edit-regular.svg";
 import db from '../components/common/Firebase'
 import { H6 } from 'baseui/typography';
 import { FlexGrid } from 'baseui/flex-grid';
@@ -62,10 +62,17 @@ const CommunityRow = (props) => {
 
 
     const saveEntry = () => {
+
+        let addressformatted = `https://www.google.com/maps/dir/0000,0000/`;
+        let addressTemp = address;
+        addressTemp.split(' ').forEach(word => addressformatted += word + '+');
+
+        setGmaps(addressformatted);
+
         db.collection('facilities').doc(props.id).set({
             address: address ? address : "",
             description: "",
-            gmaps: gmaps ? gmaps : "",
+            gmaps: addressformatted ? addressformatted : "",
             iframe: iframe ? iframe : "",
             lang: lang ? lang : "",
             phoneNumber: phoneNumber ? phoneNumber : "",

@@ -1,6 +1,6 @@
 import * as React from 'react'
-import AdminEdit from './adminEdit'
-import Login from './login'
+import AdminEdit from './AdminEdit'
+import Login from './Login'
 
 import { useUser } from '../context/UserContext'
 

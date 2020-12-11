@@ -13,16 +13,19 @@ export default function AddDementiaInfo() {
     const [description, setDescription] = React.useState("");
     const [image, setImage] = React.useState("");
     const [video, setVideo] = React.useState("");
+    const [lang, setLang] = React.useState("");
+    const [article, setArticle] = React.useState("");
 
 
     const saveEntry = () => {
 
         db.collection('dementia-info').doc().set({
-
             description: description ? description : "",
             title: title ? title : "",
             video: video ? video : "",
+            article: article ? article : "",
             image: image ? image : "",
+            lang: lang ? lang : "",
 
         });
 
@@ -32,7 +35,6 @@ export default function AddDementiaInfo() {
         setDescription("");
         setImage("");
         setVideo("");
-
 
     }
     return (
@@ -53,10 +55,7 @@ export default function AddDementiaInfo() {
                 placeholder={t("description")}
                 clearOnEscape
             />
-
             <br />
-
-
 
             <Input
                 value={image}
@@ -70,6 +69,22 @@ export default function AddDementiaInfo() {
                 value={video}
                 onChange={e => setVideo(e.target.value)}
                 placeholder={t("video")}
+                clearOnEscape
+            />
+
+            <br />
+            <Input
+                value={article}
+                onChange={e => setArticle(e.target.value)}
+                placeholder={t("article")}
+                clearOnEscape
+            />
+
+            <br />
+            <Input
+                value={lang}
+                onChange={e => setLang(e.target.value)}
+                placeholder={t("language")}
                 clearOnEscape
             />
 

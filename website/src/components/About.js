@@ -9,8 +9,8 @@ import { Display2, Display4 } from 'baseui/typography'
 import { toaster, ToasterContainer, PLACEMENT } from "baseui/toast";
 import { validate as validateEmail } from 'email-validator'
 import emailjs, { init } from 'emailjs-com'
-import DevTeam from './dev_team'
-import Team from './team'
+import DevTeam from './DevTeam'
+import Team from './Team'
 import { t } from "react-switch-lang"
 
 init("user_JW3ks5oI2VRhlP9KdZiiR")

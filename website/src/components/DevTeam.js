@@ -24,7 +24,7 @@ const TeamCard = (props) => {
         {member.text}
       </StyledBody>
       <StyledBody>
-        {member.title}
+        {t("developer")}
       </StyledBody>
       <StyledAction>
         <Button
@@ -55,7 +55,7 @@ const Team = () => {
   return <div className="grid">
     <Grid>
       {teamMembers.map((member) =>
-        <Cell span={[2.4]}>
+        <Cell span={[4, 3, 2.4]}>
           <TeamCard member={member} />
         </Cell>
       )}

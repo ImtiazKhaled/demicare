@@ -37,32 +37,34 @@ const AdminEditCommunityCard = (props) => {
   function changeBackground(e) {
     e.target.style.background = '#F0F';
   }
-  function buttonColor(e){
+  function buttonColor(e) {
     e.target.style.background = '#FFF';
   }
 
   return (
 
-    <Card title={props.title} onClick={()=>{ props.select(props.iframe)}}  >
+    <Card title={props.title} onClick={() => { props.select(props.iframe) }}  >
       <StyledRow key={props.id} >
         {/* <StyledCell>
           <StyledBodyCell><h3>{props.title}</h3></StyledBodyCell>
         </StyledCell> */}
         <StyledCell>
           <StyledBodyCell>
-            <p> {t("phoneNumber")} :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>
+            {props.phoneNumber !== "" && props.phoneNumber !== undefined && <p> {t("phoneNumber")} :   &nbsp; <a href={tel}>{props.phoneNumber}</a></p>}
 
-            <p> {t("address")} : &nbsp;
+            {props.address !== "" && props.address !== undefined && <p> {t("address")} : &nbsp;
               <StyledLink href={address}>
                 {props.address}
               </StyledLink>
-            </p>
+            </p>}
 
-            <p> {t("website")} : &nbsp;
+            {props.url !== "" && props.url !== undefined && <p> {t("website")} : &nbsp;
               <StyledLink href={props.url}>
                 {t("linkToWebsite")}
               </StyledLink>
-            </p>
+            </p>}
+
+
 
           </StyledBodyCell>
         </StyledCell>

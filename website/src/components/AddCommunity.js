@@ -29,7 +29,7 @@ const CommunityRow = () => {
     const addResource = () => {
 
         console.log(number, address, website, name)
-        const result = { number, address, website, name, checkboxes }
+        const result = { number, address, website, name, iframe, checkboxes }
         addResrc(result)
 
         alert("Resource Added!!!")
@@ -78,7 +78,7 @@ const CommunityRow = () => {
                             <Input placeholder="www." className='community-input' value={website} onChange={(e) => setWebsite(e.target.value)} />
                         </FormControl>
                         <FormControl label="Iframe" >
-                            <Input className='community-input' value={website} onChange={(e) => setIframe(e.target.value)} />
+                            <Input className='community-input' value={iframe} onChange={(e) => setIframe(e.target.value)} />
                         </FormControl>
                     </StyledBodyCell>
                 </StyledCell>

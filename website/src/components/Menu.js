@@ -6,7 +6,7 @@ import { translate, t } from 'react-switch-lang'
 import { useUser, useUsername, useUserUpdate } from '../context/UserContext'
 import { firebaseApp as fire } from './common/Firebase'
 
-function Menu() {
+const Menu = () => {
 
   const user = useUser()
   const username = useUsername()
@@ -70,14 +70,15 @@ function Menu() {
       title={appDisplayName}
       mainItems={mainItems}
       onMainItemSelect={onItemSelect}
-    /> : <AppNavBar
+    /> :
+
+      <AppNavBar
       title={appDisplayName}
       mainItems={mainItems}
       onMainItemSelect={onItemSelect}
       username={username}
       userItems={[
         { label: t('adminPanel'), tab: '/admin' },
-        { label: t("slides"), tab: '/future' },
         { label: t('logOut'), tab: '/logout' }
       ]}
       onUserItemSelect={(item) => {

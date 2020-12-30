@@ -1,5 +1,5 @@
 ## Alzheimers Research Website
-A website designed to help international Alzheimer's patients, by guiding them to various resources that support their needs. Check it out at `` https://demo.imtiazkhaled.com/ ``
+A website designed to help international Alzheimer's patients, by guiding them to various resources that support their needs. Check it out at `` https://demi-care.web.app/ ``
 ### Contribute to it
 > 
 > 1. Get it onto your machine
